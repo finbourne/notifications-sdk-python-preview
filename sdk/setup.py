@@ -46,7 +46,7 @@ with open("./notifications/__version__.py") as fp:
 
 setup(
 
-    name='notifications-sdk-preview',
+    name='lusid-notifications-sdk-preview',
     version=version['__version__'],
     description='Python Preview SDK for Notifications API',
     url='https://github.com/finbourne/notifications-sdk-python-preview',

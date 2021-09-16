@@ -1,4 +1,4 @@
-# notifications.EventsApi
+# lusid_notifications.EventsApi
 
 All URIs are relative to *https://fbn-ci.lusid.com/notifications*
 
@@ -18,12 +18,12 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import notifications
-from notifications.rest import ApiException
+import lusid_notifications
+from lusid_notifications.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
-configuration = notifications.Configuration(
+configuration = lusid_notifications.Configuration(
     host = "https://fbn-ci.lusid.com/notifications"
 )
 
@@ -33,15 +33,15 @@ configuration = notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = notifications.Configuration(
+configuration = lusid_notifications.Configuration(
     host = "https://fbn-ci.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with notifications.ApiClient(configuration) as api_client:
+with lusid_notifications.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = notifications.EventsApi(api_client)
+    api_instance = lusid_notifications.EventsApi(api_client)
     body = {"EventType":"Manual","Id":"acb5722d-341a-4802-b9fd-cf740a6a7797","Message":"TestMessage","Details":"TestDetails","EventTime":"2021-08-27T17:39:02.9427036+01:00"} # object | The data to create an event.
 
     try:

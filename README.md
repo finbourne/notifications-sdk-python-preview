@@ -2,7 +2,7 @@
 
 | branch | status |
 | --- | --- |
-| `master` |  ![PyPI](https://img.shields.io/pypi/v/lusid-drive-sdk-preview?color=blue)
+| `master` |  ![PyPI](https://img.shields.io/pypi/v/lusid-notifications-sdk-preview?color=blue)
 
 # LUSID<sup>®</sup> Notifications Python SDK
 

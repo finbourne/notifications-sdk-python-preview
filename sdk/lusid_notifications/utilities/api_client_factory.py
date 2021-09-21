@@ -116,7 +116,7 @@ class ApiClientFactory:
             elif type(src) == ApiClient:
                 dest.api_client = src
 
-        module = importlib.import_module("notifications.api")
+        module = importlib.import_module("lusid_notifications")
         api_name = metaclass.__name__
 
         if not api_name.endswith("Api") or not hasattr(module, api_name):

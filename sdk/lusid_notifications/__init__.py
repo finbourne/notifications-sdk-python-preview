@@ -56,11 +56,6 @@ from lusid_notifications.models.update_email_notification import UpdateEmailNoti
 from lusid_notifications.models.update_sms_notification import UpdateSmsNotification
 from lusid_notifications.models.update_subscription import UpdateSubscription
 
-# import utilities into sdk package
-from lusid_notifications.utilities.api_client_builder import ApiClientBuilder
-from lusid_notifications.utilities.api_configuration import ApiConfiguration
-from lusid_notifications.utilities.api_configuration_loader import ApiConfigurationLoader
-from lusid_notifications.utilities.refreshing_token import RefreshingToken
 
 # import tcp utilities
 from lusid_notifications.tcp.tcp_keep_alive_probes import TCPKeepAlivePoolManager, TCPKeepAliveProxyManager

@@ -2,7 +2,7 @@ import logging
 import unittest
 
 import lusid_notifications
-from lusid_notifications.utilities import ApiClientFactory
+from fbnsdkutilities import ApiClientFactory
 
 
 class MockApiResponse(object):
@@ -19,7 +19,7 @@ class LusidNotificationsTests(unittest.TestCase):
         cls.logger = logging.getLogger()
         cls.logger.setLevel(logging.INFO)
 
-        cls.api_factory = ApiClientFactory(api_secrets_filename="secrets.json")
+        cls.api_factory = ApiClientFactory(lusid_notifications, api_secrets_filename="secrets.json")
         cls.api = cls.api_factory.build(lusid_notifications.api.EventTypesApi)
 
     def test_get_types(self):

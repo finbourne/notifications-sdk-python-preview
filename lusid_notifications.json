@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.138",
+    "version": "0.1.145",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://fbn-ci.lusid.com/notifications"
+      "url": "https://www.lusid.com/notifications"
     }
   ],
   "paths": {
@@ -38,11 +38,11 @@
                 "description": "The data to create an event."
               },
               "example": {
-                "EventType": "Manual",
-                "Id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
-                "Message": "TestMessage",
-                "Details": "TestDetails",
-                "EventTime": "2021-08-27T17:39:02.9427036+01:00"
+                "eventType": "Manual",
+                "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
+                "message": "TestMessage",
+                "details": "TestDetails",
+                "eventTime": "2021-08-27T17:39:02.9427036+01:00"
               }
             },
             "application/json": {
@@ -52,11 +52,11 @@
                 "description": "The data to create an event."
               },
               "example": {
-                "EventType": "Manual",
-                "Id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
-                "Message": "TestMessage",
-                "Details": "TestDetails",
-                "EventTime": "2021-08-27T17:39:02.9427036+01:00"
+                "eventType": "Manual",
+                "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
+                "message": "TestMessage",
+                "details": "TestDetails",
+                "eventTime": "2021-08-27T17:39:02.9427036+01:00"
               }
             },
             "text/json": {
@@ -66,11 +66,11 @@
                 "description": "The data to create an event."
               },
               "example": {
-                "EventType": "Manual",
-                "Id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
-                "Message": "TestMessage",
-                "Details": "TestDetails",
-                "EventTime": "2021-08-27T17:39:02.9427036+01:00"
+                "eventType": "Manual",
+                "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
+                "message": "TestMessage",
+                "details": "TestDetails",
+                "eventTime": "2021-08-27T17:39:02.9427036+01:00"
               }
             },
             "application/*+json": {
@@ -80,11 +80,11 @@
                 "description": "The data to create an event."
               },
               "example": {
-                "EventType": "Manual",
-                "Id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
-                "Message": "TestMessage",
-                "Details": "TestDetails",
-                "EventTime": "2021-08-27T17:39:02.9427036+01:00"
+                "eventType": "Manual",
+                "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
+                "message": "TestMessage",
+                "details": "TestDetails",
+                "eventTime": "2021-08-27T17:39:02.9427036+01:00"
               }
             }
           },
@@ -2920,6 +2920,12 @@
         "description": "The information required to update an ApiRequest notification of the ApiRequest type"
       },
       "UpdateEmailNotification": {
+        "required": [
+          "body",
+          "description",
+          "emailAddressTo",
+          "subject"
+        ],
         "type": "object",
         "properties": {
           "description": {
@@ -2927,24 +2933,21 @@
             "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The summary of the services provided by the notification",
-            "nullable": true
+            "description": "The summary of the services provided by the notification"
           },
           "subject": {
             "maxLength": 1024,
             "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The subject of the email",
-            "nullable": true
+            "description": "The subject of the email"
           },
           "body": {
-            "maxLength": 1024,
+            "maxLength": 2147483647,
             "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The body of the email",
-            "nullable": true
+            "description": "The body of the email"
           },
           "emailAddressTo": {
             "maxLength": 10,
@@ -2953,12 +2956,11 @@
             "items": {
               "type": "string"
             },
-            "description": "'To' recipients of the email",
-            "nullable": true
+            "description": "'To' recipients of the email"
           },
           "emailAddressCc": {
             "maxLength": 10,
-            "minLength": 1,
+            "minLength": 0,
             "type": "array",
             "items": {
               "type": "string"
@@ -2968,7 +2970,7 @@
           },
           "emailAddressBcc": {
             "maxLength": 10,
-            "minLength": 1,
+            "minLength": 0,
             "type": "array",
             "items": {
               "type": "string"
@@ -2981,6 +2983,11 @@
         "description": "The information required to update an Email notification"
       },
       "UpdateSmsNotification": {
+        "required": [
+          "body",
+          "description",
+          "recipients"
+        ],
         "type": "object",
         "properties": {
           "description": {
@@ -2988,16 +2995,14 @@
             "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The summary of the services provided by the notification",
-            "nullable": true
+            "description": "The summary of the services provided by the notification"
           },
           "body": {
             "maxLength": 1024,
             "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The body of the SMS",
-            "nullable": true
+            "description": "The body of the SMS"
           },
           "recipients": {
             "maxLength": 10,
@@ -3006,8 +3011,7 @@
             "items": {
               "type": "string"
             },
-            "description": "The phone numbers to which the SMS will be sent to (E.164 format)",
-            "nullable": true
+            "description": "The phone numbers to which the SMS will be sent to (E.164 format)"
           }
         },
         "additionalProperties": false,

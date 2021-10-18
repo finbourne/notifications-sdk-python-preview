@@ -5,10 +5,10 @@ The information required to update an Email notification
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** | The summary of the services provided by the notification | [optional] 
-**subject** | **str** | The subject of the email | [optional] 
-**body** | **str** | The body of the email | [optional] 
-**email_address_to** | **list[str]** | &#39;To&#39; recipients of the email | [optional] 
+**description** | **str** | The summary of the services provided by the notification | 
+**subject** | **str** | The subject of the email | 
+**body** | **str** | The body of the email | 
+**email_address_to** | **list[str]** | &#39;To&#39; recipients of the email | 
 **email_address_cc** | **list[str]** | &#39;Cc&#39; recipients of the email | [optional] 
 **email_address_bcc** | **list[str]** | &#39;Bcc&#39; recipients of the email | [optional] 
 

@@ -1,6 +1,6 @@
 # lusid_notifications.NotificationsApi
 
-All URIs are relative to *https://fbn-ci.lusid.com/notifications*
+All URIs are relative to *https://www.lusid.com/notifications*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,10 +29,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -106,10 +106,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -119,7 +119,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -183,10 +183,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -196,7 +196,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -260,10 +260,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -273,7 +273,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -337,10 +337,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -350,7 +350,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -415,10 +415,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -428,7 +428,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -491,10 +491,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -504,7 +504,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -571,10 +571,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -584,7 +584,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -651,10 +651,10 @@ import time
 import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://fbn-ci.lusid.com/notifications
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -664,7 +664,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://fbn-ci.lusid.com/notifications"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

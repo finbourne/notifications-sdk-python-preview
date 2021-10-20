@@ -1,4 +1,4 @@
-# LUSID<sup>®</sup> Notifications Python SDK
+# LUSID<sup>®</sup> Notifications Python Preview SDK
 
 ![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
 
@@ -8,7 +8,7 @@
 
 ## Installation
 
-The PyPi package for the LUSID Notifications SDK can installed using the following:
+The PyPi package for the LUSID Notifications Preview SDK can installed using the following:
 
 ```
 $ pip install lusid-notifications-sdk-preview finbourne-sdk-utilities

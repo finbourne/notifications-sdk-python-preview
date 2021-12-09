@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.145",
+    "version": "0.1.162",
     "x-logo": {
       "url": "https://content.finbourne.com/LUSID-header.png",
       "backgroundColor": "#415464"
@@ -911,38 +911,38 @@
         "tags": [
           "Notifications"
         ],
-        "summary": "[EXPERIMENTAL] Add an Api Request notification to a subscription.",
+        "summary": "[DEPRECATED] Add a LUSID API Request notification to a subscription.",
         "operationId": "CreateApiRequestNotification",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope that identifies a notification",
+            "description": "The scope that identifies a subscription",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope that identifies a notification"
+              "description": "The scope that identifies a subscription"
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The code that identifies a notification",
+            "description": "The code that identifies a subscription",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The code that identifies a notification"
+              "description": "The code that identifies a subscription"
             }
           }
         ],
         "requestBody": {
-          "description": "The data to create a api request notification",
+          "description": "The data to create a LUSID API Request notification",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -1060,7 +1060,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Deprecated"
       }
     },
     "/api/subscriptions/{scope}/{code}/notifications/apirequest/{id}": {
@@ -1068,33 +1068,33 @@
         "tags": [
           "Notifications"
         ],
-        "summary": "[EXPERIMENTAL] Update an api request notification for a given subscription.",
+        "summary": "[DEPRECATED] Update a LUSID API Request notification for a given subscription.",
         "operationId": "UpdateApiRequestNotification",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope that identifies a notification",
+            "description": "The scope that identifies a subscription",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope that identifies a notification"
+              "description": "The scope that identifies a subscription"
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The code that identifies a notification",
+            "description": "The code that identifies a subscription",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The code that identifies a notification"
+              "description": "The code that identifies a subscription"
             }
           },
           {
@@ -1103,9 +1103,9 @@
             "description": "The unique identifier of the notification",
             "required": true,
             "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
               "type": "string",
               "description": "The unique identifier of the notification",
               "nullable": true
@@ -1241,7 +1241,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "Deprecated"
       }
     },
     "/api/subscriptions/{scope}/{code}/notifications/email": {
@@ -1255,27 +1255,27 @@
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope that identifies a notification",
+            "description": "The scope that identifies a subscription",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope that identifies a notification"
+              "description": "The scope that identifies a subscription"
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The code that identifies a notification",
+            "description": "The code that identifies a subscription",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The code that identifies a notification"
+              "description": "The code that identifies a subscription"
             }
           }
         ],
@@ -1461,9 +1461,9 @@
             "description": "The unique identifier of the notification",
             "required": true,
             "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
               "type": "string",
               "description": "The unique identifier of the notification",
               "nullable": true
@@ -1633,27 +1633,27 @@
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope that identifies a notification",
+            "description": "The scope that identifies a subscription",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The scope that identifies a notification"
+              "description": "The scope that identifies a subscription"
             }
           },
           {
             "name": "code",
             "in": "path",
-            "description": "The code that identifies a notification",
+            "description": "The code that identifies a subscription",
             "required": true,
             "schema": {
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string",
-              "description": "The code that identifies a notification"
+              "description": "The code that identifies a subscription"
             }
           }
         ],
@@ -1811,9 +1811,9 @@
             "description": "The unique identifier of the notification",
             "required": true,
             "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
               "type": "string",
               "description": "The unique identifier of the notification",
               "nullable": true
@@ -1869,6 +1869,384 @@
                 "recipients": [
                   "+447000000000"
                 ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                },
+                "example": {
+                  "id": "TestId",
+                  "description": "TestDescription",
+                  "deliveryChannel": "Email",
+                  "recipients": {
+                    "to": "dummyEmail"
+                  },
+                  "content": {
+                    "subject": "dummySubject",
+                    "body": "dummyBody"
+                  },
+                  "status": {
+                    "result": "Sent",
+                    "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                  },
+                  "createdAt": "0001-01-01T00:00:00.0000000+00:00",
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "0001-01-01T00:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No notification exists in current scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/webhook": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "[EXPERIMENTAL] Add a Webhook notification to a subscription.",
+        "operationId": "CreateWebhookNotification",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope that identifies a subscription"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code that identifies a subscription"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The data to create a webhook notification",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "bearerToken": "Personal/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "bearerToken": "Personal/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "bearerToken": "Personal/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "bearerToken": "Personal/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                },
+                "example": {
+                  "id": "TestId",
+                  "description": "TestDescription",
+                  "deliveryChannel": "Email",
+                  "recipients": {
+                    "to": "dummyEmail"
+                  },
+                  "content": {
+                    "subject": "dummySubject",
+                    "body": "dummyBody"
+                  },
+                  "status": {
+                    "result": "Sent",
+                    "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                  },
+                  "createdAt": "0001-01-01T00:00:00.0000000+00:00",
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "0001-01-01T00:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/webhook/{id}": {
+      "put": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "[EXPERIMENTAL] Update a Webhook notification for a given subscription.",
+        "operationId": "UpdateWebhookNotification",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The scope that identifies a subscription"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string",
+              "description": "The code that identifies a subscription"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier of the notification",
+            "required": true,
+            "schema": {
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
+              "type": "string",
+              "description": "The unique identifier of the notification",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The data to update a notification",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "bearerToken": "Shared/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "bearerToken": "Shared/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "bearerToken": "Shared/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "bearerToken": "Shared/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
               }
             }
           },
@@ -2101,9 +2479,9 @@
             "description": "The unique identifier of the notification",
             "required": true,
             "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
               "type": "string",
               "description": "The unique identifier of the notification",
               "nullable": true
@@ -2188,7 +2566,7 @@
           "pathAndQuery": {
             "maxLength": 2147483647,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]*$",
+            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s])*\\}\\}))*$",
             "type": "string",
             "description": "The url to send the request to."
           },
@@ -2337,6 +2715,60 @@
         },
         "additionalProperties": false,
         "description": "The information required to create a subscription"
+      },
+      "CreateWebhookNotification": {
+        "required": [
+          "authenticationConfigurationItemPaths",
+          "authenticationType",
+          "description",
+          "httpMethod",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification"
+          },
+          "httpMethod": {
+            "type": "string",
+            "description": "The HTTP method such as GET, POST, etc. to use on the request"
+          },
+          "url": {
+            "maxLength": 2147483647,
+            "minLength": 1,
+            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s])*\\}\\}))*$",
+            "type": "string",
+            "description": "The URL to send the request to"
+          },
+          "authenticationType": {
+            "type": "string",
+            "description": "The type of authentication to use on the request"
+          },
+          "authenticationConfigurationItemPaths": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"Personal/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"Personal/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }"
+          },
+          "contentType": {
+            "type": "string",
+            "description": "The type of the content e.g. Json",
+            "nullable": true
+          },
+          "content": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The content of the request",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The information required to create a notification which, when processed, will trigger a webhook"
       },
       "EventTypeSchema": {
         "required": [
@@ -2905,7 +3337,7 @@
           "pathAndQuery": {
             "maxLength": 2147483647,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]*$",
+            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s])*\\}\\}))*$",
             "type": "string",
             "description": "The url to send the request to."
           },
@@ -3050,6 +3482,60 @@
         },
         "additionalProperties": false,
         "description": "The information required to update a subscription"
+      },
+      "UpdateWebhookNotification": {
+        "required": [
+          "authenticationConfigurationItemPaths",
+          "authenticationType",
+          "description",
+          "httpMethod",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification"
+          },
+          "httpMethod": {
+            "type": "string",
+            "description": "The HTTP method such as GET, POST, etc. to use on the request"
+          },
+          "url": {
+            "maxLength": 2147483647,
+            "minLength": 1,
+            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s])*\\}\\}))*$",
+            "type": "string",
+            "description": "The URL to send the request to"
+          },
+          "authenticationType": {
+            "type": "string",
+            "description": "The type of authentication to use on the request"
+          },
+          "authenticationConfigurationItemPaths": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"Personal/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"Personal/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }"
+          },
+          "contentType": {
+            "type": "string",
+            "description": "The type of the content e.g. Json",
+            "nullable": true
+          },
+          "content": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The content of the request",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The information required to update a Webhook notification"
       }
     },
     "securitySchemes": {

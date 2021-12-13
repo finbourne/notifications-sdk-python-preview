@@ -1,16 +1,18 @@
-# lusid_notifications.EventsApi
+# lusid_notifications.ApplicationMetadataApi
 
 All URIs are relative to *https://www.lusid.com/notifications*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_event**](EventsApi.md#create_event) | **POST** /api/events | [EXPERIMENTAL] CreateEvent: Create a new event.
+[**list_access_controlled_resources**](ApplicationMetadataApi.md#list_access_controlled_resources) | **GET** /api/metadata/access/resources | [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
 
 
-# **create_event**
-> object create_event(body)
+# **list_access_controlled_resources**
+> ResourceListOfAccessControlledResource list_access_controlled_resources()
 
-[EXPERIMENTAL] CreateEvent: Create a new event.
+[EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+
+Get the comprehensive set of resources that are available for access control
 
 ### Example
 
@@ -41,26 +43,22 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
 with lusid_notifications.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.EventsApi(api_client)
-    body = {"eventType":"Manual","id":"acb5722d-341a-4802-b9fd-cf740a6a7797","message":"TestMessage","subject":"TestSubject","eventTime":"2021-08-27T17:39:02.9427036+01:00"} # object | The data to create an event.
-
+    api_instance = lusid_notifications.ApplicationMetadataApi(api_client)
+    
     try:
-        # [EXPERIMENTAL] CreateEvent: Create a new event.
-        api_response = api_instance.create_event(body)
+        # [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+        api_response = api_instance.list_access_controlled_resources()
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling EventsApi->create_event: %s\n" % e)
+        print("Exception when calling ApplicationMetadataApi->list_access_controlled_resources: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **object**| The data to create an event. | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-**object**
+[**ResourceListOfAccessControlledResource**](ResourceListOfAccessControlledResource.md)
 
 ### Authorization
 
@@ -68,14 +66,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
-**400** | The details of the input related failure |  -  |
+**200** | Success |  -  |
 **0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

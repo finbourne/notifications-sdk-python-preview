@@ -4,14 +4,14 @@ All URIs are relative to *https://www.lusid.com/notifications*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_event_type**](EventTypesApi.md#get_event_type) | **GET** /api/eventtypes/{eventType} | [EXPERIMENTAL] Gets the specified event type schema.
-[**list_event_types**](EventTypesApi.md#list_event_types) | **GET** /api/eventtypes | [EXPERIMENTAL] Lists all of the available event types.
+[**get_event_type**](EventTypesApi.md#get_event_type) | **GET** /api/eventtypes/{eventType} | [EXPERIMENTAL] GetEventType: Gets the specified event type schema.
+[**list_event_types**](EventTypesApi.md#list_event_types) | **GET** /api/eventtypes | [EXPERIMENTAL] ListEventTypes: Lists all of the available event types.
 
 
 # **get_event_type**
 > EventTypeSchema get_event_type(event_type)
 
-[EXPERIMENTAL] Gets the specified event type schema.
+[EXPERIMENTAL] GetEventType: Gets the specified event type schema.
 
 ### Example
 
@@ -46,7 +46,7 @@ with lusid_notifications.ApiClient(configuration) as api_client:
     event_type = 'event_type_example' # str | The event type
 
     try:
-        # [EXPERIMENTAL] Gets the specified event type schema.
+        # [EXPERIMENTAL] GetEventType: Gets the specified event type schema.
         api_response = api_instance.get_event_type(event_type)
         pprint(api_response)
     except ApiException as e:
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 # **list_event_types**
 > ResourceListOfEventTypeSchema list_event_types()
 
-[EXPERIMENTAL] Lists all of the available event types.
+[EXPERIMENTAL] ListEventTypes: Lists all of the available event types.
 
 ### Example
 
@@ -119,7 +119,7 @@ with lusid_notifications.ApiClient(configuration) as api_client:
     api_instance = lusid_notifications.EventTypesApi(api_client)
     
     try:
-        # [EXPERIMENTAL] Lists all of the available event types.
+        # [EXPERIMENTAL] ListEventTypes: Lists all of the available event types.
         api_response = api_instance.list_event_types()
         pprint(api_response)
     except ApiException as e:

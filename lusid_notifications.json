@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.178",
+    "version": "0.1.180",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -2505,7 +2505,6 @@
       },
       "CreateWebhookNotification": {
         "required": [
-          "authenticationConfigurationItemPaths",
           "authenticationType",
           "description",
           "httpMethod",
@@ -2540,7 +2539,8 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"Personal/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"Personal/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }"
+            "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"Personal/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"Personal/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }",
+            "nullable": true
           },
           "contentType": {
             "type": "string",
@@ -3351,7 +3351,6 @@
       },
       "UpdateWebhookNotification": {
         "required": [
-          "authenticationConfigurationItemPaths",
           "authenticationType",
           "description",
           "httpMethod",
@@ -3386,7 +3385,8 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"Personal/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"Personal/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }"
+            "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"Personal/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"Personal/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }",
+            "nullable": true
           },
           "contentType": {
             "type": "string",

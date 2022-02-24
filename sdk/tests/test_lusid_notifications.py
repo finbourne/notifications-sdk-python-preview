@@ -25,7 +25,7 @@ class LusidNotificationsTests(unittest.TestCase):
     def test_get_types(self):
 
         response = self.api.list_event_types().values
-        self.assertEqual(2, len(response))  
+        self.assertEqual(1, len(response))  
 
 
 if __name__ == '__main__':

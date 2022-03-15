@@ -21,8 +21,8 @@ import lusid_notifications
 from fbnsdkutilities import ApiClientFactory
 
 api_factory = ApiClientFactory(lusid_notifications, api_secrets_filename="secrets.json")
-api = cls.api_factory.build(lusid_notifications.api.EventTypesApi)
+event_types_api = api_factory.build(lusid_notifications.api.EventTypesApi)
 
-response = self.api.list_event_types().values
+response = event_types_api.list_event_types().values
 print(response)
 ```

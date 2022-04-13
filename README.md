@@ -14,7 +14,7 @@ The PyPi package for the LUSID Notifications Preview SDK can installed using the
 $ pip install lusid-notifications-sdk-preview finbourne-sdk-utilities
 ```
 
-## Usage
+## Usage
 
 ```
 import lusid_notifications

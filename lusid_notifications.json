@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.294",
+    "version": "0.1.296",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -513,6 +513,97 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/deliveries": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "[EXPERIMENTAL] ListUndeliveredMessages: List undelivered messages",
+        "operationId": "ListUndeliveredMessages",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfUndeliveredMessage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No undelivered messages exists with the provided filter(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -2339,6 +2430,20 @@
         },
         "additionalProperties": false
       },
+      "AttemptStatus": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "nullable": true
+          },
+          "failureMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateEmailNotification": {
         "required": [
           "description",
@@ -2536,6 +2641,28 @@
         },
         "additionalProperties": false,
         "description": "The information required to create a notification which, when processed, will trigger a webhook"
+      },
+      "DeliveryAttempt": {
+        "required": [
+          "attemptNumber",
+          "attemptStatus",
+          "attemptedTime"
+        ],
+        "type": "object",
+        "properties": {
+          "attemptNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attemptedTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "attemptStatus": {
+            "$ref": "#/components/schemas/AttemptStatus"
+          }
+        },
+        "additionalProperties": false
       },
       "EventTypeSchema": {
         "required": [
@@ -3067,6 +3194,41 @@
         },
         "additionalProperties": false
       },
+      "ResourceListOfUndeliveredMessage": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UndeliveredMessage"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Subscription": {
         "required": [
           "createdAt",
@@ -3182,6 +3344,48 @@
         },
         "additionalProperties": false,
         "description": "Subscription that contains its list of notifications"
+      },
+      "UndeliveredMessage": {
+        "required": [
+          "deliveryAttempts",
+          "deliveryChannel",
+          "deliveryId",
+          "eventId",
+          "messageDetails",
+          "notificationId",
+          "subscriptionIdentifier"
+        ],
+        "type": "object",
+        "properties": {
+          "deliveryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "subscriptionIdentifier": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "notificationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "deliveryChannel": {
+            "type": "string"
+          },
+          "messageDetails": {
+            "type": "string"
+          },
+          "deliveryAttempts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeliveryAttempt"
+            }
+          }
+        },
+        "additionalProperties": false
       },
       "UpdateEmailNotification": {
         "required": [
@@ -3408,6 +3612,10 @@
       "description": "Methods for triggering events."
     },
     {
+      "name": "Messages",
+      "description": "Methods for managing delivery messages"
+    },
+    {
       "name": "Notifications",
       "description": "Methods for managing a subscription's notifications."
     },
@@ -3422,6 +3630,7 @@
       "Application Metadata",
       "EventTypes",
       "Events",
+      "Messages",
       "Notifications",
       "Subscriptions"
     ]

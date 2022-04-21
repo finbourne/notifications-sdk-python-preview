@@ -42,9 +42,9 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid_notifications.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid_notifications.MessagesApi(api_client)
-    page = 'page_example' # str |  (optional)
-limit = 56 # int |  (optional)
-filter = 'filter_example' # str |  (optional)
+    page = 'page_example' # str | Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied the filter field should not be supplied. (optional)
+limit = 56 # int | The maximum number of messages to retrieve. (optional)
+filter = 'filter_example' # str | Expression to filter the result set. Read more about <see href=\"https://support.lusid.com/filtering-results-from-lusid\"> filtering results from LUSID</see>. (optional)
 
     try:
         # [EXPERIMENTAL] ListUndeliveredMessages: List undelivered messages
@@ -58,9 +58,9 @@ filter = 'filter_example' # str |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **str**|  | [optional] 
- **limit** | **int**|  | [optional] 
- **filter** | **str**|  | [optional] 
+ **page** | **str**| Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied the filter field should not be supplied. | [optional] 
+ **limit** | **int**| The maximum number of messages to retrieve. | [optional] 
+ **filter** | **str**| Expression to filter the result set. Read more about &lt;see href&#x3D;\&quot;https://support.lusid.com/filtering-results-from-lusid\&quot;&gt; filtering results from LUSID&lt;/see&gt;. | [optional] 
 
 ### Return type
 

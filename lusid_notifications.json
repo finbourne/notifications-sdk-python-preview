@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.316",
+    "version": "0.1.317",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -58,13 +58,13 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Expression to filter the result set. Read more about <see href=\"https://support.lusid.com/filtering-results-from-lusid\" /> filtering results from LUSID.",
+            "description": "Expression to filter the result set. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
             "schema": {
               "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string",
-              "description": "Expression to filter the result set. Read more about <see href=\"https://support.lusid.com/filtering-results-from-lusid\" /> filtering results from LUSID.",
+              "description": "Expression to filter the result set. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
               "nullable": true
             }
           }
@@ -76,6 +76,54 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ResourceListOfDelivery"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "id": "6c5d97aa-0b59-4438-8703-49ca09f52fe1",
+                      "eventId": "PortfolioCreated",
+                      "subscriptionId": {
+                        "scope": "Scope",
+                        "code": "Code"
+                      },
+                      "notificationId": "1fe2095b-ac22-4ed6-b6fc-ac8e2b22aa69",
+                      "deliveryChannel": "Email",
+                      "messageDetails": "{\"BccAddresses\":[\"AlanShearer@email.com\"], \"CcAddresses\":[\"MortenPederson@email.com\"], \"ToAddresses\":[\"KennyDalglish@email.com\"], \"Subject\":\"Portfolio Created!\", \"PlainTextBody\":\"Portfolio has been created.\", \"HtmlBody\":\"<p>Body</p>\"}",
+                      "attempts": [
+                        {
+                          "attemptNumber": 1,
+                          "attemptTime": "2022-05-03T09:20:41.9397977+00:00",
+                          "status": {
+                            "result": "Failed",
+                            "detailedMessage": "Email server not responding."
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "c1d6fdad-b733-4840-a33a-b7dff2b66650",
+                      "eventId": "ReconciliationComplete",
+                      "subscriptionId": {
+                        "scope": "Scope",
+                        "code": "Code"
+                      },
+                      "notificationId": "92c547c9-04c0-4cb7-98b5-302b88c3f244",
+                      "deliveryChannel": "SMS",
+                      "messageDetails": "{\"Recipient\":\"+447000000000\",\"TextBody\":\"Your reconciliation request has completed.\"}",
+                      "attempts": [
+                        {
+                          "attemptNumber": 1,
+                          "attemptTime": "2022-05-03T09:20:41.9412603+00:00",
+                          "status": {
+                            "result": "Failed",
+                            "detailedMessage": "SMS limit reached."
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "href": "http://example.com",
+                  "links": []
                 }
               }
             }

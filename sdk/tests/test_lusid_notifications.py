@@ -6,16 +6,18 @@ from fbnsdkutilities import ApiClientFactory
 
 
 class MockApiResponse(object):
-     def __init__(self, status=None):
-         self.status = status
-         self.headers = {}
+    def __init__(self, status=None):
+        self.status = status
+        self.headers = {}
 
 
 class LusidNotificationsTests(unittest.TestCase):
 
+    logger = None
+    api_factory = None
+
     @classmethod
     def setUpClass(cls) -> None:
-
         cls.logger = logging.getLogger()
         cls.logger.setLevel(logging.INFO)
 
@@ -23,9 +25,8 @@ class LusidNotificationsTests(unittest.TestCase):
         cls.api = cls.api_factory.build(lusid_notifications.api.EventTypesApi)
 
     def test_get_types(self):
-
         response = self.api.list_event_types().values
-        self.assertEqual(1, len(response))  
+        self.assertGreaterEqual(len(response), 1)
 
 
 if __name__ == '__main__':

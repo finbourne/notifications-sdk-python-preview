@@ -43,7 +43,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid_notifications.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid_notifications.EventTypesApi(api_client)
-    event_type = 'event_type_example' # str | The event type
+    event_type = 'event_type_example' # str | The event type to retrieve schema for.
 
     try:
         # [EXPERIMENTAL] GetEventType: Gets the specified event type schema.
@@ -57,7 +57,7 @@ with lusid_notifications.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_type** | **str**| The event type | 
+ **event_type** | **str**| The event type to retrieve schema for. | 
 
 ### Return type
 

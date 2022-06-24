@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **create_event**
-> object create_event(body)
+> EventDetails create_event(body)
 
 [EXPERIMENTAL] CreateEvent: Create a new event.
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**EventDetails**](EventDetails.md)
 
 ### Authorization
 

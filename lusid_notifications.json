@@ -86,7 +86,7 @@
                         "scope": "Scope",
                         "code": "Code"
                       },
-                      "notificationId": "fb2a83d1-aa21-49f7-8af7-d701380b03a7",
+                      "notificationId": "20c1a6b2-dc8b-454e-82a7-e6fb1ea70f35",
                       "deliveryChannel": "Email",
                       "messageDetails": "{\"BccAddresses\":[\"AlanShearer@email.com\"], \"CcAddresses\":[\"MortenPederson@email.com\"], \"ToAddresses\":[\"KennyDalglish@email.com\"], \"Subject\":\"Portfolio Created!\", \"PlainTextBody\":\"Portfolio has been created.\", \"HtmlBody\":\"<p>Body</p>\"}",
                       "attempts": [

@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+
+  notifications-sdk-python-test:
+    build: .
+    container_name: notifications-sdk-python-preview-test
+    image: finbourne/notifications-sdk-python-preview-test
+    environment:
+      - FBN_CLIENT_ID
+      - FBN_CLIENT_SECRET
+      - FBN_PASSWORD
+      - FBN_TOKEN_URL
+      - FBN_USERNAME
+      - FBN_PROXY_ADDRESS
+      - FBN_PROXY_USERNAME
+      - FBN_PROXY_PASSWORD
+      - FBN_NOTIFICATIONS_API_URL=${FBN_BASE_API_URL}/notifications
+      - FBN_ACCESS_TOKEN=${FBN_ACCESS_TOKEN}
+    volumes:
+      - .:/usr/src

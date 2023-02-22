@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.550",
+    "version": "0.1.553",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -38,9 +38,7 @@
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing delivery attempts. This value is returned from the previous call. When this field is supplied the filter field should not be supplied.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -49,9 +47,7 @@
             "description": "The maximum number of delivery attempts to retrieve. Defaults to 5000 if not specified.",
             "schema": {
               "type": "integer",
-              "description": "The maximum number of delivery attempts to retrieve. Defaults to 5000 if not specified.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             },
             "x-nullable": true
           },
@@ -63,9 +59,7 @@
               "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Expression to filter the result set. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -178,11 +172,7 @@
           "description": "The data to create an event.",
           "content": {
             "application/json-patch+json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "The data to create an event."
-              },
+              "schema": {},
               "example": {
                 "eventType": "Manual",
                 "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
@@ -192,11 +182,7 @@
               }
             },
             "application/json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "The data to create an event."
-              },
+              "schema": {},
               "example": {
                 "eventType": "Manual",
                 "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
@@ -206,11 +192,7 @@
               }
             },
             "text/json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "The data to create an event."
-              },
+              "schema": {},
               "example": {
                 "eventType": "Manual",
                 "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
@@ -220,11 +202,7 @@
               }
             },
             "application/*+json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "The data to create an event."
-              },
+              "schema": {},
               "example": {
                 "eventType": "Manual",
                 "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
@@ -238,7 +216,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -340,8 +318,7 @@
               "maxLength": 512,
               "minLength": 0,
               "pattern": "^[a-zA-Z]*$",
-              "type": "string",
-              "description": "The event type to retrieve schema for."
+              "type": "string"
             }
           }
         ],
@@ -459,9 +436,7 @@
               "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Expression to filter the result set. Read more about <see href=\"https://support.lusid.com/filtering-results-from-lusid\"> filtering results from LUSID</see>.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -472,9 +447,7 @@
               "maxLength": 16384,
               "minLength": 1,
               "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Fields to order the result set. Read more about <see href=\"https://support.lusid.com/filtering-results-from-lusid\" /> filtering results from LUSID.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -485,9 +458,7 @@
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied the filter  field should not be supplied.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -498,9 +469,7 @@
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "The maximum number of subscriptions to retrieve.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             },
             "x-nullable": true
           }
@@ -630,7 +599,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -702,8 +671,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -715,8 +683,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           }
         ],
@@ -785,8 +752,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -798,8 +764,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           }
         ],
@@ -947,8 +912,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -960,14 +924,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -1025,8 +988,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -1038,8 +1000,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           }
         ],
@@ -1110,8 +1071,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -1123,8 +1083,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           }
         ],
@@ -1216,7 +1175,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -1227,11 +1186,11 @@
                   "description": "TestDescription",
                   "deliveryChannel": "Email",
                   "recipients": {
-                    "to": "dummyEmail"
+                    "To": "dummyEmail"
                   },
                   "content": {
-                    "subject": "dummySubject",
-                    "body": "dummyBody"
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
                   },
                   "status": {
                     "result": "Sent",
@@ -1291,8 +1250,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -1304,8 +1262,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -1317,9 +1274,7 @@
               "maxLength": 40,
               "minLength": 30,
               "pattern": "^[a-zA-Z0-9\\-]+$",
-              "type": "string",
-              "description": "The unique identifier of the notification",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1422,11 +1377,11 @@
                   "description": "TestDescription",
                   "deliveryChannel": "Email",
                   "recipients": {
-                    "to": "dummyEmail"
+                    "To": "dummyEmail"
                   },
                   "content": {
-                    "subject": "dummySubject",
-                    "body": "dummyBody"
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
                   },
                   "status": {
                     "result": "Sent",
@@ -1496,8 +1451,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -1509,8 +1463,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           }
         ],
@@ -1570,7 +1523,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -1581,11 +1534,11 @@
                   "description": "TestDescription",
                   "deliveryChannel": "Email",
                   "recipients": {
-                    "to": "dummyEmail"
+                    "To": "dummyEmail"
                   },
                   "content": {
-                    "subject": "dummySubject",
-                    "body": "dummyBody"
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
                   },
                   "status": {
                     "result": "Sent",
@@ -1645,8 +1598,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -1658,8 +1610,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -1671,9 +1622,7 @@
               "maxLength": 40,
               "minLength": 30,
               "pattern": "^[a-zA-Z0-9\\-]+$",
-              "type": "string",
-              "description": "The unique identifier of the notification",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1744,11 +1693,11 @@
                   "description": "TestDescription",
                   "deliveryChannel": "Email",
                   "recipients": {
-                    "to": "dummyEmail"
+                    "To": "dummyEmail"
                   },
                   "content": {
-                    "subject": "dummySubject",
-                    "body": "dummyBody"
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
                   },
                   "status": {
                     "result": "Sent",
@@ -1818,8 +1767,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -1831,8 +1779,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           }
         ],
@@ -1849,7 +1796,7 @@
                 "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                 "authenticationType": "BearerToken",
                 "authenticationConfigurationItemPaths": {
-                  "bearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
                 "contentType": "Json",
                 "content": {
@@ -1868,7 +1815,7 @@
                 "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                 "authenticationType": "BearerToken",
                 "authenticationConfigurationItemPaths": {
-                  "bearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
                 "contentType": "Json",
                 "content": {
@@ -1887,7 +1834,7 @@
                 "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                 "authenticationType": "BearerToken",
                 "authenticationConfigurationItemPaths": {
-                  "bearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
                 "contentType": "Json",
                 "content": {
@@ -1906,7 +1853,7 @@
                 "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                 "authenticationType": "BearerToken",
                 "authenticationConfigurationItemPaths": {
-                  "bearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
                 "contentType": "Json",
                 "content": {
@@ -1920,7 +1867,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -1931,11 +1878,11 @@
                   "description": "TestDescription",
                   "deliveryChannel": "Email",
                   "recipients": {
-                    "to": "dummyEmail"
+                    "To": "dummyEmail"
                   },
                   "content": {
-                    "subject": "dummySubject",
-                    "body": "dummyBody"
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
                   },
                   "status": {
                     "result": "Sent",
@@ -1995,8 +1942,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -2008,8 +1954,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -2021,9 +1966,7 @@
               "maxLength": 40,
               "minLength": 30,
               "pattern": "^[a-zA-Z0-9\\-]+$",
-              "type": "string",
-              "description": "The unique identifier of the notification",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -2040,7 +1983,7 @@
                 "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                 "authenticationType": "BearerToken",
                 "authenticationConfigurationItemPaths": {
-                  "bearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
                 "contentType": "Json",
                 "content": {
@@ -2059,7 +2002,7 @@
                 "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                 "authenticationType": "BearerToken",
                 "authenticationConfigurationItemPaths": {
-                  "bearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
                 "contentType": "Json",
                 "content": {
@@ -2078,7 +2021,7 @@
                 "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                 "authenticationType": "BearerToken",
                 "authenticationConfigurationItemPaths": {
-                  "bearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
                 "contentType": "Json",
                 "content": {
@@ -2097,7 +2040,7 @@
                 "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                 "authenticationType": "BearerToken",
                 "authenticationConfigurationItemPaths": {
-                  "bearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
                 "contentType": "Json",
                 "content": {
@@ -2122,11 +2065,11 @@
                   "description": "TestDescription",
                   "deliveryChannel": "Email",
                   "recipients": {
-                    "to": "dummyEmail"
+                    "To": "dummyEmail"
                   },
                   "content": {
-                    "subject": "dummySubject",
-                    "body": "dummyBody"
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
                   },
                   "status": {
                     "result": "Sent",
@@ -2196,8 +2139,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -2209,8 +2151,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -2222,9 +2163,7 @@
               "maxLength": 40,
               "minLength": 30,
               "pattern": "^[a-zA-Z0-9\\-]+$",
-              "type": "string",
-              "description": "The unique identifier of the notification",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -2241,11 +2180,11 @@
                   "description": "TestDescription",
                   "deliveryChannel": "Email",
                   "recipients": {
-                    "to": "dummyEmail"
+                    "To": "dummyEmail"
                   },
                   "content": {
-                    "subject": "dummySubject",
-                    "body": "dummyBody"
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
                   },
                   "status": {
                     "result": "Sent",
@@ -2313,8 +2252,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The scope that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -2326,8 +2264,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The code that identifies a subscription"
+              "type": "string"
             }
           },
           {
@@ -2339,15 +2276,13 @@
               "maxLength": 40,
               "minLength": 30,
               "pattern": "^[a-zA-Z0-9\\-]+$",
-              "type": "string",
-              "description": "The unique identifier of the notification",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -2399,6 +2334,7 @@
         "type": "object",
         "properties": {
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "action": {
@@ -2437,6 +2373,7 @@
             "nullable": true
           },
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "actions": {
@@ -2520,6 +2457,7 @@
         "type": "object",
         "properties": {
           "result": {
+            "minLength": 1,
             "type": "string",
             "description": "Result of the delivery."
           },
@@ -2571,8 +2509,8 @@
             "nullable": true
           },
           "emailAddressTo": {
-            "maxLength": 10,
-            "minLength": 1,
+            "maxItems": 10,
+            "minItems": 1,
             "type": "array",
             "items": {
               "type": "string"
@@ -2580,8 +2518,8 @@
             "description": "'To' recipients of the email"
           },
           "emailAddressCc": {
-            "maxLength": 10,
-            "minLength": 0,
+            "maxItems": 10,
+            "minItems": 0,
             "type": "array",
             "items": {
               "type": "string"
@@ -2590,8 +2528,8 @@
             "nullable": true
           },
           "emailAddressBcc": {
-            "maxLength": 10,
-            "minLength": 0,
+            "maxItems": 10,
+            "minItems": 0,
             "type": "array",
             "items": {
               "type": "string"
@@ -2626,8 +2564,8 @@
             "description": "The body of the SMS"
           },
           "recipients": {
-            "maxLength": 10,
-            "minLength": 1,
+            "maxItems": 10,
+            "minItems": 1,
             "type": "array",
             "items": {
               "type": "string"
@@ -2666,6 +2604,7 @@
             "description": "The summary of the services provided by the subscription"
           },
           "status": {
+            "minLength": 1,
             "type": "string",
             "description": "The current status of the subscription. Possible values are: Active, Inactive"
           },
@@ -2693,6 +2632,7 @@
             "description": "The summary of the services provided by the notification"
           },
           "httpMethod": {
+            "minLength": 1,
             "type": "string",
             "description": "The HTTP method such as GET, POST, etc. to use on the request"
           },
@@ -2704,13 +2644,15 @@
             "description": "The URL to send the request to"
           },
           "authenticationType": {
+            "minLength": 1,
             "type": "string",
             "description": "The type of authentication to use on the request"
           },
           "authenticationConfigurationItemPaths": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken' and optionally 'BearerScheme'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }",
             "nullable": true
@@ -2721,8 +2663,6 @@
             "nullable": true
           },
           "content": {
-            "type": "object",
-            "additionalProperties": false,
             "description": "The content of the request",
             "nullable": true
           }
@@ -2748,6 +2688,7 @@
             "format": "uuid"
           },
           "eventId": {
+            "minLength": 1,
             "type": "string",
             "description": "The identifier of the associated event."
           },
@@ -2760,10 +2701,12 @@
             "format": "uuid"
           },
           "deliveryChannel": {
+            "minLength": 1,
             "type": "string",
             "description": "The delivery channel of the message."
           },
           "messageDetails": {
+            "minLength": 1,
             "type": "string",
             "description": "The Details of the delivery message as JSON string."
           },
@@ -2823,8 +2766,6 @@
             "nullable": true
           },
           "jsonSchema": {
-            "type": "object",
-            "additionalProperties": false,
             "description": "The schema of the event"
           }
         },
@@ -2846,12 +2787,15 @@
             "format": "int32"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "displayName": {
+            "minLength": 1,
             "type": "string"
           },
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "required": {
@@ -2882,7 +2826,7 @@
             }
           },
           "actions": {
-            "minLength": 1,
+            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ActionId"
@@ -2936,6 +2880,7 @@
         "type": "object",
         "properties": {
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "errorDetails": {
@@ -2972,15 +2917,6 @@
           "instance": {
             "type": "string",
             "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -2993,6 +2929,7 @@
         "type": "object",
         "properties": {
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "errorDetails": {
@@ -3039,15 +2976,6 @@
           "instance": {
             "type": "string",
             "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -3091,6 +3019,7 @@
         "type": "object",
         "properties": {
           "id": {
+            "minLength": 1,
             "type": "string",
             "description": "The identifier of the notification"
           },
@@ -3103,14 +3032,14 @@
             "nullable": true
           },
           "deliveryChannel": {
+            "minLength": 1,
             "type": "string",
             "description": "The medium through which the notification is delivered"
           },
           "recipients": {
             "type": "object",
             "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
+              "nullable": true
             },
             "description": "Recipient of the notification"
           },
@@ -3118,8 +3047,7 @@
             "maxLength": 5,
             "type": "object",
             "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
+              "nullable": true
             },
             "description": "The contents of the notification"
           },
@@ -3132,6 +3060,7 @@
             "format": "date-time"
           },
           "createdBy": {
+            "minLength": 1,
             "type": "string",
             "description": "The user who made the subscription"
           },
@@ -3141,6 +3070,7 @@
             "format": "date-time"
           },
           "lastModifiedBy": {
+            "minLength": 1,
             "type": "string",
             "description": "The user who last modified the subscription"
           }
@@ -3380,6 +3310,7 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "displayName": {
+            "minLength": 1,
             "type": "string",
             "description": "The name of the subscription"
           },
@@ -3389,6 +3320,7 @@
             "nullable": true
           },
           "status": {
+            "minLength": 1,
             "type": "string",
             "description": "The current status of the subscription"
           },
@@ -3401,6 +3333,7 @@
             "format": "date-time"
           },
           "createdBy": {
+            "minLength": 1,
             "type": "string",
             "description": "The user who made the subscription"
           },
@@ -3410,6 +3343,7 @@
             "format": "date-time"
           },
           "lastModifiedBy": {
+            "minLength": 1,
             "type": "string",
             "description": "The user who last modified the subscription"
           }
@@ -3442,6 +3376,7 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "displayName": {
+            "minLength": 1,
             "type": "string",
             "description": "The name of the subscription"
           },
@@ -3451,6 +3386,7 @@
             "nullable": true
           },
           "status": {
+            "minLength": 1,
             "type": "string",
             "description": "The current status of the subscription"
           },
@@ -3463,6 +3399,7 @@
             "format": "date-time"
           },
           "createdBy": {
+            "minLength": 1,
             "type": "string",
             "description": "The user who made the subscription"
           },
@@ -3472,6 +3409,7 @@
             "format": "date-time"
           },
           "lastModifiedBy": {
+            "minLength": 1,
             "type": "string",
             "description": "The user who last modified the subscription"
           }
@@ -3518,8 +3456,8 @@
             "nullable": true
           },
           "emailAddressTo": {
-            "maxLength": 10,
-            "minLength": 1,
+            "maxItems": 10,
+            "minItems": 1,
             "type": "array",
             "items": {
               "type": "string"
@@ -3527,8 +3465,8 @@
             "description": "'To' recipients of the email"
           },
           "emailAddressCc": {
-            "maxLength": 10,
-            "minLength": 0,
+            "maxItems": 10,
+            "minItems": 0,
             "type": "array",
             "items": {
               "type": "string"
@@ -3537,8 +3475,8 @@
             "nullable": true
           },
           "emailAddressBcc": {
-            "maxLength": 10,
-            "minLength": 0,
+            "maxItems": 10,
+            "minItems": 0,
             "type": "array",
             "items": {
               "type": "string"
@@ -3573,8 +3511,8 @@
             "description": "The body of the SMS"
           },
           "recipients": {
-            "maxLength": 10,
-            "minLength": 1,
+            "maxItems": 10,
+            "minItems": 1,
             "type": "array",
             "items": {
               "type": "string"
@@ -3609,6 +3547,7 @@
             "description": "The summary of the services provided by the subscription"
           },
           "status": {
+            "minLength": 1,
             "type": "string",
             "description": "The current status of the subscription. Possible values are: Active, Inactive"
           },
@@ -3636,6 +3575,7 @@
             "description": "The summary of the services provided by the notification"
           },
           "httpMethod": {
+            "minLength": 1,
             "type": "string",
             "description": "The HTTP method such as GET, POST, etc. to use on the request"
           },
@@ -3647,13 +3587,15 @@
             "description": "The URL to send the request to"
           },
           "authenticationType": {
+            "minLength": 1,
             "type": "string",
             "description": "The type of authentication to use on the request"
           },
           "authenticationConfigurationItemPaths": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken' and optionally 'BearerScheme'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }",
             "nullable": true
@@ -3664,8 +3606,6 @@
             "nullable": true
           },
           "content": {
-            "type": "object",
-            "additionalProperties": false,
             "description": "The content of the request",
             "nullable": true
           }

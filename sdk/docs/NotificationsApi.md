@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
+**201** | Created |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
+**201** | Created |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -206,7 +206,7 @@ with lusid_notifications.ApiClient(configuration) as api_client:
     api_instance = lusid_notifications.NotificationsApi(api_client)
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
-create_webhook_notification = {"description":"TestDescription","httpMethod":"Post","url":"https://example.com/api/{{id}}/path?examplequery={{id}}","authenticationType":"BearerToken","authenticationConfigurationItemPaths":{"bearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"contentType":"Json","content":{"Key":"Value Example","MessageKey":"{{message}}"}} # CreateWebhookNotification | The data to create a webhook notification
+create_webhook_notification = {"description":"TestDescription","httpMethod":"Post","url":"https://example.com/api/{{id}}/path?examplequery={{id}}","authenticationType":"BearerToken","authenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"contentType":"Json","content":{"Key":"Value Example","MessageKey":"{{message}}"}} # CreateWebhookNotification | The data to create a webhook notification
 
     try:
         # [EXPERIMENTAL] CreateWebhookNotification: Add a Webhook notification to a subscription.
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
+**201** | Created |  -  |
 **400** | The details of the input related failure |  -  |
 **0** | Error response |  -  |
 
@@ -316,7 +316,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success |  -  |
+**204** | No Content |  -  |
 **400** | The details of the input related failure |  -  |
 **404** | No notification exists in current scope |  -  |
 **0** | Error response |  -  |
@@ -675,7 +675,7 @@ with lusid_notifications.ApiClient(configuration) as api_client:
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
 id = 'id_example' # str | The unique identifier of the notification
-update_webhook_notification = {"description":"TestDescription","httpMethod":"Post","url":"https://example.com/api/{{id}}/path?examplequery={{id}}","authenticationType":"BearerToken","authenticationConfigurationItemPaths":{"bearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"contentType":"Json","content":{"Key":"Value Example","MessageKey":"{{message}}"}} # UpdateWebhookNotification | The data to update a notification
+update_webhook_notification = {"description":"TestDescription","httpMethod":"Post","url":"https://example.com/api/{{id}}/path?examplequery={{id}}","authenticationType":"BearerToken","authenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"contentType":"Json","content":{"Key":"Value Example","MessageKey":"{{message}}"}} # UpdateWebhookNotification | The data to update a notification
 
     try:
         # [EXPERIMENTAL] UpdateWebhookNotification: Update a Webhook notification for a given subscription.

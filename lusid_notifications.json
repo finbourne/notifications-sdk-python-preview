@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.616",
+    "version": "0.1.621",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -101,7 +101,7 @@
                         "scope": "Scope",
                         "code": "Code"
                       },
-                      "notificationId": "e3fe3114-43c4-4d06-ae2d-f792fab9b57c",
+                      "notificationId": "E3FE3114-43C4-4D06-AE2D-F792FAB9B57C",
                       "deliveryChannel": "SMS",
                       "messageDetails": "{\"Recipient\":\"+447000000000\",\"TextBody\":\"Your reconciliation request has completed.\"}",
                       "attempts": [
@@ -1184,6 +1184,7 @@
                 "example": {
                   "id": "TestId",
                   "description": "TestDescription",
+                  "displayName": "TestDisplayName",
                   "deliveryChannel": "Email",
                   "recipients": {
                     "To": "dummyEmail"
@@ -1375,6 +1376,7 @@
                 "example": {
                   "id": "TestId",
                   "description": "TestDescription",
+                  "displayName": "TestDisplayName",
                   "deliveryChannel": "Email",
                   "recipients": {
                     "To": "dummyEmail"
@@ -1532,6 +1534,7 @@
                 "example": {
                   "id": "TestId",
                   "description": "TestDescription",
+                  "displayName": "TestDisplayName",
                   "deliveryChannel": "Email",
                   "recipients": {
                     "To": "dummyEmail"
@@ -1691,6 +1694,7 @@
                 "example": {
                   "id": "TestId",
                   "description": "TestDescription",
+                  "displayName": "TestDisplayName",
                   "deliveryChannel": "Email",
                   "recipients": {
                     "To": "dummyEmail"
@@ -1876,6 +1880,7 @@
                 "example": {
                   "id": "TestId",
                   "description": "TestDescription",
+                  "displayName": "TestDisplayName",
                   "deliveryChannel": "Email",
                   "recipients": {
                     "To": "dummyEmail"
@@ -2063,6 +2068,7 @@
                 "example": {
                   "id": "TestId",
                   "description": "TestDescription",
+                  "displayName": "TestDisplayName",
                   "deliveryChannel": "Email",
                   "recipients": {
                     "To": "dummyEmail"
@@ -2178,6 +2184,7 @@
                 "example": {
                   "id": "TestId",
                   "description": "TestDescription",
+                  "displayName": "TestDisplayName",
                   "deliveryChannel": "Email",
                   "recipients": {
                     "To": "dummyEmail"
@@ -2696,9 +2703,9 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "notificationId": {
+            "minLength": 1,
             "type": "string",
-            "description": "The identifier of the associated notification.",
-            "format": "uuid"
+            "description": "The identifier of the associated notification."
           },
           "deliveryChannel": {
             "minLength": 1,
@@ -3029,6 +3036,14 @@
             "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The summary of the services provided by the notification",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The name of the notification",
             "nullable": true
           },
           "deliveryChannel": {

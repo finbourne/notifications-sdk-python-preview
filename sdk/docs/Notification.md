@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | The identifier of the notification | 
 **description** | **str** | The summary of the services provided by the notification | [optional] 
+**display_name** | **str** | The name of the notification | [optional] 
 **delivery_channel** | **str** | The medium through which the notification is delivered | 
 **recipients** | **dict(str, object)** | Recipient of the notification | 
 **content** | **dict(str, object)** | The contents of the notification | 

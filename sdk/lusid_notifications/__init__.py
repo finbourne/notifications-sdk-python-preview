@@ -39,11 +39,8 @@ from lusid_notifications.models.access_controlled_resource import AccessControll
 from lusid_notifications.models.action_id import ActionId
 from lusid_notifications.models.attempt import Attempt
 from lusid_notifications.models.attempt_status import AttemptStatus
-from lusid_notifications.models.create_aws_sqs_notification import CreateAwsSqsNotification
-from lusid_notifications.models.create_email_notification import CreateEmailNotification
-from lusid_notifications.models.create_sms_notification import CreateSmsNotification
+from lusid_notifications.models.create_notification import CreateNotification
 from lusid_notifications.models.create_subscription import CreateSubscription
-from lusid_notifications.models.create_webhook_notification import CreateWebhookNotification
 from lusid_notifications.models.delivery import Delivery
 from lusid_notifications.models.event_details import EventDetails
 from lusid_notifications.models.event_type_schema import EventTypeSchema
@@ -63,11 +60,8 @@ from lusid_notifications.models.resource_list_of_notification import ResourceLis
 from lusid_notifications.models.resource_list_of_subscription import ResourceListOfSubscription
 from lusid_notifications.models.subscription import Subscription
 from lusid_notifications.models.subscription_detail import SubscriptionDetail
-from lusid_notifications.models.update_aws_sqs_notification import UpdateAwsSqsNotification
-from lusid_notifications.models.update_email_notification import UpdateEmailNotification
-from lusid_notifications.models.update_sms_notification import UpdateSmsNotification
+from lusid_notifications.models.update_notification import UpdateNotification
 from lusid_notifications.models.update_subscription import UpdateSubscription
-from lusid_notifications.models.update_webhook_notification import UpdateWebhookNotification
 
 # import utilities into sdk package
 from fbnsdkutilities.utilities.api_client_builder import ApiClientBuilder

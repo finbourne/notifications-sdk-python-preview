@@ -53,10 +53,10 @@ import lusid_notifications
 from lusid_notifications.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://www.lusid.com/notification
+# Defining the host is optional and defaults to https://www.lusid.com/notifications
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notifications.Configuration(
-    host = "https://www.lusid.com/notification"
+    host = "https://www.lusid.com/notifications"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -66,7 +66,7 @@ configuration = lusid_notifications.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notifications.Configuration(
-    host = "https://www.lusid.com/notification"
+    host = "https://www.lusid.com/notifications"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -87,7 +87,7 @@ with lusid_notifications.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://www.lusid.com/notification*
+All URIs are relative to *https://www.lusid.com/notifications*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -96,11 +96,17 @@ Class | Method | HTTP request | Description
 *EventTypesApi* | [**get_event_type**](docs/EventTypesApi.md#get_event_type) | **GET** /api/eventtypes/{eventType} | [EXPERIMENTAL] GetEventType: Gets the specified event type schema.
 *EventTypesApi* | [**list_event_types**](docs/EventTypesApi.md#list_event_types) | **GET** /api/eventtypes | [EXPERIMENTAL] ListEventTypes: Lists all of the available event types.
 *EventsApi* | [**create_event**](docs/EventsApi.md#create_event) | **POST** /api/events | [EXPERIMENTAL] CreateEvent: Create a new event.
-*NotificationsApi* | [**create_notification**](docs/NotificationsApi.md#create_notification) | **POST** /api/subscriptions/{scope}/{code}/notifications | [EXPERIMENTAL] CreateNotification: Add a notification to a subscription.
+*NotificationsApi* | [**create_aws_sqs_notification**](docs/NotificationsApi.md#create_aws_sqs_notification) | **POST** /api/subscriptions/{scope}/{code}/notifications/awssqs | [EXPERIMENTAL] CreateAwsSqsNotification: Add an AWS SQS notification to a subscription.
+*NotificationsApi* | [**create_email_notification**](docs/NotificationsApi.md#create_email_notification) | **POST** /api/subscriptions/{scope}/{code}/notifications/email | [EXPERIMENTAL] CreateEmailNotification: Add an email notification to a subscription.
+*NotificationsApi* | [**create_sms_notification**](docs/NotificationsApi.md#create_sms_notification) | **POST** /api/subscriptions/{scope}/{code}/notifications/sms | [EXPERIMENTAL] CreateSmsNotification: Add an SMS notification to a subscription.
+*NotificationsApi* | [**create_webhook_notification**](docs/NotificationsApi.md#create_webhook_notification) | **POST** /api/subscriptions/{scope}/{code}/notifications/webhook | [EXPERIMENTAL] CreateWebhookNotification: Add a Webhook notification to a subscription.
 *NotificationsApi* | [**delete_notification**](docs/NotificationsApi.md#delete_notification) | **DELETE** /api/subscriptions/{scope}/{code}/notifications/{id} | [EXPERIMENTAL] DeleteNotification: Delete a notification for a given subscription.
 *NotificationsApi* | [**get_notification**](docs/NotificationsApi.md#get_notification) | **GET** /api/subscriptions/{scope}/{code}/notifications/{id} | [EXPERIMENTAL] GetNotification: Get a notification on a subscription.
 *NotificationsApi* | [**list_notifications**](docs/NotificationsApi.md#list_notifications) | **GET** /api/subscriptions/{scope}/{code}/notifications | [EXPERIMENTAL] ListNotifications: List all notifications on a subscription.
-*NotificationsApi* | [**update_notification**](docs/NotificationsApi.md#update_notification) | **PUT** /api/subscriptions/{scope}/{code}/notifications/{id} | [EXPERIMENTAL] UpdateNotification: Update an email notification for a given subscription.
+*NotificationsApi* | [**update_aws_sqs_notification**](docs/NotificationsApi.md#update_aws_sqs_notification) | **PUT** /api/subscriptions/{scope}/{code}/notifications/awssqs/{id} | [EXPERIMENTAL] UpdateAwsSqsNotification: Update an AWS SQS notification for a given subscription.
+*NotificationsApi* | [**update_email_notification**](docs/NotificationsApi.md#update_email_notification) | **PUT** /api/subscriptions/{scope}/{code}/notifications/email/{id} | [EXPERIMENTAL] UpdateEmailNotification: Update an email notification for a given subscription.
+*NotificationsApi* | [**update_sms_notification**](docs/NotificationsApi.md#update_sms_notification) | **PUT** /api/subscriptions/{scope}/{code}/notifications/sms/{id} | [EXPERIMENTAL] UpdateSmsNotification: Update an SMS notification for a given subscription.
+*NotificationsApi* | [**update_webhook_notification**](docs/NotificationsApi.md#update_webhook_notification) | **PUT** /api/subscriptions/{scope}/{code}/notifications/webhook/{id} | [EXPERIMENTAL] UpdateWebhookNotification: Update a Webhook notification for a given subscription.
 *SubscriptionsApi* | [**create_subscription**](docs/SubscriptionsApi.md#create_subscription) | **POST** /api/subscriptions | [EXPERIMENTAL] CreateSubscription: Create a new subscription.
 *SubscriptionsApi* | [**delete_subscription**](docs/SubscriptionsApi.md#delete_subscription) | **DELETE** /api/subscriptions/{scope}/{code} | [EXPERIMENTAL] DeleteSubscription: Delete a subscription.
 *SubscriptionsApi* | [**get_subscription**](docs/SubscriptionsApi.md#get_subscription) | **GET** /api/subscriptions/{scope}/{code} | [EXPERIMENTAL] GetSubscription: Get a subscription.
@@ -115,8 +121,11 @@ Class | Method | HTTP request | Description
  - [ActionId](docs/ActionId.md)
  - [Attempt](docs/Attempt.md)
  - [AttemptStatus](docs/AttemptStatus.md)
- - [CreateNotification](docs/CreateNotification.md)
+ - [CreateAwsSqsNotification](docs/CreateAwsSqsNotification.md)
+ - [CreateEmailNotification](docs/CreateEmailNotification.md)
+ - [CreateSmsNotification](docs/CreateSmsNotification.md)
  - [CreateSubscription](docs/CreateSubscription.md)
+ - [CreateWebhookNotification](docs/CreateWebhookNotification.md)
  - [Delivery](docs/Delivery.md)
  - [EventDetails](docs/EventDetails.md)
  - [EventTypeSchema](docs/EventTypeSchema.md)
@@ -136,8 +145,11 @@ Class | Method | HTTP request | Description
  - [ResourceListOfSubscription](docs/ResourceListOfSubscription.md)
  - [Subscription](docs/Subscription.md)
  - [SubscriptionDetail](docs/SubscriptionDetail.md)
- - [UpdateNotification](docs/UpdateNotification.md)
+ - [UpdateAwsSqsNotification](docs/UpdateAwsSqsNotification.md)
+ - [UpdateEmailNotification](docs/UpdateEmailNotification.md)
+ - [UpdateSmsNotification](docs/UpdateSmsNotification.md)
  - [UpdateSubscription](docs/UpdateSubscription.md)
+ - [UpdateWebhookNotification](docs/UpdateWebhookNotification.md)
 
 
 ## Documentation For Authorization

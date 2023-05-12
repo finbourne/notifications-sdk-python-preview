@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://www.lusid.com/notification"
+      "url": "https://www.lusid.com/notifications"
     }
   ],
   "paths": {
@@ -497,9 +497,9 @@
                         "filter": "Entity eq 'Portfolio'"
                       },
                       "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                      "userIdCreated": "TestClient",
-                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                      "userIdModified": "TestClient"
+                      "createdBy": "TestClient",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "TestClient"
                     }
                   ],
                   "href": "Test:hrefUriString",
@@ -654,9 +654,9 @@
                     "filter": "Entity eq 'Portfolio'"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "userIdCreated": "TestClient",
-                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "userIdModified": "TestClient"
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
                 }
               }
             }
@@ -732,6 +732,29 @@
                   "$ref": "#/components/schemas/SubscriptionDetail"
                 },
                 "example": {
+                  "notifications": [
+                    {
+                      "id": "TestId",
+                      "description": "TestDescription",
+                      "displayName": "TestDisplayName",
+                      "deliveryChannel": "Email",
+                      "recipients": {
+                        "To": "dummyEmail"
+                      },
+                      "content": {
+                        "Subject": "dummySubject",
+                        "Body": "dummyBody"
+                      },
+                      "status": {
+                        "result": "Sent",
+                        "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "TestClient",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "TestClient"
+                    }
+                  ],
                   "id": {
                     "scope": "TestScope",
                     "code": "TestCode"
@@ -744,9 +767,9 @@
                     "filter": "Entity eq 'Portfolio'"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "userIdCreated": "TestClient",
-                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "userIdModified": "TestClient"
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
                 }
               }
             }
@@ -904,9 +927,9 @@
                     "filter": "Entity eq 'Portfolio'"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "userIdCreated": "TestClient",
-                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "userIdModified": "TestClient"
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
                 }
               }
             }
@@ -1105,18 +1128,20 @@
           }
         ],
         "x-fbn-apistatus": "Experimental"
-      },
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/awssqs": {
       "post": {
         "tags": [
           "Notifications"
         ],
-        "summary": "[EXPERIMENTAL] CreateNotification: Add a notification to a subscription.",
-        "operationId": "CreateNotification",
+        "summary": "[EXPERIMENTAL] CreateAwsSqsNotification: Add an AWS SQS notification to a subscription.",
+        "operationId": "CreateAwsSqsNotification",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope that identifies a subscription",
+            "description": "The scope that identifies a notification",
             "required": true,
             "schema": {
               "maxLength": 100,
@@ -1128,7 +1153,7 @@
           {
             "name": "code",
             "in": "path",
-            "description": "The code that identifies a subscription",
+            "description": "The code that identifies a notification",
             "required": true,
             "schema": {
               "maxLength": 100,
@@ -1139,382 +1164,54 @@
           }
         ],
         "requestBody": {
-          "description": "The data to create a notification",
+          "description": "The data to create an message sent to AWS Simple Queue Service",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateNotification"
+                "$ref": "#/components/schemas/CreateAwsSqsNotification"
               },
-              "examples": {
-                "Create Email Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Email",
-                    "notificationContent": {
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
-                },
-                "Create SMS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Sms",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
-                },
-                "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Create Webhook Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Create AWS SQS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
-                }
+              "example": {
+                "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                "body": "Event with message {{message}}",
+                "description": "Example description",
+                "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateNotification"
+                "$ref": "#/components/schemas/CreateAwsSqsNotification"
               },
-              "examples": {
-                "Create Email Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Email",
-                    "notificationContent": {
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
-                },
-                "Create SMS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Sms",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
-                },
-                "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Create Webhook Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Create AWS SQS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
-                }
+              "example": {
+                "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                "body": "Event with message {{message}}",
+                "description": "Example description",
+                "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateNotification"
+                "$ref": "#/components/schemas/CreateAwsSqsNotification"
               },
-              "examples": {
-                "Create Email Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Email",
-                    "notificationContent": {
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
-                },
-                "Create SMS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Sms",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
-                },
-                "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Create Webhook Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Create AWS SQS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
-                }
+              "example": {
+                "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                "body": "Event with message {{message}}",
+                "description": "Example description",
+                "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateNotification"
+                "$ref": "#/components/schemas/CreateAwsSqsNotification"
               },
-              "examples": {
-                "Create Email Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Email",
-                    "notificationContent": {
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
-                },
-                "Create SMS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Sms",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
-                },
-                "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Create Webhook Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Create AWS SQS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
-                }
+              "example": {
+                "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                "body": "Event with message {{message}}",
+                "description": "Example description",
+                "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
               }
             }
           },
@@ -1529,25 +1226,26 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
+                  "id": "Example id",
+                  "description": "Example description",
+                  "displayName": "Example name",
+                  "deliveryChannel": "AwsSqs",
                   "recipients": {
-                    "To": "dummyEmail"
+                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                    "Body": "Event with message {{message}}"
                   },
                   "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                    "result": "Unprocessed",
+                    "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
+                  "createdBy": "Example user",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "lastModifiedBy": "Example user"
                 }
               }
             }
@@ -1581,18 +1279,18 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/subscriptions/{scope}/{code}/notifications/{id}": {
-      "get": {
+    "/api/subscriptions/{scope}/{code}/notifications/awssqs/{id}": {
+      "put": {
         "tags": [
           "Notifications"
         ],
-        "summary": "[EXPERIMENTAL] GetNotification: Get a notification on a subscription.",
-        "operationId": "GetNotification",
+        "summary": "[EXPERIMENTAL] UpdateAwsSqsNotification: Update an AWS SQS notification for a given subscription.",
+        "operationId": "UpdateAwsSqsNotification",
         "parameters": [
           {
             "name": "scope",
             "in": "path",
-            "description": "The scope that identifies a subscription",
+            "description": "The scope that identifies a notification",
             "required": true,
             "schema": {
               "maxLength": 100,
@@ -1604,7 +1302,7 @@
           {
             "name": "code",
             "in": "path",
-            "description": "The code that identifies a subscription",
+            "description": "The code that identifies a notification",
             "required": true,
             "schema": {
               "maxLength": 100,
@@ -1619,10 +1317,67 @@
             "description": "The unique identifier of the notification",
             "required": true,
             "schema": {
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
               "type": "string"
             }
           }
         ],
+        "requestBody": {
+          "description": "The data to update a notification",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAwsSqsNotification"
+              },
+              "example": {
+                "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                "body": "Event with message {{message}}",
+                "description": "Example description",
+                "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAwsSqsNotification"
+              },
+              "example": {
+                "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                "body": "Event with message {{message}}",
+                "description": "Example description",
+                "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAwsSqsNotification"
+              },
+              "example": {
+                "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                "body": "Event with message {{message}}",
+                "description": "Example description",
+                "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAwsSqsNotification"
+              },
+              "example": {
+                "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                "body": "Event with message {{message}}",
+                "description": "Example description",
+                "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "Success",
@@ -1692,13 +1447,195 @@
           }
         ],
         "x-fbn-apistatus": "Experimental"
-      },
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/email": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "[EXPERIMENTAL] CreateEmailNotification: Add an email notification to a subscription.",
+        "operationId": "CreateEmailNotification",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The data to create a email notification",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmailNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "subject": "Event with id of {{id}}",
+                "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                "emailAddressTo": [
+                  "recipient@finbourne.com"
+                ],
+                "emailAddressCc": [
+                  "recipientcc@finbourne.com"
+                ],
+                "emailAddressBcc": [
+                  "recipientbcc@finbourne.com"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmailNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "subject": "Event with id of {{id}}",
+                "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                "emailAddressTo": [
+                  "recipient@finbourne.com"
+                ],
+                "emailAddressCc": [
+                  "recipientcc@finbourne.com"
+                ],
+                "emailAddressBcc": [
+                  "recipientbcc@finbourne.com"
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmailNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "subject": "Event with id of {{id}}",
+                "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                "emailAddressTo": [
+                  "recipient@finbourne.com"
+                ],
+                "emailAddressCc": [
+                  "recipientcc@finbourne.com"
+                ],
+                "emailAddressBcc": [
+                  "recipientbcc@finbourne.com"
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmailNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "subject": "Event with id of {{id}}",
+                "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                "emailAddressTo": [
+                  "recipient@finbourne.com"
+                ],
+                "emailAddressCc": [
+                  "recipientcc@finbourne.com"
+                ],
+                "emailAddressBcc": [
+                  "recipientbcc@finbourne.com"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                },
+                "example": {
+                  "id": "TestId",
+                  "description": "TestDescription",
+                  "displayName": "TestDisplayName",
+                  "deliveryChannel": "Email",
+                  "recipients": {
+                    "To": "dummyEmail"
+                  },
+                  "content": {
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
+                  },
+                  "status": {
+                    "result": "Sent",
+                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  },
+                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/email/{id}": {
       "put": {
         "tags": [
           "Notifications"
         ],
-        "summary": "[EXPERIMENTAL] UpdateNotification: Update an email notification for a given subscription.",
-        "operationId": "UpdateNotification",
+        "summary": "[EXPERIMENTAL] UpdateEmailNotification: Update an email notification for a given subscription.",
+        "operationId": "UpdateEmailNotification",
         "parameters": [
           {
             "name": "scope",
@@ -1730,9 +1667,9 @@
             "description": "The unique identifier of the notification",
             "required": true,
             "schema": {
-              "maxLength": 100,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
               "type": "string"
             }
           }
@@ -1742,363 +1679,892 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNotification"
+                "$ref": "#/components/schemas/UpdateEmailNotification"
               },
-              "examples": {
-                "Update Email Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Email",
-                    "notificationContent": {
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+              "example": {
+                "description": "TestDescription",
+                "subject": "Event with id of {{id}}",
+                "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                "emailAddressTo": [
+                  "recipient@finbourne.com"
+                ],
+                "emailAddressCc": [
+                  "recipientcc@finbourne.com"
+                ],
+                "emailAddressBcc": [
+                  "recipientbcc@finbourne.com"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEmailNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "subject": "Event with id of {{id}}",
+                "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                "emailAddressTo": [
+                  "recipient@finbourne.com"
+                ],
+                "emailAddressCc": [
+                  "recipientcc@finbourne.com"
+                ],
+                "emailAddressBcc": [
+                  "recipientbcc@finbourne.com"
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEmailNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "subject": "Event with id of {{id}}",
+                "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                "emailAddressTo": [
+                  "recipient@finbourne.com"
+                ],
+                "emailAddressCc": [
+                  "recipientcc@finbourne.com"
+                ],
+                "emailAddressBcc": [
+                  "recipientbcc@finbourne.com"
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEmailNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "subject": "Event with id of {{id}}",
+                "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                "emailAddressTo": [
+                  "recipient@finbourne.com"
+                ],
+                "emailAddressCc": [
+                  "recipientcc@finbourne.com"
+                ],
+                "emailAddressBcc": [
+                  "recipientbcc@finbourne.com"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
                 },
-                "Update SMS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Sms",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                "example": {
+                  "id": "TestId",
+                  "description": "TestDescription",
+                  "displayName": "TestDisplayName",
+                  "deliveryChannel": "Email",
+                  "recipients": {
+                    "To": "dummyEmail"
+                  },
+                  "content": {
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
+                  },
+                  "status": {
+                    "result": "Sent",
+                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  },
+                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No notification exists in current scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/sms": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "[EXPERIMENTAL] CreateSmsNotification: Add an SMS notification to a subscription.",
+        "operationId": "CreateSmsNotification",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The data to create an SMS notification",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSmsNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "body": "Event with message {{message}} and subject {{subject}}",
+                "recipients": [
+                  "+447000000000"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSmsNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "body": "Event with message {{message}} and subject {{subject}}",
+                "recipients": [
+                  "+447000000000"
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSmsNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "body": "Event with message {{message}} and subject {{subject}}",
+                "recipients": [
+                  "+447000000000"
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSmsNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "body": "Event with message {{message}} and subject {{subject}}",
+                "recipients": [
+                  "+447000000000"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
                 },
-                "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                "example": {
+                  "id": "TestId",
+                  "description": "TestDescription",
+                  "displayName": "TestDisplayName",
+                  "deliveryChannel": "Email",
+                  "recipients": {
+                    "To": "dummyEmail"
+                  },
+                  "content": {
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
+                  },
+                  "status": {
+                    "result": "Sent",
+                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  },
+                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/sms/{id}": {
+      "put": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "[EXPERIMENTAL] UpdateSmsNotification: Update an SMS notification for a given subscription.",
+        "operationId": "UpdateSmsNotification",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier of the notification",
+            "required": true,
+            "schema": {
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The data to update a notification",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSmsNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "body": "Event with message {{message}} and subject {{subject}}",
+                "recipients": [
+                  "+447000000000"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSmsNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "body": "Event with message {{message}} and subject {{subject}}",
+                "recipients": [
+                  "+447000000000"
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSmsNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "body": "Event with message {{message}} and subject {{subject}}",
+                "recipients": [
+                  "+447000000000"
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSmsNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "body": "Event with message {{message}} and subject {{subject}}",
+                "recipients": [
+                  "+447000000000"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
                 },
-                "Update Webhook Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                "example": {
+                  "id": "TestId",
+                  "description": "TestDescription",
+                  "displayName": "TestDisplayName",
+                  "deliveryChannel": "Email",
+                  "recipients": {
+                    "To": "dummyEmail"
+                  },
+                  "content": {
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
+                  },
+                  "status": {
+                    "result": "Sent",
+                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  },
+                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No notification exists in current scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/webhook": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "[EXPERIMENTAL] CreateWebhookNotification: Add a Webhook notification to a subscription.",
+        "operationId": "CreateWebhookNotification",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The data to create a webhook notification",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
-                "Update AWS SQS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
                 }
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNotification"
+                "$ref": "#/components/schemas/CreateWebhookNotification"
               },
-              "examples": {
-                "Update Email Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Email",
-                    "notificationContent": {
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
-                "Update SMS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Sms",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
-                },
-                "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Update Webhook Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Update AWS SQS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
                 }
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNotification"
+                "$ref": "#/components/schemas/CreateWebhookNotification"
               },
-              "examples": {
-                "Update Email Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Email",
-                    "notificationContent": {
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
-                "Update SMS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Sms",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
-                },
-                "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Update Webhook Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Update AWS SQS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
                 }
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNotification"
+                "$ref": "#/components/schemas/CreateWebhookNotification"
               },
-              "examples": {
-                "Update Email Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Email",
-                    "notificationContent": {
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                 },
-                "Update SMS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Sms",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
-                },
-                "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Update Webhook Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
-                "Update AWS SQS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
                 }
               }
             }
           },
           "required": true
         },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                },
+                "example": {
+                  "id": "TestId",
+                  "description": "TestDescription",
+                  "displayName": "TestDisplayName",
+                  "deliveryChannel": "Email",
+                  "recipients": {
+                    "To": "dummyEmail"
+                  },
+                  "content": {
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
+                  },
+                  "status": {
+                    "result": "Sent",
+                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  },
+                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/webhook/{id}": {
+      "put": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "[EXPERIMENTAL] UpdateWebhookNotification: Update a Webhook notification for a given subscription.",
+        "operationId": "UpdateWebhookNotification",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier of the notification",
+            "required": true,
+            "schema": {
+              "maxLength": 40,
+              "minLength": 30,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The data to update a notification",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookNotification"
+              },
+              "example": {
+                "description": "TestDescription",
+                "httpMethod": "Post",
+                "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                "authenticationType": "BearerToken",
+                "authenticationConfigurationItemPaths": {
+                  "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                },
+                "contentType": "Json",
+                "content": {
+                  "Key": "Value Example",
+                  "MessageKey": "{{message}}"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                },
+                "example": {
+                  "id": "TestId",
+                  "description": "TestDescription",
+                  "displayName": "TestDisplayName",
+                  "deliveryChannel": "Email",
+                  "recipients": {
+                    "To": "dummyEmail"
+                  },
+                  "content": {
+                    "Subject": "dummySubject",
+                    "Body": "dummyBody"
+                  },
+                  "status": {
+                    "result": "Sent",
+                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  },
+                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                  "createdBy": "TestClient",
+                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "lastModifiedBy": "TestClient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No notification exists in current scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/subscriptions/{scope}/{code}/notifications/{id}": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "[EXPERIMENTAL] GetNotification: Get a notification on a subscription.",
+        "operationId": "GetNotification",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code that identifies a subscription",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier of the notification",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -2400,29 +2866,32 @@
         "additionalProperties": false,
         "description": "Status of the delivery attempt."
       },
-      "CreateNotification": {
+      "CreateAwsSqsNotification": {
         "required": [
+          "apiKeyRef",
+          "apiSecretRef",
+          "body",
           "description",
-          "notificationContent",
-          "notificationId",
-          "notificationType"
+          "queueUrlRef"
         ],
         "type": "object",
         "properties": {
-          "notificationId": {
-            "maxLength": 100,
+          "apiKeyRef": {
             "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "The identifier of the notification."
+            "description": "Reference to API key from Configuration Store"
           },
-          "displayName": {
-            "maxLength": 64,
-            "minLength": 0,
+          "apiSecretRef": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Reference to API secret from Configuration Store"
+          },
+          "body": {
+            "maxLength": 1024,
+            "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The name of the notification",
-            "nullable": true
+            "description": "The body of the Amazon Queue Message"
           },
           "description": {
             "maxLength": 512,
@@ -2431,17 +2900,120 @@
             "type": "string",
             "description": "The summary of the services provided by the notification"
           },
-          "notificationType": {
+          "queueUrlRef": {
             "minLength": 1,
             "type": "string",
-            "description": "The type of notification"
-          },
-          "notificationContent": {
-            "description": "The contents of the notification."
+            "description": "Reference to queue url from Configuration Store"
           }
         },
         "additionalProperties": false,
-        "description": "The information required to create a notification"
+        "description": "The information required to create a notification which, when processed, will send an notification to Amazon SQS"
+      },
+      "CreateEmailNotification": {
+        "required": [
+          "description",
+          "emailAddressTo",
+          "plainTextBody",
+          "subject"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification"
+          },
+          "subject": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The subject of the email"
+          },
+          "plainTextBody": {
+            "maxLength": 2147483647,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The plain text body of the email"
+          },
+          "htmlBody": {
+            "maxLength": 2147483647,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The HTML body of the email (if any)",
+            "nullable": true
+          },
+          "emailAddressTo": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "'To' recipients of the email"
+          },
+          "emailAddressCc": {
+            "maxItems": 10,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "'Cc' recipients of the email",
+            "nullable": true
+          },
+          "emailAddressBcc": {
+            "maxItems": 10,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "'Bcc' recipients of the email",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The information required to create a notification which, when processed, will send an email"
+      },
+      "CreateSmsNotification": {
+        "required": [
+          "body",
+          "description",
+          "recipients"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification"
+          },
+          "body": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The body of the SMS"
+          },
+          "recipients": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The phone numbers to which the SMS will be sent to (E.164 format)"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The information required to create a notification which, when processed, will send an SMS"
       },
       "CreateSubscription": {
         "required": [
@@ -2481,6 +3053,61 @@
         },
         "additionalProperties": false,
         "description": "The information required to create a subscription"
+      },
+      "CreateWebhookNotification": {
+        "required": [
+          "authenticationType",
+          "description",
+          "httpMethod",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification"
+          },
+          "httpMethod": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The HTTP method such as GET, POST, etc. to use on the request"
+          },
+          "url": {
+            "maxLength": 16384,
+            "minLength": 1,
+            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s])*\\}\\}))*$",
+            "type": "string",
+            "description": "The URL to send the request to"
+          },
+          "authenticationType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of authentication to use on the request"
+          },
+          "authenticationConfigurationItemPaths": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken' and optionally 'BearerScheme'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }",
+            "nullable": true
+          },
+          "contentType": {
+            "type": "string",
+            "description": "The type of the content e.g. Json",
+            "nullable": true
+          },
+          "content": {
+            "description": "The content of the request",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The information required to create a notification which, when processed, will trigger a webhook"
       },
       "Delivery": {
         "required": [
@@ -3155,20 +3782,23 @@
             "description": "The time at which the subscription was made",
             "format": "date-time"
           },
-          "userIdCreated": {
+          "createdBy": {
             "minLength": 1,
             "type": "string",
-            "description": "The user who made the subscription"
+            "description": "The user who made the subscription",
+            "readOnly": true
           },
-          "modifiedAt": {
+          "lastModifiedAt": {
             "type": "string",
             "description": "The time at which the subscription was last modified",
-            "format": "date-time"
+            "format": "date-time",
+            "readOnly": true
           },
-          "userIdModified": {
+          "lastModifiedBy": {
             "minLength": 1,
             "type": "string",
-            "description": "The user who last modified the subscription"
+            "description": "The user who last modified the subscription",
+            "readOnly": true
           }
         },
         "additionalProperties": false,
@@ -3190,6 +3820,14 @@
         ],
         "type": "object",
         "properties": {
+          "notifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Notification"
+            },
+            "description": "List of notifications belonging to a subscription",
+            "nullable": true
+          },
           "id": {
             "$ref": "#/components/schemas/ResourceId"
           },
@@ -3216,40 +3854,54 @@
             "description": "The time at which the subscription was made",
             "format": "date-time"
           },
-          "userIdCreated": {
+          "createdBy": {
             "minLength": 1,
             "type": "string",
-            "description": "The user who made the subscription"
+            "description": "The user who made the subscription",
+            "readOnly": true
           },
-          "modifiedAt": {
+          "lastModifiedAt": {
             "type": "string",
             "description": "The time at which the subscription was last modified",
-            "format": "date-time"
+            "format": "date-time",
+            "readOnly": true
           },
-          "userIdModified": {
+          "lastModifiedBy": {
             "minLength": 1,
             "type": "string",
-            "description": "The user who last modified the subscription"
+            "description": "The user who last modified the subscription",
+            "readOnly": true
           }
         },
         "additionalProperties": false,
         "description": "Subscription that contains its list of notifications"
       },
-      "UpdateNotification": {
+      "UpdateAwsSqsNotification": {
         "required": [
+          "apiKeyRef",
+          "apiSecretRef",
+          "body",
           "description",
-          "notificationContent",
-          "notificationType"
+          "queueUrlRef"
         ],
         "type": "object",
         "properties": {
-          "displayName": {
-            "maxLength": 64,
-            "minLength": 0,
+          "apiKeyRef": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Reference to API key from Configuration Store"
+          },
+          "apiSecretRef": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Reference to API secret from Configuration Store"
+          },
+          "body": {
+            "maxLength": 1024,
+            "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The name of the notification",
-            "nullable": true
+            "description": "The body of the Amazon Queue Message"
           },
           "description": {
             "maxLength": 512,
@@ -3258,17 +3910,120 @@
             "type": "string",
             "description": "The summary of the services provided by the notification"
           },
-          "notificationType": {
+          "queueUrlRef": {
             "minLength": 1,
             "type": "string",
-            "description": "The type of notification"
-          },
-          "notificationContent": {
-            "description": "The contents of the notification."
+            "description": "Reference to queue url from Configuration Store"
           }
         },
         "additionalProperties": false,
-        "description": "The information required to update a notification"
+        "description": "The information required to create a notification which, when processed, will send an notification to Amazon SQS"
+      },
+      "UpdateEmailNotification": {
+        "required": [
+          "description",
+          "emailAddressTo",
+          "plainTextBody",
+          "subject"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification"
+          },
+          "subject": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The subject of the email"
+          },
+          "plainTextBody": {
+            "maxLength": 2147483647,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The plain text body of the email"
+          },
+          "htmlBody": {
+            "maxLength": 2147483647,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The HTML body of the email (if any)",
+            "nullable": true
+          },
+          "emailAddressTo": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "'To' recipients of the email"
+          },
+          "emailAddressCc": {
+            "maxItems": 10,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "'Cc' recipients of the email",
+            "nullable": true
+          },
+          "emailAddressBcc": {
+            "maxItems": 10,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "'Bcc' recipients of the email",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The information required to update an Email notification"
+      },
+      "UpdateSmsNotification": {
+        "required": [
+          "body",
+          "description",
+          "recipients"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification"
+          },
+          "body": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The body of the SMS"
+          },
+          "recipients": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The phone numbers to which the SMS will be sent to (E.164 format)"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The information required to update an SMS notification"
       },
       "UpdateSubscription": {
         "required": [
@@ -3304,6 +4059,61 @@
         },
         "additionalProperties": false,
         "description": "The information required to update a subscription"
+      },
+      "UpdateWebhookNotification": {
+        "required": [
+          "authenticationType",
+          "description",
+          "httpMethod",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification"
+          },
+          "httpMethod": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The HTTP method such as GET, POST, etc. to use on the request"
+          },
+          "url": {
+            "maxLength": 16384,
+            "minLength": 1,
+            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s])*\\}\\}))*$",
+            "type": "string",
+            "description": "The URL to send the request to"
+          },
+          "authenticationType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of authentication to use on the request"
+          },
+          "authenticationConfigurationItemPaths": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "The paths of the Configuration Store configuration items that contain the authentication configuration. Each\r\nauthentication type requires different keys:\r\n- Lusid - None required\r\n- BasicAuth - Requires 'Username' and 'Password'\r\n- BearerToken - Requires 'BearerToken' and optionally 'BearerScheme'\r\n            \r\ne.g. the following would be valid assuming that the config is present in the configuration store at the\r\nspecified paths:\r\n            \r\n    \"authenticationType\": \"BasicAuth\",\r\n    \"authenticationConfigurationItemPaths\": {\r\n        \"Username\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminUser\",\r\n        \"Password\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminPassword\"\r\n    }",
+            "nullable": true
+          },
+          "contentType": {
+            "type": "string",
+            "description": "The type of the content e.g. Json",
+            "nullable": true
+          },
+          "content": {
+            "description": "The content of the request",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The information required to update a Webhook notification"
       }
     },
     "securitySchemes": {

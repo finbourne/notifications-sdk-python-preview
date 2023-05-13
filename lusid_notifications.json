@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.679-2",
+    "version": "0.1.683-2",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -161,99 +161,6 @@
         "x-fbn-apistatus": "Experimental"
       }
     },
-    "/api/events": {
-      "post": {
-        "tags": [
-          "Events"
-        ],
-        "summary": "[EXPERIMENTAL] CreateEvent: Create a new event.",
-        "operationId": "CreateEvent",
-        "requestBody": {
-          "description": "The data to create an event.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {},
-              "example": {
-                "eventType": "Manual",
-                "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
-                "message": "TestMessage",
-                "subject": "TestSubject",
-                "eventTime": "2021-08-27T17:39:02.9427036+01:00"
-              }
-            },
-            "application/json": {
-              "schema": {},
-              "example": {
-                "eventType": "Manual",
-                "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
-                "message": "TestMessage",
-                "subject": "TestSubject",
-                "eventTime": "2021-08-27T17:39:02.9427036+01:00"
-              }
-            },
-            "text/json": {
-              "schema": {},
-              "example": {
-                "eventType": "Manual",
-                "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
-                "message": "TestMessage",
-                "subject": "TestSubject",
-                "eventTime": "2021-08-27T17:39:02.9427036+01:00"
-              }
-            },
-            "application/*+json": {
-              "schema": {},
-              "example": {
-                "eventType": "Manual",
-                "id": "acb5722d-341a-4802-b9fd-cf740a6a7797",
-                "message": "TestMessage",
-                "subject": "TestSubject",
-                "eventTime": "2021-08-27T17:39:02.9427036+01:00"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EventDetails"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "Experimental"
-      }
-    },
     "/api/eventtypes": {
       "get": {
         "tags": [
@@ -349,6 +256,119 @@
               "application/json": {
                 "schema": {
                   "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/manualevent": {
+      "post": {
+        "tags": [
+          "ManualEvent"
+        ],
+        "summary": "[EXPERIMENTAL] TriggerManualEvent: Trigger a manual event.",
+        "operationId": "TriggerManualEvent",
+        "requestBody": {
+          "description": "The data required to trigger a manual event.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualEventRequest"
+              },
+              "example": {
+                "Body": {
+                  "subject": "TestSubject",
+                  "message": "TestMessage",
+                  "jsonMessage": {
+                    "TestField1": "TestValue1",
+                    "TestField2": "TestValue2"
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualEventRequest"
+              },
+              "example": {
+                "Body": {
+                  "subject": "TestSubject",
+                  "message": "TestMessage",
+                  "jsonMessage": {
+                    "TestField1": "TestValue1",
+                    "TestField2": "TestValue2"
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualEventRequest"
+              },
+              "example": {
+                "Body": {
+                  "subject": "TestSubject",
+                  "message": "TestMessage",
+                  "jsonMessage": {
+                    "TestField1": "TestValue1",
+                    "TestField2": "TestValue2"
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualEventRequest"
+              },
+              "example": {
+                "Body": {
+                  "subject": "TestSubject",
+                  "message": "TestMessage",
+                  "jsonMessage": {
+                    "TestField1": "TestValue1",
+                    "TestField2": "TestValue2"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManualEvent"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
                 }
               }
             }
@@ -1151,8 +1171,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Email",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Email",
                       "Subject": "Event with id of {{id}}",
                       "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
                       "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
@@ -1173,8 +1193,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Sms",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Sms",
                       "Body": "Event with message {{message}} and subject {{subject}}",
                       "Recipients": [
                         "+447000000000"
@@ -1187,8 +1207,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "ApiRequest",
                       "HttpMethod": "Post",
                       "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
                       "Content": {
@@ -1203,8 +1223,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Webhook",
                       "HttpMethod": "Post",
                       "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                       "AuthenticationType": "BearerToken",
@@ -1224,8 +1244,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "AmazonSqs",
                       "Body": "Event with message {{message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
@@ -1245,8 +1265,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Email",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Email",
                       "Subject": "Event with id of {{id}}",
                       "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
                       "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
@@ -1267,8 +1287,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Sms",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Sms",
                       "Body": "Event with message {{message}} and subject {{subject}}",
                       "Recipients": [
                         "+447000000000"
@@ -1281,8 +1301,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "ApiRequest",
                       "HttpMethod": "Post",
                       "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
                       "Content": {
@@ -1297,8 +1317,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Webhook",
                       "HttpMethod": "Post",
                       "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                       "AuthenticationType": "BearerToken",
@@ -1318,8 +1338,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "AmazonSqs",
                       "Body": "Event with message {{message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
@@ -1339,8 +1359,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Email",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Email",
                       "Subject": "Event with id of {{id}}",
                       "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
                       "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
@@ -1361,8 +1381,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Sms",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Sms",
                       "Body": "Event with message {{message}} and subject {{subject}}",
                       "Recipients": [
                         "+447000000000"
@@ -1375,8 +1395,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "ApiRequest",
                       "HttpMethod": "Post",
                       "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
                       "Content": {
@@ -1391,8 +1411,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Webhook",
                       "HttpMethod": "Post",
                       "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                       "AuthenticationType": "BearerToken",
@@ -1412,8 +1432,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "AmazonSqs",
                       "Body": "Event with message {{message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
@@ -1433,8 +1453,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Email",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Email",
                       "Subject": "Event with id of {{id}}",
                       "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
                       "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
@@ -1455,8 +1475,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Sms",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Sms",
                       "Body": "Event with message {{message}} and subject {{subject}}",
                       "Recipients": [
                         "+447000000000"
@@ -1469,8 +1489,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "ApiRequest",
                       "HttpMethod": "Post",
                       "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
                       "Content": {
@@ -1485,8 +1505,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Webhook",
                       "HttpMethod": "Post",
                       "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                       "AuthenticationType": "BearerToken",
@@ -1506,8 +1526,8 @@
                     "notificationId": "TestId",
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "AmazonSqs",
                       "Body": "Event with message {{message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
@@ -1749,8 +1769,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Email",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Email",
                       "Subject": "Event with id of {{id}}",
                       "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
                       "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
@@ -1770,8 +1790,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Sms",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Sms",
                       "Body": "Event with message {{message}} and subject {{subject}}",
                       "Recipients": [
                         "+447000000000"
@@ -1783,8 +1803,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "ApiRequest",
                       "HttpMethod": "Post",
                       "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
                       "Content": {
@@ -1798,8 +1818,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Webhook",
                       "HttpMethod": "Post",
                       "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                       "AuthenticationType": "BearerToken",
@@ -1818,8 +1838,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "AmazonSqs",
                       "Body": "Event with message {{message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
@@ -1838,8 +1858,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Email",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Email",
                       "Subject": "Event with id of {{id}}",
                       "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
                       "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
@@ -1859,8 +1879,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Sms",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Sms",
                       "Body": "Event with message {{message}} and subject {{subject}}",
                       "Recipients": [
                         "+447000000000"
@@ -1872,8 +1892,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "ApiRequest",
                       "HttpMethod": "Post",
                       "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
                       "Content": {
@@ -1887,8 +1907,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Webhook",
                       "HttpMethod": "Post",
                       "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                       "AuthenticationType": "BearerToken",
@@ -1907,8 +1927,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "AmazonSqs",
                       "Body": "Event with message {{message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
@@ -1927,8 +1947,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Email",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Email",
                       "Subject": "Event with id of {{id}}",
                       "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
                       "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
@@ -1948,8 +1968,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Sms",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Sms",
                       "Body": "Event with message {{message}} and subject {{subject}}",
                       "Recipients": [
                         "+447000000000"
@@ -1961,8 +1981,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "ApiRequest",
                       "HttpMethod": "Post",
                       "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
                       "Content": {
@@ -1976,8 +1996,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Webhook",
                       "HttpMethod": "Post",
                       "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                       "AuthenticationType": "BearerToken",
@@ -1996,8 +2016,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "AmazonSqs",
                       "Body": "Event with message {{message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
@@ -2016,8 +2036,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Email",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Email",
                       "Subject": "Event with id of {{id}}",
                       "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
                       "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
@@ -2037,8 +2057,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Sms",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Sms",
                       "Body": "Event with message {{message}} and subject {{subject}}",
                       "Recipients": [
                         "+447000000000"
@@ -2050,8 +2070,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "ApiRequest",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "ApiRequest",
                       "HttpMethod": "Post",
                       "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
                       "Content": {
@@ -2065,8 +2085,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "Webhook",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "Webhook",
                       "HttpMethod": "Post",
                       "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
                       "AuthenticationType": "BearerToken",
@@ -2085,8 +2105,8 @@
                   "value": {
                     "displayName": "TestDisplayName",
                     "description": "Example description",
-                    "notificationType": "AmazonSqs",
-                    "notificationContent": {
+                    "notificationType": {
+                      "Type": "AmazonSqs",
                       "Body": "Event with message {{message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
@@ -2403,7 +2423,6 @@
       "CreateNotification": {
         "required": [
           "description",
-          "notificationContent",
           "notificationId",
           "notificationType"
         ],
@@ -2432,12 +2451,7 @@
             "description": "The summary of the services provided by the notification"
           },
           "notificationType": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The type of notification"
-          },
-          "notificationContent": {
-            "description": "The contents of the notification."
+            "description": "The contents of the notification type."
           }
         },
         "additionalProperties": false,
@@ -2532,20 +2546,6 @@
         },
         "additionalProperties": false
       },
-      "EventDetails": {
-        "required": [
-          "id"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The identifier of the event.",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
       "EventTypeSchema": {
         "required": [
           "jsonSchema"
@@ -2555,6 +2555,11 @@
           "id": {
             "type": "string",
             "description": "The identifier of the event type",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Identifier name of the event",
             "nullable": true
           },
           "description": {
@@ -2567,11 +2572,6 @@
             "description": "The entity against which the event originated",
             "nullable": true
           },
-          "eventName": {
-            "type": "string",
-            "description": "Identifier name of the event",
-            "nullable": true
-          },
           "application": {
             "type": "string",
             "description": "The application associated with the event",
@@ -2579,6 +2579,12 @@
           },
           "jsonSchema": {
             "description": "The schema of the event"
+          },
+          "href": {
+            "type": "string",
+            "description": "A URI for retrieving this schema",
+            "format": "uri",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -2791,6 +2797,84 @@
           }
         },
         "additionalProperties": false
+      },
+      "ManualEvent": {
+        "required": [
+          "body",
+          "header"
+        ],
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/ManualEventHeader"
+          },
+          "body": {
+            "$ref": "#/components/schemas/ManualEventBody"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Details of a manually triggered event"
+      },
+      "ManualEventBody": {
+        "required": [
+          "message",
+          "subject"
+        ],
+        "type": "object",
+        "properties": {
+          "subject": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The subject of the manual event"
+          },
+          "message": {
+            "maxLength": 2147483647,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The message of the manual event"
+          },
+          "jsonMessage": {
+            "description": "The JSON message of the manual event",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The body of the manual event"
+      },
+      "ManualEventHeader": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "The timestamp of the manual event",
+            "format": "date-time"
+          },
+          "eventId": {
+            "type": "string",
+            "description": "The event ID of the manual event",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "description": "The user ID of the manual event",
+            "nullable": true
+          },
+          "requestId": {
+            "type": "string",
+            "description": "The request ID of the manual event",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The header of the manual event"
+      },
+      "ManualEventRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "description": "The information required to trigger a manual event"
       },
       "MatchingPattern": {
         "required": [
@@ -3238,7 +3322,6 @@
       "UpdateNotification": {
         "required": [
           "description",
-          "notificationContent",
           "notificationType"
         ],
         "type": "object",
@@ -3259,12 +3342,7 @@
             "description": "The summary of the services provided by the notification"
           },
           "notificationType": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The type of notification"
-          },
-          "notificationContent": {
-            "description": "The contents of the notification."
+            "description": "The contents of the notification type."
           }
         },
         "additionalProperties": false,
@@ -3336,7 +3414,7 @@
       "description": "Methods for discovering possible event types."
     },
     {
-      "name": "Events",
+      "name": "ManualEvent",
       "description": "Methods for triggering events."
     },
     {
@@ -3354,7 +3432,7 @@
       "Application Metadata",
       "Deliveries",
       "EventTypes",
-      "Events",
+      "ManualEvent",
       "Notifications",
       "Subscriptions"
     ]

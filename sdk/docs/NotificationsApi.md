@@ -48,7 +48,7 @@ with lusid_notifications.ApiClient(configuration) as api_client:
     api_instance = lusid_notifications.NotificationsApi(api_client)
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
-create_notification = {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":"Email","notificationContent":{"Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # CreateNotification | The data to create a notification
+create_notification = {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # CreateNotification | The data to create a notification
 
     try:
         # [EXPERIMENTAL] CreateNotification: Add a notification to a subscription.
@@ -357,7 +357,7 @@ with lusid_notifications.ApiClient(configuration) as api_client:
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
 id = 'id_example' # str | The unique identifier of the notification
-update_notification = {"displayName":"TestDisplayName","description":"Example description","notificationType":"Email","notificationContent":{"Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # UpdateNotification | The data to update a notification
+update_notification = {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # UpdateNotification | The data to update a notification
 
     try:
         # [EXPERIMENTAL] UpdateNotification: Update an email notification for a given subscription.

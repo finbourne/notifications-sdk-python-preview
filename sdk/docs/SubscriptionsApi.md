@@ -160,7 +160,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_subscription**
-> SubscriptionDetail get_subscription(scope, code)
+> Subscription get_subscription(scope, code)
 
 [EXPERIMENTAL] GetSubscription: Get a subscription.
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubscriptionDetail**](SubscriptionDetail.md)
+[**Subscription**](Subscription.md)
 
 ### Authorization
 

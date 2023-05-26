@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | [**ResourceId**](ResourceId.md) |  | 
 **display_name** | **str** | The name of the subscription | 
-**description** | **str** | The summary of the services provided by the subscription | 
+**description** | **str** | The summary of the services provided by the subscription | [optional] 
 **status** | **str** | The current status of the subscription. Possible values are: Active, Inactive | 
 **matching_pattern** | [**MatchingPattern**](MatchingPattern.md) |  | 
 

@@ -6,7 +6,7 @@ The information required to update a subscription
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_name** | **str** | The name of the subscription | 
-**description** | **str** | The summary of the services provided by the subscription | 
+**description** | **str** | The summary of the services provided by the subscription | [optional] 
 **status** | **str** | The current status of the subscription. Possible values are: Active, Inactive | 
 **matching_pattern** | [**MatchingPattern**](MatchingPattern.md) |  | 
 

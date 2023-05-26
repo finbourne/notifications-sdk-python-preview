@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **trigger_manual_event**
-> ManualEvent trigger_manual_event(body)
+> ManualEvent trigger_manual_event(manual_event_request)
 
 [EXPERIMENTAL] TriggerManualEvent: Trigger a manual event.
 
@@ -42,11 +42,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid_notification.ManualEventApi(api_client)
-    body = {"Body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}} # object | The data required to trigger a manual event.
+    manual_event_request = {"Body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}} # ManualEventRequest | The data required to trigger a manual event.
 
     try:
         # [EXPERIMENTAL] TriggerManualEvent: Trigger a manual event.
-        api_response = api_instance.trigger_manual_event(body)
+        api_response = api_instance.trigger_manual_event(manual_event_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManualEventApi->trigger_manual_event: %s\n" % e)
@@ -56,7 +56,7 @@ with lusid_notification.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**| The data required to trigger a manual event. | 
+ **manual_event_request** | [**ManualEventRequest**](ManualEventRequest.md)| The data required to trigger a manual event. | 
 
 ### Return type
 

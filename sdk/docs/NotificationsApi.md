@@ -4,17 +4,17 @@ All URIs are relative to *https://www.lusid.com/notification*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_notification**](NotificationsApi.md#create_notification) | **POST** /api/subscriptions/{scope}/{code}/notifications | [EXPERIMENTAL] CreateNotification: Add a notification to a subscription.
+[**create_notification**](NotificationsApi.md#create_notification) | **POST** /api/subscriptions/{scope}/{code}/notifications | [EXPERIMENTAL] CreateNotification: Add a Notification to a Subscription.
 [**delete_notification**](NotificationsApi.md#delete_notification) | **DELETE** /api/subscriptions/{scope}/{code}/notifications/{id} | [EXPERIMENTAL] DeleteNotification: Delete a notification for a given subscription.
 [**get_notification**](NotificationsApi.md#get_notification) | **GET** /api/subscriptions/{scope}/{code}/notifications/{id} | [EXPERIMENTAL] GetNotification: Get a notification on a subscription.
 [**list_notifications**](NotificationsApi.md#list_notifications) | **GET** /api/subscriptions/{scope}/{code}/notifications | [EXPERIMENTAL] ListNotifications: List all notifications on a subscription.
-[**update_notification**](NotificationsApi.md#update_notification) | **PUT** /api/subscriptions/{scope}/{code}/notifications/{id} | [EXPERIMENTAL] UpdateNotification: Update an email notification for a given subscription.
+[**update_notification**](NotificationsApi.md#update_notification) | **PUT** /api/subscriptions/{scope}/{code}/notifications/{id} | [EXPERIMENTAL] UpdateNotification: Update a Notification for a Subscription
 
 
 # **create_notification**
-> Notification create_notification(scope, code, create_notification)
+> Notification create_notification(scope, code, create_notification_request)
 
-[EXPERIMENTAL] CreateNotification: Add a notification to a subscription.
+[EXPERIMENTAL] CreateNotification: Add a Notification to a Subscription.
 
 ### Example
 
@@ -48,11 +48,11 @@ with lusid_notification.ApiClient(configuration) as api_client:
     api_instance = lusid_notification.NotificationsApi(api_client)
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
-create_notification = {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # CreateNotification | The data to create a notification
+create_notification_request = {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # CreateNotificationRequest | The data to create a notification
 
     try:
-        # [EXPERIMENTAL] CreateNotification: Add a notification to a subscription.
-        api_response = api_instance.create_notification(scope, code, create_notification)
+        # [EXPERIMENTAL] CreateNotification: Add a Notification to a Subscription.
+        api_response = api_instance.create_notification(scope, code, create_notification_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling NotificationsApi->create_notification: %s\n" % e)
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **str**| The scope that identifies a subscription | 
  **code** | **str**| The code that identifies a subscription | 
- **create_notification** | [**CreateNotification**](CreateNotification.md)| The data to create a notification | 
+ **create_notification_request** | [**CreateNotificationRequest**](CreateNotificationRequest.md)| The data to create a notification | 
 
 ### Return type
 
@@ -320,9 +320,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_notification**
-> Notification update_notification(scope, code, id, update_notification)
+> Notification update_notification(scope, code, id, update_notification_request)
 
-[EXPERIMENTAL] UpdateNotification: Update an email notification for a given subscription.
+[EXPERIMENTAL] UpdateNotification: Update a Notification for a Subscription
 
 ### Example
 
@@ -357,11 +357,11 @@ with lusid_notification.ApiClient(configuration) as api_client:
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
 id = 'id_example' # str | The unique identifier of the notification
-update_notification = {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # UpdateNotification | The data to update a notification
+update_notification_request = {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # UpdateNotificationRequest | The data to update a notification
 
     try:
-        # [EXPERIMENTAL] UpdateNotification: Update an email notification for a given subscription.
-        api_response = api_instance.update_notification(scope, code, id, update_notification)
+        # [EXPERIMENTAL] UpdateNotification: Update a Notification for a Subscription
+        api_response = api_instance.update_notification(scope, code, id, update_notification_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling NotificationsApi->update_notification: %s\n" % e)
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
  **scope** | **str**| The scope that identifies a subscription | 
  **code** | **str**| The code that identifies a subscription | 
  **id** | **str**| The unique identifier of the notification | 
- **update_notification** | [**UpdateNotification**](UpdateNotification.md)| The data to update a notification | 
+ **update_notification_request** | [**UpdateNotificationRequest**](UpdateNotificationRequest.md)| The data to update a notification | 
 
 ### Return type
 

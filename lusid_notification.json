@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.706",
+    "version": "0.1.711",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -359,6 +359,22 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ManualEvent"
+                },
+                "example": {
+                  "header": {
+                    "timestamp": "1970-01-01T00:00:00.0000000+00:00",
+                    "eventId": "TestEventId",
+                    "userId": "TestUserId",
+                    "requestId": "TestRequestId"
+                  },
+                  "body": {
+                    "subject": "TestSubject",
+                    "message": "TestMessage",
+                    "jsonMessage": {
+                      "TestField1": "TestValue1",
+                      "TestField2": "TestValue2"
+                    }
+                  }
                 }
               }
             }
@@ -1130,7 +1146,7 @@
         "tags": [
           "Notifications"
         ],
-        "summary": "[EXPERIMENTAL] CreateNotification: Add a notification to a subscription.",
+        "summary": "[EXPERIMENTAL] CreateNotification: Add a Notification to a Subscription.",
         "operationId": "CreateNotification",
         "parameters": [
           {
@@ -1163,7 +1179,7 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateNotification"
+                "$ref": "#/components/schemas/CreateNotificationRequest"
               },
               "examples": {
                 "Create Email Notification": {
@@ -1257,7 +1273,7 @@
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateNotification"
+                "$ref": "#/components/schemas/CreateNotificationRequest"
               },
               "examples": {
                 "Create Email Notification": {
@@ -1351,7 +1367,7 @@
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateNotification"
+                "$ref": "#/components/schemas/CreateNotificationRequest"
               },
               "examples": {
                 "Create Email Notification": {
@@ -1445,7 +1461,7 @@
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateNotification"
+                "$ref": "#/components/schemas/CreateNotificationRequest"
               },
               "examples": {
                 "Create Email Notification": {
@@ -1717,7 +1733,7 @@
         "tags": [
           "Notifications"
         ],
-        "summary": "[EXPERIMENTAL] UpdateNotification: Update an email notification for a given subscription.",
+        "summary": "[EXPERIMENTAL] UpdateNotification: Update a Notification for a Subscription",
         "operationId": "UpdateNotification",
         "parameters": [
           {
@@ -1762,7 +1778,7 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNotification"
+                "$ref": "#/components/schemas/UpdateNotificationRequest"
               },
               "examples": {
                 "Update Email Notification": {
@@ -1851,7 +1867,7 @@
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNotification"
+                "$ref": "#/components/schemas/UpdateNotificationRequest"
               },
               "examples": {
                 "Update Email Notification": {
@@ -1940,7 +1956,7 @@
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNotification"
+                "$ref": "#/components/schemas/UpdateNotificationRequest"
               },
               "examples": {
                 "Update Email Notification": {
@@ -2029,7 +2045,7 @@
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNotification"
+                "$ref": "#/components/schemas/UpdateNotificationRequest"
               },
               "examples": {
                 "Update Email Notification": {
@@ -2482,9 +2498,9 @@
         "additionalProperties": false,
         "description": "Status of the delivery attempt."
       },
-      "CreateNotification": {
+      "CreateNotificationRequest": {
         "required": [
-          "description",
+          "displayName",
           "notificationId",
           "notificationType"
         ],
@@ -2502,15 +2518,15 @@
             "minLength": 0,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The name of the notification",
-            "nullable": true
+            "description": "The name of the notification"
           },
           "description": {
             "maxLength": 512,
             "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The summary of the services provided by the notification"
+            "description": "The summary of the services provided by the notification",
+            "nullable": true
           },
           "notificationType": {
             "oneOf": [
@@ -3013,7 +3029,15 @@
         "description": "The header of the manual event"
       },
       "ManualEventRequest": {
+        "required": [
+          "body"
+        ],
         "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/components/schemas/ManualEventBody"
+          }
+        },
         "additionalProperties": false,
         "description": "The information required to trigger a manual event"
       },
@@ -3426,9 +3450,9 @@
         "additionalProperties": false,
         "description": "A subscription object"
       },
-      "UpdateNotification": {
+      "UpdateNotificationRequest": {
         "required": [
-          "description",
+          "displayName",
           "notificationType"
         ],
         "type": "object",
@@ -3438,15 +3462,15 @@
             "minLength": 0,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The name of the notification",
-            "nullable": true
+            "description": "The name of the notification"
           },
           "description": {
             "maxLength": 512,
             "minLength": 1,
             "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The summary of the services provided by the notification"
+            "description": "The summary of the services provided by the notification",
+            "nullable": true
           },
           "notificationType": {
             "oneOf": [

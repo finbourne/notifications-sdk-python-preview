@@ -1,4 +1,4 @@
-# lusid_notifications.ApplicationMetadataApi
+# lusid_notification.ApplicationMetadataApi
 
 All URIs are relative to *https://www.lusid.com/notification*
 
@@ -20,12 +20,12 @@ Get the comprehensive set of resources that are available for access control
 ```python
 from __future__ import print_function
 import time
-import lusid_notifications
-from lusid_notifications.rest import ApiException
+import lusid_notification
+from lusid_notification.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 
@@ -35,15 +35,15 @@ configuration = lusid_notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with lusid_notifications.ApiClient(configuration) as api_client:
+with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.ApplicationMetadataApi(api_client)
+    api_instance = lusid_notification.ApplicationMetadataApi(api_client)
     
     try:
         # [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control

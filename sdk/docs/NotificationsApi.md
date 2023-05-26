@@ -1,4 +1,4 @@
-# lusid_notifications.NotificationsApi
+# lusid_notification.NotificationsApi
 
 All URIs are relative to *https://www.lusid.com/notification*
 
@@ -22,12 +22,12 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import lusid_notifications
-from lusid_notifications.rest import ApiException
+import lusid_notification
+from lusid_notification.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 
@@ -37,15 +37,15 @@ configuration = lusid_notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with lusid_notifications.ApiClient(configuration) as api_client:
+with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.NotificationsApi(api_client)
+    api_instance = lusid_notification.NotificationsApi(api_client)
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
 create_notification = {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}} # CreateNotification | The data to create a notification
@@ -99,12 +99,12 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import lusid_notifications
-from lusid_notifications.rest import ApiException
+import lusid_notification
+from lusid_notification.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 
@@ -114,15 +114,15 @@ configuration = lusid_notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with lusid_notifications.ApiClient(configuration) as api_client:
+with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.NotificationsApi(api_client)
+    api_instance = lusid_notification.NotificationsApi(api_client)
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
 id = 'id_example' # str | The unique identifier of the notification
@@ -176,12 +176,12 @@ void (empty response body)
 ```python
 from __future__ import print_function
 import time
-import lusid_notifications
-from lusid_notifications.rest import ApiException
+import lusid_notification
+from lusid_notification.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 
@@ -191,15 +191,15 @@ configuration = lusid_notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with lusid_notifications.ApiClient(configuration) as api_client:
+with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.NotificationsApi(api_client)
+    api_instance = lusid_notification.NotificationsApi(api_client)
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
 id = 'id_example' # str | The unique identifier of the notification
@@ -254,12 +254,12 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import lusid_notifications
-from lusid_notifications.rest import ApiException
+import lusid_notification
+from lusid_notification.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 
@@ -269,15 +269,15 @@ configuration = lusid_notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with lusid_notifications.ApiClient(configuration) as api_client:
+with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.NotificationsApi(api_client)
+    api_instance = lusid_notification.NotificationsApi(api_client)
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
 
@@ -330,12 +330,12 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import lusid_notifications
-from lusid_notifications.rest import ApiException
+import lusid_notification
+from lusid_notification.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 
@@ -345,15 +345,15 @@ configuration = lusid_notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with lusid_notifications.ApiClient(configuration) as api_client:
+with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.NotificationsApi(api_client)
+    api_instance = lusid_notification.NotificationsApi(api_client)
     scope = 'scope_example' # str | The scope that identifies a subscription
 code = 'code_example' # str | The code that identifies a subscription
 id = 'id_example' # str | The unique identifier of the notification

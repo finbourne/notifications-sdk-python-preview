@@ -1,4 +1,4 @@
-# lusid_notifications.ManualEventApi
+# lusid_notification.ManualEventApi
 
 All URIs are relative to *https://www.lusid.com/notification*
 
@@ -18,12 +18,12 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import lusid_notifications
-from lusid_notifications.rest import ApiException
+import lusid_notification
+from lusid_notification.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 
@@ -33,15 +33,15 @@ configuration = lusid_notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with lusid_notifications.ApiClient(configuration) as api_client:
+with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.ManualEventApi(api_client)
+    api_instance = lusid_notification.ManualEventApi(api_client)
     body = {"Body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}} # object | The data required to trigger a manual event.
 
     try:

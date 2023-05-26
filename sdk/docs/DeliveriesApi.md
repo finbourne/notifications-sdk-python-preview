@@ -1,4 +1,4 @@
-# lusid_notifications.DeliveriesApi
+# lusid_notification.DeliveriesApi
 
 All URIs are relative to *https://www.lusid.com/notification*
 
@@ -20,12 +20,12 @@ Currently only returns deliveries with failed attempts.
 ```python
 from __future__ import print_function
 import time
-import lusid_notifications
-from lusid_notifications.rest import ApiException
+import lusid_notification
+from lusid_notification.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 
@@ -35,15 +35,15 @@ configuration = lusid_notifications.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = lusid_notifications.Configuration(
+configuration = lusid_notification.Configuration(
     host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with lusid_notifications.ApiClient(configuration) as api_client:
+with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = lusid_notifications.DeliveriesApi(api_client)
+    api_instance = lusid_notification.DeliveriesApi(api_client)
     page = 'page_example' # str | The pagination token to use to continue listing delivery attempts. This value is returned from the previous call. When this field is supplied the filter field should not be supplied. (optional)
 limit = 56 # int | The maximum number of delivery attempts to retrieve. Defaults to 5000 if not specified. (optional)
 filter = 'filter_example' # str | Expression to filter the result set. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)

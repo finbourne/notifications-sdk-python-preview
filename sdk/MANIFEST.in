@@ -1,1 +1,1 @@
-include lusid_notifications/utilities/config_keys.json
+include lusid_notification/utilities/config_keys.json

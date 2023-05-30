@@ -41,14 +41,14 @@ REQUIRES = [
 ]
 
 version = {}
-with open("./lusid_notifications/__version__.py") as fp:
+with open("./lusid_notification/__version__.py") as fp:
     exec(fp.read(), version)
 
 setup(
 
-    name='lusid-notifications-sdk-preview',
+    name='lusid-notification-sdk-preview',
     version=version['__version__'],
-    description='Python Preview SDK for Notifications API',
+    description='Python Preview SDK for Notification API',
     url='https://github.com/finbourne/notifications-sdk-python-preview',
     author='FINBOURNE Technology',
     author_email='engineering@finbourne.com',

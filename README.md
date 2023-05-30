@@ -1,4 +1,4 @@
-# LUSID<sup>®</sup> Notifications Python Preview SDK
+# LUSID<sup>®</sup> Notification Python Preview SDK
 
 ![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
 
@@ -8,20 +8,20 @@
 
 ## Installation
 
-The PyPi package for the LUSID Notifications Preview SDK can installed using the following:
+The PyPi package for the LUSID Notification Preview SDK can installed using the following:
 
 ```
-$ pip install lusid-notifications-sdk-preview finbourne-sdk-utilities
+$ pip install lusid-notification-sdk-preview finbourne-sdk-utilities
 ```
 
 ## Usage
 
 ```
-import lusid_notifications
+import lusid_notification
 from fbnsdkutilities import ApiClientFactory
 
-api_factory = ApiClientFactory(lusid_notifications, api_secrets_filename="secrets.json")
-event_types_api = api_factory.build(lusid_notifications.api.EventTypesApi)
+api_factory = ApiClientFactory(lusid_notification, api_secrets_filename="secrets.json")
+event_types_api = api_factory.build(lusid_notification.api.EventTypesApi)
 
 response = event_types_api.list_event_types().values
 print(response)

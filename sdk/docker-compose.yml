@@ -15,7 +15,7 @@ services:
       - FBN_PROXY_ADDRESS
       - FBN_PROXY_USERNAME
       - FBN_PROXY_PASSWORD
-      - FBN_NOTIFICATIONS_API_URL=${FBN_BASE_API_URL}/notifications
+      - FBN_NOTIFICATIONS_API_URL=${FBN_BASE_API_URL}/notification
       - FBN_ACCESS_TOKEN=${FBN_ACCESS_TOKEN}
     volumes:
       - .:/usr/src

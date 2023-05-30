@@ -49,7 +49,7 @@ setup(
     name='lusid-notification-sdk-preview',
     version=version['__version__'],
     description='Python Preview SDK for Notification API',
-    url='https://github.com/finbourne/notifications-sdk-python-preview',
+    url='https://github.com/finbourne/notifications-sdk-python-preview/tree/v2',
     author='FINBOURNE Technology',
     author_email='engineering@finbourne.com',
     license='MIT',

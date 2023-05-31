@@ -5,7 +5,7 @@ A notification object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The identifier of the notification | [readonly] 
+**id** | **str** | The identifier of the notification | 
 **display_name** | **str** | The name of the notification | [optional] 
 **description** | **str** | The summary of the services provided by the notification | [optional] 
 **delivery_channel** | **str** | The medium through which the notification is delivered | 
@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **content** | **dict(str, object)** | The contents of the notification | 
 **status** | [**NotificationStatus**](NotificationStatus.md) |  | [optional] 
 **created_at** | **datetime** | The time at which the subscription was made | 
-**created_by** | **str** | The user who made the subscription | [readonly] 
-**last_modified_at** | **datetime** | The time at which the subscription was last modified | [readonly] 
-**last_modified_by** | **str** | The user who last modified the subscription | [readonly] 
+**created_by** | **str** | The user who made the subscription | 
+**last_modified_at** | **datetime** | The time at which the subscription was last modified | 
+**last_modified_by** | **str** | The user who last modified the subscription | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

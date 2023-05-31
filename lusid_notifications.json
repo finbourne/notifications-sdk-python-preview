@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.711",
+    "version": "0.1.714",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -487,25 +487,34 @@
                     {
                       "notifications": [
                         {
-                          "id": "TestId",
-                          "description": "TestDescription",
-                          "displayName": "TestDisplayName",
+                          "id": "Example id",
+                          "displayName": "Example name",
+                          "description": "Example description",
                           "deliveryChannel": "Email",
                           "recipients": {
-                            "To": "dummyEmail"
+                            "EmailAddressTo": [
+                              "recipient@finbourne.com"
+                            ],
+                            "EmailAddressCc": [
+                              "recipientcc@finbourne.com"
+                            ],
+                            "EmailAddressBcc": [
+                              "recipientbcc@finbourne.com"
+                            ]
                           },
                           "content": {
-                            "Subject": "dummySubject",
-                            "Body": "dummyBody"
+                            "Subject": "Event with id of {{id}}",
+                            "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
+                            "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>"
                           },
                           "status": {
-                            "result": "Sent",
-                            "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                            "result": "Unprocessed",
+                            "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
                           },
                           "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                          "createdBy": "TestClient",
+                          "createdBy": "Example user",
                           "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                          "lastModifiedBy": "TestClient"
+                          "lastModifiedBy": "Example user"
                         }
                       ],
                       "id": {
@@ -1227,8 +1236,8 @@
                 },
                 "example": {
                   "id": "Example id",
-                  "description": "Example description",
                   "displayName": "Example name",
+                  "description": "Example description",
                   "deliveryChannel": "AwsSqs",
                   "recipients": {
                     "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
@@ -1387,25 +1396,26 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
+                  "id": "Example id",
+                  "displayName": "Example name",
+                  "description": "Example description",
+                  "deliveryChannel": "AwsSqs",
                   "recipients": {
-                    "To": "dummyEmail"
+                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                    "Body": "Event with message {{message}}"
                   },
                   "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                    "result": "Unprocessed",
+                    "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
+                  "createdBy": "Example user",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "lastModifiedBy": "Example user"
                 }
               }
             }
@@ -1576,26 +1586,144 @@
                 "schema": {
                   "$ref": "#/components/schemas/Notification"
                 },
-                "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
-                  "recipients": {
-                    "To": "dummyEmail"
+                "examples": {
+                  "Email Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "Email",
+                      "recipients": {
+                        "EmailAddressTo": [
+                          "recipient@finbourne.com"
+                        ],
+                        "EmailAddressCc": [
+                          "recipientcc@finbourne.com"
+                        ],
+                        "EmailAddressBcc": [
+                          "recipientbcc@finbourne.com"
+                        ]
+                      },
+                      "content": {
+                        "Subject": "Event with id of {{id}}",
+                        "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
+                        "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                  "SMS Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "SMS",
+                      "recipients": {
+                        "Recipients": [
+                          "+447000000000"
+                        ]
+                      },
+                      "content": {
+                        "Body": "Event with message {{message}} and subject {{subject}}"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  "Api Request Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "ApiRequest",
+                      "recipients": {
+                        "Method": "Post",
+                        "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}"
+                      },
+                      "content": {
+                        "Content": {
+                          "Key": "Value Example",
+                          "MessageKey": "{{message}}"
+                        }
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
-                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "Webhook Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "Webhook",
+                      "recipients": {
+                        "Method": "Post",
+                        "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                        "AuthenticationType": "BearerToken",
+                        "AuthenticationConfigurationItemPaths": {
+                          "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                        }
+                      },
+                      "content": {
+                        "ContentType": "Json",
+                        "Content": {
+                          "Key": "Value Example",
+                          "MessageKey": "{{message}}"
+                        }
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
+                  },
+                  "AWS SQS Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "AwsSqs",
+                      "recipients": {
+                        "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                        "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                        "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      },
+                      "content": {
+                        "Body": "Event with message {{message}}"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
+                  }
                 }
               }
             }
@@ -1769,25 +1897,26 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
+                  "id": "Example id",
+                  "displayName": "Example name",
+                  "description": "Example description",
+                  "deliveryChannel": "AwsSqs",
                   "recipients": {
-                    "To": "dummyEmail"
+                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                    "Body": "Event with message {{message}}"
                   },
                   "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                    "result": "Unprocessed",
+                    "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
+                  "createdBy": "Example user",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "lastModifiedBy": "Example user"
                 }
               }
             }
@@ -1926,26 +2055,144 @@
                 "schema": {
                   "$ref": "#/components/schemas/Notification"
                 },
-                "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
-                  "recipients": {
-                    "To": "dummyEmail"
+                "examples": {
+                  "Email Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "Email",
+                      "recipients": {
+                        "EmailAddressTo": [
+                          "recipient@finbourne.com"
+                        ],
+                        "EmailAddressCc": [
+                          "recipientcc@finbourne.com"
+                        ],
+                        "EmailAddressBcc": [
+                          "recipientbcc@finbourne.com"
+                        ]
+                      },
+                      "content": {
+                        "Subject": "Event with id of {{id}}",
+                        "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
+                        "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                  "SMS Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "SMS",
+                      "recipients": {
+                        "Recipients": [
+                          "+447000000000"
+                        ]
+                      },
+                      "content": {
+                        "Body": "Event with message {{message}} and subject {{subject}}"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  "Api Request Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "ApiRequest",
+                      "recipients": {
+                        "Method": "Post",
+                        "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}"
+                      },
+                      "content": {
+                        "Content": {
+                          "Key": "Value Example",
+                          "MessageKey": "{{message}}"
+                        }
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
-                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "Webhook Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "Webhook",
+                      "recipients": {
+                        "Method": "Post",
+                        "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                        "AuthenticationType": "BearerToken",
+                        "AuthenticationConfigurationItemPaths": {
+                          "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                        }
+                      },
+                      "content": {
+                        "ContentType": "Json",
+                        "Content": {
+                          "Key": "Value Example",
+                          "MessageKey": "{{message}}"
+                        }
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
+                  },
+                  "AWS SQS Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "AwsSqs",
+                      "recipients": {
+                        "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                        "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                        "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      },
+                      "content": {
+                        "Body": "Event with message {{message}}"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
+                  }
                 }
               }
             }
@@ -2087,25 +2334,26 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
+                  "id": "Example id",
+                  "displayName": "Example name",
+                  "description": "Example description",
+                  "deliveryChannel": "AwsSqs",
                   "recipients": {
-                    "To": "dummyEmail"
+                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                    "Body": "Event with message {{message}}"
                   },
                   "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                    "result": "Unprocessed",
+                    "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
+                  "createdBy": "Example user",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "lastModifiedBy": "Example user"
                 }
               }
             }
@@ -2272,26 +2520,144 @@
                 "schema": {
                   "$ref": "#/components/schemas/Notification"
                 },
-                "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
-                  "recipients": {
-                    "To": "dummyEmail"
+                "examples": {
+                  "Email Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "Email",
+                      "recipients": {
+                        "EmailAddressTo": [
+                          "recipient@finbourne.com"
+                        ],
+                        "EmailAddressCc": [
+                          "recipientcc@finbourne.com"
+                        ],
+                        "EmailAddressBcc": [
+                          "recipientbcc@finbourne.com"
+                        ]
+                      },
+                      "content": {
+                        "Subject": "Event with id of {{id}}",
+                        "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
+                        "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                  "SMS Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "SMS",
+                      "recipients": {
+                        "Recipients": [
+                          "+447000000000"
+                        ]
+                      },
+                      "content": {
+                        "Body": "Event with message {{message}} and subject {{subject}}"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  "Api Request Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "ApiRequest",
+                      "recipients": {
+                        "Method": "Post",
+                        "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}"
+                      },
+                      "content": {
+                        "Content": {
+                          "Key": "Value Example",
+                          "MessageKey": "{{message}}"
+                        }
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
                   },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
-                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "Webhook Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "Webhook",
+                      "recipients": {
+                        "Method": "Post",
+                        "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                        "AuthenticationType": "BearerToken",
+                        "AuthenticationConfigurationItemPaths": {
+                          "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                        }
+                      },
+                      "content": {
+                        "ContentType": "Json",
+                        "Content": {
+                          "Key": "Value Example",
+                          "MessageKey": "{{message}}"
+                        }
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
+                  },
+                  "AWS SQS Notification": {
+                    "value": {
+                      "id": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "deliveryChannel": "AwsSqs",
+                      "recipients": {
+                        "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                        "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                        "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      },
+                      "content": {
+                        "Body": "Event with message {{message}}"
+                      },
+                      "status": {
+                        "result": "Unprocessed",
+                        "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "createdBy": "Example user",
+                      "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "lastModifiedBy": "Example user"
+                    }
+                  }
                 }
               }
             }
@@ -2461,25 +2827,26 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
+                  "id": "Example id",
+                  "displayName": "Example name",
+                  "description": "Example description",
+                  "deliveryChannel": "AwsSqs",
                   "recipients": {
-                    "To": "dummyEmail"
+                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                    "Body": "Event with message {{message}}"
                   },
                   "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                    "result": "Unprocessed",
+                    "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
+                  "createdBy": "Example user",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "lastModifiedBy": "Example user"
                 }
               }
             }
@@ -2574,25 +2941,26 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
+                  "id": "Example id",
+                  "displayName": "Example name",
+                  "description": "Example description",
+                  "deliveryChannel": "AwsSqs",
                   "recipients": {
-                    "To": "dummyEmail"
+                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                    "Body": "Event with message {{message}}"
                   },
                   "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                    "result": "Unprocessed",
+                    "lastUpdated": "0001-01-01T00:00:00.0000000+00:00"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
+                  "createdBy": "Example user",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "lastModifiedBy": "Example user"
                 }
               }
             }
@@ -3461,15 +3829,8 @@
           "id": {
             "minLength": 1,
             "type": "string",
-            "description": "The identifier of the notification"
-          },
-          "description": {
-            "maxLength": 512,
-            "minLength": 1,
-            "pattern": "^[\\s\\S]*$",
-            "type": "string",
-            "description": "The summary of the services provided by the notification",
-            "nullable": true
+            "description": "The identifier of the notification",
+            "readOnly": true
           },
           "displayName": {
             "maxLength": 64,
@@ -3477,6 +3838,14 @@
             "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "The name of the notification",
+            "nullable": true
+          },
+          "description": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "The summary of the services provided by the notification",
             "nullable": true
           },
           "deliveryChannel": {
@@ -3510,17 +3879,20 @@
           "createdBy": {
             "minLength": 1,
             "type": "string",
-            "description": "The user who made the subscription"
+            "description": "The user who made the subscription",
+            "readOnly": true
           },
           "lastModifiedAt": {
             "type": "string",
             "description": "The time at which the subscription was last modified",
-            "format": "date-time"
+            "format": "date-time",
+            "readOnly": true
           },
           "lastModifiedBy": {
             "minLength": 1,
             "type": "string",
-            "description": "The user who last modified the subscription"
+            "description": "The user who last modified the subscription",
+            "readOnly": true
           }
         },
         "additionalProperties": false,
@@ -3750,10 +4122,7 @@
           "lastModifiedAt",
           "lastModifiedBy",
           "matchingPattern",
-          "modifiedAt",
-          "status",
-          "userIdCreated",
-          "userIdModified"
+          "status"
         ],
         "type": "object",
         "properties": {

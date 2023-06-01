@@ -5,6 +5,7 @@ The information required to create or update an SMS notification
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**type** | **str** | The type of delivery mechanism for this notification | 
 **body** | **str** | The body of the SMS | 
 **recipients** | **list[str]** | The phone numbers to which the SMS will be sent to (E.164 format) | 
 

@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.711",
+    "version": "0.1.717",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1564,26 +1564,114 @@
                 "schema": {
                   "$ref": "#/components/schemas/Notification"
                 },
-                "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
-                  "recipients": {
-                    "To": "dummyEmail"
+                "examples": {
+                  "Email Notification": {
+                    "value": {
+                      "notificationId": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "notificationType": {
+                        "Type": "Email",
+                        "Subject": "Event with id of {{id}}",
+                        "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
+                        "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                        "EmailAddressTo": [
+                          "recipient@finbourne.com"
+                        ],
+                        "EmailAddressCc": [
+                          "recipientcc@finbourne.com"
+                        ],
+                        "EmailAddressBcc": [
+                          "recipientbcc@finbourne.com"
+                        ]
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "userIdCreated": "Example user",
+                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "userIdModified": "Example user"
+                    }
                   },
-                  "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
+                  "SMS Notification": {
+                    "value": {
+                      "notificationId": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "notificationType": {
+                        "Type": "Sms",
+                        "Body": "Event with message {{message}} and subject {{subject}}",
+                        "Recipients": [
+                          "+447000000000"
+                        ]
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "userIdCreated": "Example user",
+                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "userIdModified": "Example user"
+                    }
                   },
-                  "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  "Api Request Notification": {
+                    "value": {
+                      "notificationId": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "notificationType": {
+                        "Type": "ApiRequest",
+                        "HttpMethod": "Post",
+                        "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
+                        "Content": {
+                          "Key": "Value Example",
+                          "MessageKey": "{{message}}"
+                        }
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "userIdCreated": "Example user",
+                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "userIdModified": "Example user"
+                    }
                   },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
-                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "Webhook Notification": {
+                    "value": {
+                      "notificationId": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "notificationType": {
+                        "Content": {
+                          "Key": "Value Example",
+                          "MessageKey": "{{message}}"
+                        },
+                        "Type": "Webhook",
+                        "HttpMethod": "Post",
+                        "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                        "AuthenticationType": "BearerToken",
+                        "ContentType": "Json",
+                        "AuthenticationConfigurationItemPaths": {
+                          "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
+                        }
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "userIdCreated": "Example user",
+                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "userIdModified": "Example user"
+                    }
+                  },
+                  "AWS SQS Notification": {
+                    "value": {
+                      "notificationId": "Example id",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "notificationType": {
+                        "Type": "AmazonSqs",
+                        "Body": "Event with message {{message}}",
+                        "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                        "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                        "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "userIdCreated": "Example user",
+                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "userIdModified": "Example user"
+                    }
+                  }
                 }
               }
             }
@@ -1668,25 +1756,20 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
-                  "recipients": {
-                    "To": "dummyEmail"
-                  },
-                  "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
-                  },
-                  "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  "notificationId": "Example id",
+                  "displayName": "Example name",
+                  "description": "Example description",
+                  "notificationType": {
+                    "Type": "AmazonSqs",
+                    "Body": "Event with message {{message}}",
+                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
-                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "userIdCreated": "Example user",
+                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "userIdModified": "Example user"
                 }
               }
             }
@@ -2144,25 +2227,20 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "TestId",
-                  "description": "TestDescription",
-                  "displayName": "TestDisplayName",
-                  "deliveryChannel": "Email",
-                  "recipients": {
-                    "To": "dummyEmail"
-                  },
-                  "content": {
-                    "Subject": "dummySubject",
-                    "Body": "dummyBody"
-                  },
-                  "status": {
-                    "result": "Sent",
-                    "lastUpdated": "2020-06-15T12:00:00.0000000+00:00"
+                  "notificationId": "Example id",
+                  "displayName": "Example name",
+                  "description": "Example description",
+                  "notificationType": {
+                    "Type": "AmazonSqs",
+                    "Body": "Event with message {{message}}",
+                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "createdBy": "TestClient",
-                  "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "lastModifiedBy": "TestClient"
+                  "userIdCreated": "Example user",
+                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                  "userIdModified": "Example user"
                 }
               }
             }
@@ -2396,10 +2474,16 @@
           "apiKeyRef",
           "apiSecretRef",
           "body",
-          "queueUrlRef"
+          "queueUrlRef",
+          "type"
         ],
         "type": "object",
         "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of delivery mechanism for this notification"
+          },
           "apiKeyRef": {
             "minLength": 1,
             "type": "string",
@@ -2429,10 +2513,16 @@
       "ApiRequestNotificationType": {
         "required": [
           "httpMethod",
-          "pathAndQuery"
+          "pathAndQuery",
+          "type"
         ],
         "type": "object",
         "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of delivery mechanism for this notification"
+          },
           "httpMethod": {
             "minLength": 1,
             "type": "string",
@@ -2646,10 +2736,16 @@
         "required": [
           "emailAddressTo",
           "plainTextBody",
-          "subject"
+          "subject",
+          "type"
         ],
         "type": "object",
         "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of delivery mechanism for this notification"
+          },
           "subject": {
             "maxLength": 1024,
             "minLength": 1,
@@ -3068,29 +3164,19 @@
       },
       "Notification": {
         "required": [
-          "content",
           "createdAt",
-          "createdBy",
-          "deliveryChannel",
-          "id",
-          "lastModifiedAt",
-          "lastModifiedBy",
-          "recipients"
+          "modifiedAt",
+          "notificationId",
+          "notificationType",
+          "userIdCreated",
+          "userIdModified"
         ],
         "type": "object",
         "properties": {
-          "id": {
+          "notificationId": {
             "minLength": 1,
             "type": "string",
             "description": "The identifier of the notification"
-          },
-          "description": {
-            "maxLength": 512,
-            "minLength": 1,
-            "pattern": "^[\\s\\S]*$",
-            "type": "string",
-            "description": "The summary of the services provided by the notification",
-            "nullable": true
           },
           "displayName": {
             "maxLength": 64,
@@ -3100,45 +3186,33 @@
             "description": "The name of the notification",
             "nullable": true
           },
-          "deliveryChannel": {
+          "description": {
+            "maxLength": 512,
             "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
-            "description": "The medium through which the notification is delivered"
+            "description": "The summary of the services provided by the notification",
+            "nullable": true
           },
-          "recipients": {
-            "type": "object",
-            "additionalProperties": {
-              "nullable": true
-            },
-            "description": "Recipient of the notification"
-          },
-          "content": {
-            "maxLength": 5,
-            "type": "object",
-            "additionalProperties": {
-              "nullable": true
-            },
-            "description": "The contents of the notification"
-          },
-          "status": {
-            "$ref": "#/components/schemas/NotificationStatus"
+          "notificationType": {
+            "description": "The type and contents of the notification"
           },
           "createdAt": {
             "type": "string",
             "description": "The time at which the subscription was made",
             "format": "date-time"
           },
-          "createdBy": {
+          "userIdCreated": {
             "minLength": 1,
             "type": "string",
             "description": "The user who made the subscription"
           },
-          "lastModifiedAt": {
+          "modifiedAt": {
             "type": "string",
             "description": "The time at which the subscription was last modified",
             "format": "date-time"
           },
-          "lastModifiedBy": {
+          "userIdModified": {
             "minLength": 1,
             "type": "string",
             "description": "The user who last modified the subscription"
@@ -3365,10 +3439,16 @@
       "SmsNotificationType": {
         "required": [
           "body",
-          "recipients"
+          "recipients",
+          "type"
         ],
         "type": "object",
         "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of delivery mechanism for this notification"
+          },
           "body": {
             "maxLength": 1024,
             "minLength": 1,
@@ -3392,11 +3472,8 @@
       "Subscription": {
         "required": [
           "createdAt",
-          "createdBy",
           "displayName",
           "id",
-          "lastModifiedAt",
-          "lastModifiedBy",
           "matchingPattern",
           "modifiedAt",
           "status",
@@ -3537,10 +3614,16 @@
           "authenticationType",
           "contentType",
           "httpMethod",
+          "type",
           "url"
         ],
         "type": "object",
         "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of delivery mechanism for this notification"
+          },
           "httpMethod": {
             "minLength": 1,
             "type": "string",

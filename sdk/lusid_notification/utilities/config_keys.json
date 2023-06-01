@@ -4,8 +4,8 @@
       "config": "tokenUrl"
   },
   "api_url": {
-      "env": "FBN_NOTIFICATIONS_API_URL",
-      "config": "notificationsUrl"
+      "env": "FBN_NOTIFICATION_API_URL",
+      "config": "notificationUrl"
   },
   "username": {
       "env": "FBN_USERNAME",

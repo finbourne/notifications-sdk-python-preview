@@ -5,6 +5,7 @@ The information required to create or update an Email notification
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**type** | **str** | The type of delivery mechanism for this notification | 
 **subject** | **str** | The subject of the email | 
 **plain_text_body** | **str** | The plain text body of the email | 
 **html_body** | **str** | The HTML body of the email (if any) | [optional] 

@@ -5,6 +5,7 @@ The information required to create or update a Webhook notification
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**type** | **str** | The type of delivery mechanism for this notification | 
 **http_method** | **str** | The HTTP method such as GET, POST, etc. to use on the request | 
 **url** | **str** | The URL to send the request to | 
 **authentication_type** | **str** | The type of authentication to use on the request | 

@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.732",
+    "version": "0.1.738",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -616,7 +616,7 @@
                     {
                       "notifications": [
                         {
-                          "id": "Example id",
+                          "id": "ExampleId",
                           "displayName": "Example name",
                           "description": "Example description",
                           "deliveryChannel": "Email",
@@ -1368,7 +1368,7 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "Example id",
+                  "id": "ExampleId",
                   "displayName": "Example name",
                   "description": "Example description",
                   "deliveryChannel": "AwsSqs",
@@ -1529,7 +1529,7 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "Example id",
+                  "id": "ExampleId",
                   "displayName": "Example name",
                   "description": "Example description",
                   "deliveryChannel": "AwsSqs",
@@ -1722,7 +1722,7 @@
                 "examples": {
                   "Email Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "Email",
@@ -1754,7 +1754,7 @@
                   },
                   "SMS Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "SMS",
@@ -1778,7 +1778,7 @@
                   },
                   "Api Request Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "ApiRequest",
@@ -1804,7 +1804,7 @@
                   },
                   "Webhook Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "Webhook",
@@ -1835,7 +1835,7 @@
                   },
                   "AWS SQS Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "AwsSqs",
@@ -2030,7 +2030,7 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "Example id",
+                  "id": "ExampleId",
                   "displayName": "Example name",
                   "description": "Example description",
                   "deliveryChannel": "AwsSqs",
@@ -2191,7 +2191,7 @@
                 "examples": {
                   "Email Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "Email",
@@ -2223,7 +2223,7 @@
                   },
                   "SMS Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "SMS",
@@ -2247,7 +2247,7 @@
                   },
                   "Api Request Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "ApiRequest",
@@ -2273,7 +2273,7 @@
                   },
                   "Webhook Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "Webhook",
@@ -2304,7 +2304,7 @@
                   },
                   "AWS SQS Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "AwsSqs",
@@ -2467,7 +2467,7 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "Example id",
+                  "id": "ExampleId",
                   "displayName": "Example name",
                   "description": "Example description",
                   "deliveryChannel": "AwsSqs",
@@ -2656,7 +2656,7 @@
                 "examples": {
                   "Email Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "Email",
@@ -2688,7 +2688,7 @@
                   },
                   "SMS Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "SMS",
@@ -2712,7 +2712,7 @@
                   },
                   "Api Request Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "ApiRequest",
@@ -2738,7 +2738,7 @@
                   },
                   "Webhook Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "Webhook",
@@ -2769,7 +2769,7 @@
                   },
                   "AWS SQS Notification": {
                     "value": {
-                      "id": "Example id",
+                      "id": "ExampleId",
                       "displayName": "Example name",
                       "description": "Example description",
                       "deliveryChannel": "AwsSqs",
@@ -2960,7 +2960,7 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "Example id",
+                  "id": "ExampleId",
                   "displayName": "Example name",
                   "description": "Example description",
                   "deliveryChannel": "AwsSqs",
@@ -3074,7 +3074,7 @@
                   "$ref": "#/components/schemas/Notification"
                 },
                 "example": {
-                  "id": "Example id",
+                  "id": "ExampleId",
                   "displayName": "Example name",
                   "description": "Example description",
                   "deliveryChannel": "AwsSqs",

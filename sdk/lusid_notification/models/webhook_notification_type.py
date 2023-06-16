@@ -43,7 +43,7 @@ class WebhookNotificationType(object):
         'http_method': 'str',
         'url': 'str',
         'authentication_type': 'str',
-        'authentication_configuration_item_paths': 'dict(str, str)',
+        'authentication_configuration_item_paths': 'dict[str, str]',
         'content_type': 'str',
         'content': 'object'
     }
@@ -80,7 +80,7 @@ class WebhookNotificationType(object):
         :param authentication_type:  The type of authentication to use on the request (required)
         :type authentication_type: str
         :param authentication_configuration_item_paths:  The paths of the Configuration Store configuration items that contain the authentication configuration. Each  authentication type requires different keys:  - Lusid - None required  - BasicAuth - Requires 'Username' and 'Password'  - BearerToken - Requires 'BearerToken' and optionally 'BearerScheme'                e.g. the following would be valid assuming that the config is present in the configuration store at the  specified paths:                    \"authenticationType\": \"BasicAuth\",      \"authenticationConfigurationItemPaths\": {          \"Username\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminUser\",          \"Password\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminPassword\"      }
-        :type authentication_configuration_item_paths: dict(str, str)
+        :type authentication_configuration_item_paths: dict[str, str]
         :param content_type:  The type of the content e.g. Json (required)
         :type content_type: str
         :param content:  The content of the request
@@ -233,7 +233,7 @@ class WebhookNotificationType(object):
         The paths of the Configuration Store configuration items that contain the authentication configuration. Each  authentication type requires different keys:  - Lusid - None required  - BasicAuth - Requires 'Username' and 'Password'  - BearerToken - Requires 'BearerToken' and optionally 'BearerScheme'                e.g. the following would be valid assuming that the config is present in the configuration store at the  specified paths:                    \"authenticationType\": \"BasicAuth\",      \"authenticationConfigurationItemPaths\": {          \"Username\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminUser\",          \"Password\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminPassword\"      }  # noqa: E501
 
         :return: The authentication_configuration_item_paths of this WebhookNotificationType.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: dict[str, str]
         """
         return self._authentication_configuration_item_paths
 
@@ -244,7 +244,7 @@ class WebhookNotificationType(object):
         The paths of the Configuration Store configuration items that contain the authentication configuration. Each  authentication type requires different keys:  - Lusid - None required  - BasicAuth - Requires 'Username' and 'Password'  - BearerToken - Requires 'BearerToken' and optionally 'BearerScheme'                e.g. the following would be valid assuming that the config is present in the configuration store at the  specified paths:                    \"authenticationType\": \"BasicAuth\",      \"authenticationConfigurationItemPaths\": {          \"Username\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminUser\",          \"Password\": \"config://personal/myUserId/WebhookConfigurations/ExampleService/AdminPassword\"      }  # noqa: E501
 
         :param authentication_configuration_item_paths: The authentication_configuration_item_paths of this WebhookNotificationType.  # noqa: E501
-        :type authentication_configuration_item_paths: dict(str, str)
+        :type authentication_configuration_item_paths: dict[str, str]
         """
 
         self._authentication_configuration_item_paths = authentication_configuration_item_paths

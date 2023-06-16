@@ -42,7 +42,7 @@ class Notification(object):
         'notification_id': 'str',
         'display_name': 'str',
         'description': 'str',
-        'notification_type': 'OneOfAmazonSqsNotificationTypeApiRequestNotificationTypeEmailNotificationTypeSmsNotificationTypeWebhookNotificationType',
+        'notification_type': 'NotificationNotificationType',
         'created_at': 'datetime',
         'user_id_created': 'str',
         'modified_at': 'datetime',
@@ -83,8 +83,8 @@ class Notification(object):
         :type display_name: str
         :param description:  The summary of the services provided by the notification
         :type description: str
-        :param notification_type:  The type and contents of the notification (required)
-        :type notification_type: lusid_notification.OneOfAmazonSqsNotificationTypeApiRequestNotificationTypeEmailNotificationTypeSmsNotificationTypeWebhookNotificationType
+        :param notification_type:  (required)
+        :type notification_type: lusid_notification.NotificationNotificationType
         :param created_at:  The time at which the subscription was made (required)
         :type created_at: datetime
         :param user_id_created:  The user who made the subscription (required)
@@ -218,10 +218,9 @@ class Notification(object):
     def notification_type(self):
         """Gets the notification_type of this Notification.  # noqa: E501
 
-        The type and contents of the notification  # noqa: E501
 
         :return: The notification_type of this Notification.  # noqa: E501
-        :rtype: lusid_notification.OneOfAmazonSqsNotificationTypeApiRequestNotificationTypeEmailNotificationTypeSmsNotificationTypeWebhookNotificationType
+        :rtype: lusid_notification.NotificationNotificationType
         """
         return self._notification_type
 
@@ -229,10 +228,9 @@ class Notification(object):
     def notification_type(self, notification_type):
         """Sets the notification_type of this Notification.
 
-        The type and contents of the notification  # noqa: E501
 
         :param notification_type: The notification_type of this Notification.  # noqa: E501
-        :type notification_type: lusid_notification.OneOfAmazonSqsNotificationTypeApiRequestNotificationTypeEmailNotificationTypeSmsNotificationTypeWebhookNotificationType
+        :type notification_type: lusid_notification.NotificationNotificationType
         """
         if self.local_vars_configuration.client_side_validation and notification_type is None:  # noqa: E501
             raise ValueError("Invalid value for `notification_type`, must not be `None`")  # noqa: E501

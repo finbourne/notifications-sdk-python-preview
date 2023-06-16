@@ -115,6 +115,7 @@ Class | Method | HTTP request | Description
  - [AmazonSqsNotificationType](docs/AmazonSqsNotificationType.md)
  - [ApiRequestNotificationType](docs/ApiRequestNotificationType.md)
  - [CreateNotificationRequest](docs/CreateNotificationRequest.md)
+ - [CreateNotificationRequestNotificationType](docs/CreateNotificationRequestNotificationType.md)
  - [CreateSubscription](docs/CreateSubscription.md)
  - [EmailNotificationType](docs/EmailNotificationType.md)
  - [EventTypeSchema](docs/EventTypeSchema.md)
@@ -129,6 +130,7 @@ Class | Method | HTTP request | Description
  - [ManualEventRequest](docs/ManualEventRequest.md)
  - [MatchingPattern](docs/MatchingPattern.md)
  - [Notification](docs/Notification.md)
+ - [NotificationNotificationType](docs/NotificationNotificationType.md)
  - [NotificationStatus](docs/NotificationStatus.md)
  - [ResourceId](docs/ResourceId.md)
  - [ResourceListOfAccessControlledResource](docs/ResourceListOfAccessControlledResource.md)
@@ -142,10 +144,13 @@ Class | Method | HTTP request | Description
  - [WebhookNotificationType](docs/WebhookNotificationType.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation For Authorization
 
 
-## oauth2
+Authentication schemes defined for the API:
+<a id="oauth2"></a>
+### oauth2
 
 - **Type**: OAuth
 - **Flow**: implicit

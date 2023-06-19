@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.744-2",
+    "version": "0.1.748",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -58,10 +58,6 @@
                           "type": "StringFieldValue"
                         },
                         {
-                          "name": "client",
-                          "type": "StringFieldValue"
-                        },
-                        {
                           "name": "action",
                           "type": "StringFieldValue"
                         },
@@ -71,10 +67,6 @@
                         },
                         {
                           "name": "timestamp",
-                          "type": "DateTimeFieldValue"
-                        },
-                        {
-                          "name": "effectiveAt",
                           "type": "DateTimeFieldValue"
                         },
                         {
@@ -188,10 +180,6 @@
                       "type": "StringFieldValue"
                     },
                     {
-                      "name": "client",
-                      "type": "StringFieldValue"
-                    },
-                    {
                       "name": "action",
                       "type": "StringFieldValue"
                     },
@@ -201,10 +189,6 @@
                     },
                     {
                       "name": "timestamp",
-                      "type": "DateTimeFieldValue"
-                    },
-                    {
-                      "name": "effectiveAt",
                       "type": "DateTimeFieldValue"
                     },
                     {
@@ -519,7 +503,8 @@
                       "userIdCreated": "TestClient",
                       "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                       "userIdModified": "TestClient",
-                      "useAsAuth": "TestClient"
+                      "useAsAuth": "TestClient",
+                      "href": "https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"
                     }
                   ],
                   "href": "Test:hrefUriString",
@@ -677,7 +662,8 @@
                   "userIdCreated": "TestClient",
                   "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "userIdModified": "TestClient",
-                  "useAsAuth": "TestClient"
+                  "useAsAuth": "TestClient",
+                  "href": "https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"
                 }
               }
             }
@@ -768,7 +754,8 @@
                   "userIdCreated": "TestClient",
                   "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "userIdModified": "TestClient",
-                  "useAsAuth": "TestClient"
+                  "useAsAuth": "TestClient",
+                  "href": "https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"
                 }
               }
             }
@@ -929,7 +916,8 @@
                   "userIdCreated": "TestClient",
                   "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "userIdModified": "TestClient",
-                  "useAsAuth": "TestClient"
+                  "useAsAuth": "TestClient",
+                  "href": "https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"
                 }
               }
             }
@@ -3431,6 +3419,12 @@
             "minLength": 1,
             "type": "string",
             "description": "The user to use as auth for the subscription"
+          },
+          "href": {
+            "type": "string",
+            "description": "A URI for retrieving this subscription",
+            "format": "uri",
+            "nullable": true
           }
         },
         "additionalProperties": false,

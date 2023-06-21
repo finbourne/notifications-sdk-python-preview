@@ -1,4 +1,4 @@
-{
+﻿{
   "openapi": "3.0.1",
   "info": {
     "title": "FINBOURNE Notifications API",
@@ -8,16 +8,15 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.744-2",
+    "version": "0.1.748",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
-    },
-    "description": "FINBOURNE Technology"
+    }
   },
   "servers": [
     {
-      "url": "https://www.lusid.com/notification"
+      "url": "http://localhost"
     }
   ],
   "paths": {
@@ -36,77 +35,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/ResourceListOfEventTypeSchema"
                 },
-                "example": {
-                  "values": [
-                    {
-                      "id": "TestId",
-                      "displayName": "TestDisplayName",
-                      "description": "TestDescription",
-                      "entity": "TestEntity",
-                      "application": "TestApplication",
-                      "headerSchema": [
-                        {
-                          "name": "eventType",
-                          "type": "StringFieldValue"
-                        },
-                        {
-                          "name": "requestId",
-                          "type": "StringFieldValue"
-                        },
-                        {
-                          "name": "userId",
-                          "type": "StringFieldValue"
-                        },
-                        {
-                          "name": "client",
-                          "type": "StringFieldValue"
-                        },
-                        {
-                          "name": "action",
-                          "type": "StringFieldValue"
-                        },
-                        {
-                          "name": "entityType",
-                          "type": "StringFieldValue"
-                        },
-                        {
-                          "name": "timestamp",
-                          "type": "DateTimeFieldValue"
-                        },
-                        {
-                          "name": "effectiveAt",
-                          "type": "DateTimeFieldValue"
-                        },
-                        {
-                          "name": "href",
-                          "type": "StringFieldValue"
-                        }
-                      ],
-                      "bodySchema": [
-                        {
-                          "name": "scope",
-                          "type": "StringFieldValue"
-                        }
-                      ],
-                      "href": "Test:firstString"
-                    }
-                  ],
-                  "href": "Test:hrefUriString",
-                  "nextPage": "nextString",
-                  "previousPage": "previousString",
-                  "links": [
-                    {
-                      "relation": "NextPage",
-                      "href": "Test:nextUriString",
-                      "method": "GET"
-                    },
-                    {
-                      "relation": "PreviousPage",
-                      "href": "Test:previousUriString",
-                      "method": "GET"
-                    }
-                  ]
-                }
+                "example": {"values":[{"id":"TestId","displayName":"TestDisplayName","description":"TestDescription","entity":"TestEntity","application":"TestApplication","headerSchema":[{"name":"eventType","type":"StringFieldValue"},{"name":"requestId","type":"StringFieldValue"},{"name":"userId","type":"StringFieldValue"},{"name":"action","type":"StringFieldValue"},{"name":"entityType","type":"StringFieldValue"},{"name":"timestamp","type":"DateTimeFieldValue"},{"name":"href","type":"StringFieldValue"}],"bodySchema":[{"name":"scope","type":"StringFieldValue"}],"href":"Test:firstString"}],"href":"Test:hrefUriString","nextPage":"nextString","previousPage":"previousString","links":[{"relation":"NextPage","href":"Test:nextUriString","method":"GET"},{"relation":"PreviousPage","href":"Test:previousUriString","method":"GET"}]}
               }
             }
           },
@@ -133,7 +62,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -168,58 +97,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/EventTypeSchema"
                 },
-                "example": {
-                  "id": "TestId",
-                  "displayName": "TestDisplayName",
-                  "description": "TestDescription",
-                  "entity": "TestEntity",
-                  "application": "TestApplication",
-                  "headerSchema": [
-                    {
-                      "name": "eventType",
-                      "type": "StringFieldValue"
-                    },
-                    {
-                      "name": "requestId",
-                      "type": "StringFieldValue"
-                    },
-                    {
-                      "name": "userId",
-                      "type": "StringFieldValue"
-                    },
-                    {
-                      "name": "client",
-                      "type": "StringFieldValue"
-                    },
-                    {
-                      "name": "action",
-                      "type": "StringFieldValue"
-                    },
-                    {
-                      "name": "entityType",
-                      "type": "StringFieldValue"
-                    },
-                    {
-                      "name": "timestamp",
-                      "type": "DateTimeFieldValue"
-                    },
-                    {
-                      "name": "effectiveAt",
-                      "type": "DateTimeFieldValue"
-                    },
-                    {
-                      "name": "href",
-                      "type": "StringFieldValue"
-                    }
-                  ],
-                  "bodySchema": [
-                    {
-                      "name": "scope",
-                      "type": "StringFieldValue"
-                    }
-                  ],
-                  "href": "Test:firstString"
-                }
+                "example": {"id":"TestId","displayName":"TestDisplayName","description":"TestDescription","entity":"TestEntity","application":"TestApplication","headerSchema":[{"name":"eventType","type":"StringFieldValue"},{"name":"requestId","type":"StringFieldValue"},{"name":"userId","type":"StringFieldValue"},{"name":"action","type":"StringFieldValue"},{"name":"entityType","type":"StringFieldValue"},{"name":"timestamp","type":"DateTimeFieldValue"},{"name":"href","type":"StringFieldValue"}],"bodySchema":[{"name":"scope","type":"StringFieldValue"}],"href":"Test:firstString"}
               }
             }
           },
@@ -256,7 +134,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -276,61 +154,25 @@
               "schema": {
                 "$ref": "#/components/schemas/ManualEventRequest"
               },
-              "example": {
-                "Body": {
-                  "subject": "TestSubject",
-                  "message": "TestMessage",
-                  "jsonMessage": {
-                    "TestField1": "TestValue1",
-                    "TestField2": "TestValue2"
-                  }
-                }
-              }
+              "example": {"Body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ManualEventRequest"
               },
-              "example": {
-                "Body": {
-                  "subject": "TestSubject",
-                  "message": "TestMessage",
-                  "jsonMessage": {
-                    "TestField1": "TestValue1",
-                    "TestField2": "TestValue2"
-                  }
-                }
-              }
+              "example": {"Body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ManualEventRequest"
               },
-              "example": {
-                "Body": {
-                  "subject": "TestSubject",
-                  "message": "TestMessage",
-                  "jsonMessage": {
-                    "TestField1": "TestValue1",
-                    "TestField2": "TestValue2"
-                  }
-                }
-              }
+              "example": {"Body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ManualEventRequest"
               },
-              "example": {
-                "Body": {
-                  "subject": "TestSubject",
-                  "message": "TestMessage",
-                  "jsonMessage": {
-                    "TestField1": "TestValue1",
-                    "TestField2": "TestValue2"
-                  }
-                }
-              }
+              "example": {"Body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}}
             }
           },
           "required": true
@@ -343,22 +185,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/ManualEvent"
                 },
-                "example": {
-                  "header": {
-                    "timestamp": "1970-01-01T00:00:00.0000000+00:00",
-                    "eventId": "TestEventId",
-                    "userId": "TestUserId",
-                    "requestId": "TestRequestId"
-                  },
-                  "body": {
-                    "subject": "TestSubject",
-                    "message": "TestMessage",
-                    "jsonMessage": {
-                      "TestField1": "TestValue1",
-                      "TestField2": "TestValue2"
-                    }
-                  }
-                }
+                "example": {"header":{"timestamp":"1970-01-01T00:00:00.0000000+00:00","eventId":"TestEventId","userId":"TestUserId","requestId":"TestRequestId"},"body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}}
               }
             }
           },
@@ -385,7 +212,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -433,7 +260,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "EarlyAccess"
@@ -501,43 +328,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/ResourceListOfSubscription"
                 },
-                "example": {
-                  "values": [
-                    {
-                      "id": {
-                        "scope": "TestScope",
-                        "code": "TestCode"
-                      },
-                      "displayName": "TestDisplayName",
-                      "description": "TestDescription",
-                      "status": "Active",
-                      "matchingPattern": {
-                        "eventType": "Manual",
-                        "filter": "Entity eq 'Portfolio'"
-                      },
-                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                      "userIdCreated": "TestClient",
-                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                      "userIdModified": "TestClient",
-                      "useAsAuth": "TestClient"
-                    }
-                  ],
-                  "href": "Test:hrefUriString",
-                  "nextPage": "nextString",
-                  "previousPage": "previousString",
-                  "links": [
-                    {
-                      "relation": "NextPage",
-                      "href": "Test:nextUriString",
-                      "method": "GET"
-                    },
-                    {
-                      "relation": "PreviousPage",
-                      "href": "Test:previousUriString",
-                      "method": "GET"
-                    }
-                  ]
-                }
+                "example": {"values":[{"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Entity eq 'Portfolio'"},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"TestClient","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"TestClient","useAsAuth":"TestClient","href":"https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"}],"href":"Test:hrefUriString","nextPage":"nextString","previousPage":"previousString","links":[{"relation":"NextPage","href":"Test:nextUriString","method":"GET"},{"relation":"PreviousPage","href":"Test:previousUriString","method":"GET"}]}
               }
             }
           },
@@ -564,7 +355,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -582,73 +373,25 @@
               "schema": {
                 "$ref": "#/components/schemas/CreateSubscription"
               },
-              "example": {
-                "id": {
-                  "scope": "TestScope",
-                  "code": "TestCode"
-                },
-                "displayName": "TestDisplayName",
-                "description": "TestDescription",
-                "status": "Active",
-                "matchingPattern": {
-                  "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
-                }
-              }
+              "example": {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateSubscription"
               },
-              "example": {
-                "id": {
-                  "scope": "TestScope",
-                  "code": "TestCode"
-                },
-                "displayName": "TestDisplayName",
-                "description": "TestDescription",
-                "status": "Active",
-                "matchingPattern": {
-                  "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
-                }
-              }
+              "example": {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateSubscription"
               },
-              "example": {
-                "id": {
-                  "scope": "TestScope",
-                  "code": "TestCode"
-                },
-                "displayName": "TestDisplayName",
-                "description": "TestDescription",
-                "status": "Active",
-                "matchingPattern": {
-                  "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
-                }
-              }
+              "example": {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateSubscription"
               },
-              "example": {
-                "id": {
-                  "scope": "TestScope",
-                  "code": "TestCode"
-                },
-                "displayName": "TestDisplayName",
-                "description": "TestDescription",
-                "status": "Active",
-                "matchingPattern": {
-                  "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
-                }
-              }
+              "example": {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}}
             }
           },
           "required": true
@@ -661,24 +404,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/Subscription"
                 },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "displayName": "TestDisplayName",
-                  "description": "TestDescription",
-                  "status": "Active",
-                  "matchingPattern": {
-                    "eventType": "Manual",
-                    "filter": "Body.Message eq 'TestMessage'"
-                  },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "userIdCreated": "TestClient",
-                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "userIdModified": "TestClient",
-                  "useAsAuth": "TestClient"
-                }
+                "example": {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Body.Message eq 'TestMessage'"},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"TestClient","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"TestClient","useAsAuth":"TestClient","href":"https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"}
               }
             }
           },
@@ -705,7 +431,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -752,24 +478,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/Subscription"
                 },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "displayName": "TestDisplayName",
-                  "description": "TestDescription",
-                  "status": "Active",
-                  "matchingPattern": {
-                    "eventType": "Manual",
-                    "filter": "Body.Message eq 'TestMessage'"
-                  },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "userIdCreated": "TestClient",
-                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "userIdModified": "TestClient",
-                  "useAsAuth": "TestClient"
-                }
+                "example": {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Body.Message eq 'TestMessage'"},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"TestClient","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"TestClient","useAsAuth":"TestClient","href":"https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"}
               }
             }
           },
@@ -806,7 +515,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -850,57 +559,25 @@
               "schema": {
                 "$ref": "#/components/schemas/UpdateSubscription"
               },
-              "example": {
-                "displayName": "TestDisplayName",
-                "description": "TestDescription",
-                "status": "Active",
-                "matchingPattern": {
-                  "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
-                }
-              }
+              "example": {"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateSubscription"
               },
-              "example": {
-                "displayName": "TestDisplayName",
-                "description": "TestDescription",
-                "status": "Active",
-                "matchingPattern": {
-                  "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
-                }
-              }
+              "example": {"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateSubscription"
               },
-              "example": {
-                "displayName": "TestDisplayName",
-                "description": "TestDescription",
-                "status": "Active",
-                "matchingPattern": {
-                  "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
-                }
-              }
+              "example": {"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateSubscription"
               },
-              "example": {
-                "displayName": "TestDisplayName",
-                "description": "TestDescription",
-                "status": "Active",
-                "matchingPattern": {
-                  "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
-                }
-              }
+              "example": {"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}}
             }
           },
           "required": true
@@ -913,24 +590,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/Subscription"
                 },
-                "example": {
-                  "id": {
-                    "scope": "TestScope",
-                    "code": "TestCode"
-                  },
-                  "displayName": "TestDisplayName",
-                  "description": "TestDescription",
-                  "status": "Active",
-                  "matchingPattern": {
-                    "eventType": "Manual",
-                    "filter": "Body.Message eq 'TestMessage'"
-                  },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "userIdCreated": "TestClient",
-                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "userIdModified": "TestClient",
-                  "useAsAuth": "TestClient"
-                }
+                "example": {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Body.Message eq 'TestMessage'"},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"TestClient","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"TestClient","useAsAuth":"TestClient","href":"https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"}
               }
             }
           },
@@ -967,7 +627,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -1041,7 +701,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -1124,7 +784,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -1170,91 +830,19 @@
               },
               "examples": {
                 "Create Email Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}}
                 },
                 "Create SMS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]}}
                 },
                 "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Create Webhook Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"ContentType":"Json","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Create AWS SQS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecret","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"}}
                 }
               }
             },
@@ -1264,91 +852,19 @@
               },
               "examples": {
                 "Create Email Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}}
                 },
                 "Create SMS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]}}
                 },
                 "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Create Webhook Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"ContentType":"Json","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Create AWS SQS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecret","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"}}
                 }
               }
             },
@@ -1358,91 +874,19 @@
               },
               "examples": {
                 "Create Email Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}}
                 },
                 "Create SMS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]}}
                 },
                 "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Create Webhook Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"ContentType":"Json","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Create AWS SQS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecret","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"}}
                 }
               }
             },
@@ -1452,91 +896,19 @@
               },
               "examples": {
                 "Create Email Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}}
                 },
                 "Create SMS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]}}
                 },
                 "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Create Webhook Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"TestDescription","notificationType":{"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"ContentType":"Json","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Create AWS SQS Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                  "value": {"notificationId":"TestId","displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecret","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"}}
                 }
               }
             }
@@ -1553,116 +925,19 @@
                 },
                 "examples": {
                   "Email Notification": {
-                    "value": {
-                      "notificationId": "ExampleId",
-                      "displayName": "Example name",
-                      "description": "Example description",
-                      "notificationType": {
-                        "Type": "Email",
-                        "Subject": "Event with id of {{id}}",
-                        "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                        "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                        "EmailAddressTo": [
-                          "recipient@finbourne.com"
-                        ],
-                        "EmailAddressCc": [
-                          "recipientcc@finbourne.com"
-                        ],
-                        "EmailAddressBcc": [
-                          "recipientbcc@finbourne.com"
-                        ]
-                      },
-                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                      "userIdCreated": "Example user",
-                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                      "userIdModified": "Example user",
-                      "href": "http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"
-                    }
+                    "value": {"notificationId":"ExampleId","displayName":"Example name","description":"Example description","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"Example user","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"Example user","href":"http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"}
                   },
                   "SMS Notification": {
-                    "value": {
-                      "notificationId": "ExampleId",
-                      "displayName": "Example name",
-                      "description": "Example description",
-                      "notificationType": {
-                        "Type": "Sms",
-                        "Body": "Event with message {{message}} and subject {{subject}}",
-                        "Recipients": [
-                          "+447000000000"
-                        ]
-                      },
-                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                      "userIdCreated": "Example user",
-                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                      "userIdModified": "Example user",
-                      "href": "http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"
-                    }
+                    "value": {"notificationId":"ExampleId","displayName":"Example name","description":"Example description","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"Example user","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"Example user","href":"http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"}
                   },
                   "Api Request Notification": {
-                    "value": {
-                      "notificationId": "ExampleId",
-                      "displayName": "Example name",
-                      "description": "Example description",
-                      "notificationType": {
-                        "Type": "ApiRequest",
-                        "HttpMethod": "Post",
-                        "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                        "Content": {
-                          "Key": "Value Example",
-                          "MessageKey": "{{message}}"
-                        }
-                      },
-                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                      "userIdCreated": "Example user",
-                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                      "userIdModified": "Example user",
-                      "href": "http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"
-                    }
+                    "value": {"notificationId":"ExampleId","displayName":"Example name","description":"Example description","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"Example user","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"Example user","href":"http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"}
                   },
                   "Webhook Notification": {
-                    "value": {
-                      "notificationId": "ExampleId",
-                      "displayName": "Example name",
-                      "description": "Example description",
-                      "notificationType": {
-                        "Content": {
-                          "Key": "Value Example",
-                          "MessageKey": "{{message}}"
-                        },
-                        "Type": "Webhook",
-                        "HttpMethod": "Post",
-                        "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                        "AuthenticationType": "BearerToken",
-                        "ContentType": "Json",
-                        "AuthenticationConfigurationItemPaths": {
-                          "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                        }
-                      },
-                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                      "userIdCreated": "Example user",
-                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                      "userIdModified": "Example user",
-                      "href": "http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"
-                    }
+                    "value": {"notificationId":"ExampleId","displayName":"Example name","description":"Example description","notificationType":{"Content":{"Key":"Value Example","MessageKey":"{{message}}"},"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","ContentType":"Json","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"}},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"Example user","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"Example user","href":"http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"}
                   },
                   "AWS SQS Notification": {
-                    "value": {
-                      "notificationId": "ExampleId",
-                      "displayName": "Example name",
-                      "description": "Example description",
-                      "notificationType": {
-                        "Type": "AmazonSqs",
-                        "Body": "Event with message {{message}}",
-                        "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                        "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
-                        "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                      },
-                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                      "userIdCreated": "Example user",
-                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                      "userIdModified": "Example user",
-                      "href": "http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"
-                    }
+                    "value": {"notificationId":"ExampleId","displayName":"Example name","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecretRef","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"Example user","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"Example user","href":"http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"}
                   }
                 }
               }
@@ -1691,7 +966,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -1747,23 +1022,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/Notification"
                 },
-                "example": {
-                  "notificationId": "ExampleId",
-                  "displayName": "Example name",
-                  "description": "Example description",
-                  "notificationType": {
-                    "Type": "AmazonSqs",
-                    "Body": "Event with message {{message}}",
-                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
-                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                  },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "userIdCreated": "Example user",
-                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "userIdModified": "Example user",
-                  "href": "http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"
-                }
+                "example": {"notificationId":"ExampleId","displayName":"Example name","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecretRef","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"Example user","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"Example user","href":"http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"}
               }
             }
           },
@@ -1800,7 +1059,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -1858,86 +1117,19 @@
               },
               "examples": {
                 "Update Email Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}}
                 },
                 "Update SMS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]}}
                 },
                 "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Update Webhook Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"ContentType":"Json","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Update AWS SQS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecret","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"}}
                 }
               }
             },
@@ -1947,86 +1139,19 @@
               },
               "examples": {
                 "Update Email Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}}
                 },
                 "Update SMS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]}}
                 },
                 "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Update Webhook Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"ContentType":"Json","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Update AWS SQS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecret","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"}}
                 }
               }
             },
@@ -2036,86 +1161,19 @@
               },
               "examples": {
                 "Update Email Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}}
                 },
                 "Update SMS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]}}
                 },
                 "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Update Webhook Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"ContentType":"Json","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Update AWS SQS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecret","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"}}
                 }
               }
             },
@@ -2125,86 +1183,19 @@
               },
               "examples": {
                 "Update Email Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                      "EmailAddressTo": [
-                        "recipient@finbourne.com"
-                      ],
-                      "EmailAddressCc": [
-                        "recipientcc@finbourne.com"
-                      ],
-                      "EmailAddressBcc": [
-                        "recipientbcc@finbourne.com"
-                      ]
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Email","Subject":"Event with id of {{id}}","PlainTextBody":"Event with message {{message}} and subject {{subject}}","HtmlBody":"<p>Event with message {{message}} and subject {{subject}}</p>","EmailAddressTo":["recipient@finbourne.com"],"EmailAddressCc":["recipientcc@finbourne.com"],"EmailAddressBcc":["recipientbcc@finbourne.com"]}}
                 },
                 "Update SMS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
-                      "Recipients": [
-                        "+447000000000"
-                      ]
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Sms","Body":"Event with message {{message}} and subject {{subject}}","Recipients":["+447000000000"]}}
                 },
                 "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"ApiRequest","HttpMethod":"Post","PathAndQuery":"notification/api/{{id}}/path?examplequery={{id}}","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Update Webhook Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
-                        "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
-                      },
-                      "ContentType": "Json",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"Webhook","HttpMethod":"Post","Url":"https://example.com/api/{{id}}/path?examplequery={{id}}","AuthenticationType":"BearerToken","AuthenticationConfigurationItemPaths":{"BearerToken":"config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"},"ContentType":"Json","Content":{"Key":"Value Example","MessageKey":"{{message}}"}}}
                 },
                 "Update AWS SQS Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                    }
-                  }
+                  "value": {"displayName":"TestDisplayName","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecret","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"}}
                 }
               }
             }
@@ -2219,23 +1210,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/Notification"
                 },
-                "example": {
-                  "notificationId": "ExampleId",
-                  "displayName": "Example name",
-                  "description": "Example description",
-                  "notificationType": {
-                    "Type": "AmazonSqs",
-                    "Body": "Event with message {{message}}",
-                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
-                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
-                  },
-                  "createdAt": "2020-06-15T12:00:00.0000000+00:00",
-                  "userIdCreated": "Example user",
-                  "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
-                  "userIdModified": "Example user",
-                  "href": "http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"
-                }
+                "example": {"notificationId":"ExampleId","displayName":"Example name","description":"Example description","notificationType":{"Type":"AmazonSqs","Body":"Event with message {{message}}","ApiKeyRef":"config://shared/official/system-a-config/apiKey","ApiSecretRef":"config://shared/official/system-a-config/apiSecretRef","QueueUrlRef":"config://shared/official/system-a-config/queueUrl"},"createdAt":"2020-06-15T12:00:00.0000000+00:00","userIdCreated":"Example user","modifiedAt":"2020-06-20T12:00:00.0000000+00:00","userIdModified":"Example user","href":"http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"}
               }
             }
           },
@@ -2272,7 +1247,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -2355,7 +1330,7 @@
         },
         "security": [
           {
-            "oauth2": []
+            "oauth2": [ ]
           }
         ],
         "x-fbn-apistatus": "Experimental"
@@ -2475,8 +1450,7 @@
         "properties": {
           "type": {
             "minLength": 1,
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification"
+            "type": "string"
           },
           "apiKeyRef": {
             "minLength": 1,
@@ -2514,8 +1488,7 @@
         "properties": {
           "type": {
             "minLength": 1,
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification"
+            "type": "string"
           },
           "httpMethod": {
             "minLength": 1,
@@ -2568,23 +1541,7 @@
             "nullable": true
           },
           "notificationType": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/AmazonSqsNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/ApiRequestNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/EmailNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/SmsNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/WebhookNotificationType"
-              }
-            ],
+            "type": "NotificationType",
             "description": "The contents of the notification type."
           }
         },
@@ -2650,8 +1607,7 @@
         "properties": {
           "type": {
             "minLength": 1,
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification"
+            "type": "string"
           },
           "subject": {
             "maxLength": 1024,
@@ -3110,23 +2066,6 @@
             "nullable": true
           },
           "notificationType": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/AmazonSqsNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/ApiRequestNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/EmailNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/SmsNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/WebhookNotificationType"
-              }
-            ],
             "description": "The type and contents of the notification"
           },
           "createdAt": {
@@ -3175,6 +2114,45 @@
         },
         "additionalProperties": false,
         "description": "The status object of a notification"
+      },
+      "NotificationType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AmazonSqsNotificationType"
+          },
+          {
+            "$ref": "#/components/schemas/ApiRequestNotificationType"
+          },
+          {
+            "$ref": "#/components/schemas/EmailNotificationType"
+          },
+          {
+            "$ref": "#/components/schemas/SmsNotificationType"
+          },
+          {
+            "$ref": "#/components/schemas/WebhookNotificationType"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of delivery mechanism for this notification",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Holds information about a Finbourne.Notifications.WebApi.Dtos.Notifications.Notification that is being created",
+        "discriminator": {
+          "propertyName": "Type",
+          "mapping": {
+            "Email": "#/components/schemas/EmailNotificationType",
+            "SMS": "#/components/schemas/SmsNotificationType",
+            "Webhook": "#/components/schemas/WebhookNotificationType",
+            "ApiRequest": "#/components/schemas/ApiRequestNotificationType",
+            "AwsSqs": "#/components/schemas/AmazonSqsNotificationType"
+          }
+        }
       },
       "ResourceId": {
         "required": [
@@ -3349,8 +2327,7 @@
         "properties": {
           "type": {
             "minLength": 1,
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification"
+            "type": "string"
           },
           "body": {
             "maxLength": 1024,
@@ -3431,6 +2408,12 @@
             "minLength": 1,
             "type": "string",
             "description": "The user to use as auth for the subscription"
+          },
+          "href": {
+            "type": "string",
+            "description": "A URI for retrieving this subscription",
+            "format": "uri",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -3459,23 +2442,7 @@
             "nullable": true
           },
           "notificationType": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/AmazonSqsNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/ApiRequestNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/EmailNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/SmsNotificationType"
-              },
-              {
-                "$ref": "#/components/schemas/WebhookNotificationType"
-              }
-            ],
+            "type": "NotificationType",
             "description": "The contents of the notification type."
           }
         },
@@ -3538,8 +2505,7 @@
         "properties": {
           "type": {
             "minLength": 1,
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification"
+            "type": "string"
           },
           "httpMethod": {
             "minLength": 1,
@@ -3587,15 +2553,15 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
-            "scopes": {}
+            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "scopes": { }
           }
         }
       }
     }
   },
   "security": [
-    {}
+    { }
   ],
   "tags": [
     {

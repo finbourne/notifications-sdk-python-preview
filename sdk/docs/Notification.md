@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **notification_id** | **str** | The identifier of the notification | 
 **display_name** | **str** | The name of the notification | [optional] 
 **description** | **str** | The summary of the services provided by the notification | [optional] 
-**notification_type** | [**NotificationNotificationType**](NotificationNotificationType.md) |  | 
+**notification_type** | **object** | The type and contents of the notification | 
 **created_at** | **datetime** | The time at which the subscription was made | 
 **user_id_created** | **str** | The user who made the subscription | 
 **modified_at** | **datetime** | The time at which the subscription was last modified | 

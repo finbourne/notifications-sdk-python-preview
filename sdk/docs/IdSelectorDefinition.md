@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | **dict(str, str)** |  | 
+**identifier** | **dict[str, str]** |  | 
 **actions** | [**list[ActionId]**](ActionId.md) |  | 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 

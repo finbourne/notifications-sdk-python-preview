@@ -39,7 +39,7 @@ class IdSelectorDefinition(object):
                            and the value is whether it is 'required' or 'optional'.
     """
     openapi_types = {
-        'identifier': 'dict(str, str)',
+        'identifier': 'dict[str, str]',
         'actions': 'list[ActionId]',
         'name': 'str',
         'description': 'str'
@@ -63,7 +63,7 @@ class IdSelectorDefinition(object):
         """IdSelectorDefinition - a model defined in OpenAPI"
         
         :param identifier:  (required)
-        :type identifier: dict(str, str)
+        :type identifier: dict[str, str]
         :param actions:  (required)
         :type actions: list[lusid_notification.ActionId]
         :param name: 
@@ -93,7 +93,7 @@ class IdSelectorDefinition(object):
 
 
         :return: The identifier of this IdSelectorDefinition.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: dict[str, str]
         """
         return self._identifier
 
@@ -103,7 +103,7 @@ class IdSelectorDefinition(object):
 
 
         :param identifier: The identifier of this IdSelectorDefinition.  # noqa: E501
-        :type identifier: dict(str, str)
+        :type identifier: dict[str, str]
         """
         if self.local_vars_configuration.client_side_validation and identifier is None:  # noqa: E501
             raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501

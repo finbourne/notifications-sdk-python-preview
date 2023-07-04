@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.762.2",
+    "version": "0.1.769.3",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1546,17 +1546,17 @@
                       "displayName": "Example name",
                       "description": "Example description",
                       "notificationType": {
-                        "Type": "Email",
-                        "Subject": "Event with id of {{id}}",
-                        "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                        "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
-                        "EmailAddressTo": [
+                        "type": "Email",
+                        "subject": "Event with id of {{id}}",
+                        "plainTextBody": "Event with message {{message}} and subject {{subject}}",
+                        "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                        "emailAddressTo": [
                           "recipient@finbourne.com"
                         ],
-                        "EmailAddressCc": [
+                        "emailAddressCc": [
                           "recipientcc@finbourne.com"
                         ],
-                        "EmailAddressBcc": [
+                        "emailAddressBcc": [
                           "recipientbcc@finbourne.com"
                         ]
                       },
@@ -1573,9 +1573,9 @@
                       "displayName": "Example name",
                       "description": "Example description",
                       "notificationType": {
-                        "Type": "Sms",
-                        "Body": "Event with message {{message}} and subject {{subject}}",
-                        "Recipients": [
+                        "type": "Sms",
+                        "body": "Event with message {{message}} and subject {{subject}}",
+                        "recipients": [
                           "+447000000000"
                         ]
                       },
@@ -1592,10 +1592,10 @@
                       "displayName": "Example name",
                       "description": "Example description",
                       "notificationType": {
-                        "Type": "ApiRequest",
-                        "HttpMethod": "Post",
-                        "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                        "Content": {
+                        "type": "ApiRequest",
+                        "httpMethod": "Post",
+                        "pathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
+                        "content": {
                           "Key": "Value Example",
                           "MessageKey": "{{message}}"
                         }
@@ -1617,11 +1617,11 @@
                           "Key": "Value Example",
                           "MessageKey": "{{message}}"
                         },
-                        "Type": "Webhook",
-                        "HttpMethod": "Post",
-                        "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
-                        "AuthenticationType": "BearerToken",
-                        "ContentType": "Json",
+                        "type": "Webhook",
+                        "httpMethod": "Post",
+                        "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                        "authenticationType": "BearerToken",
+                        "contentType": "Json",
                         "AuthenticationConfigurationItemPaths": {
                           "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                         }
@@ -1639,11 +1639,11 @@
                       "displayName": "Example name",
                       "description": "Example description",
                       "notificationType": {
-                        "Type": "AmazonSqs",
-                        "Body": "Event with message {{message}}",
-                        "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                        "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
-                        "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                        "type": "AmazonSqs",
+                        "body": "Event with message {{message}}",
+                        "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                        "apiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                        "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                       },
                       "createdAt": "2020-06-15T12:00:00.0000000+00:00",
                       "userIdCreated": "Example user",
@@ -1740,11 +1740,11 @@
                   "displayName": "Example name",
                   "description": "Example description",
                   "notificationType": {
-                    "Type": "AmazonSqs",
-                    "Body": "Event with message {{message}}",
-                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
-                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                    "type": "AmazonSqs",
+                    "body": "Event with message {{message}}",
+                    "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "apiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
                   "userIdCreated": "Example user",
@@ -2212,11 +2212,11 @@
                   "displayName": "Example name",
                   "description": "Example description",
                   "notificationType": {
-                    "Type": "AmazonSqs",
-                    "Body": "Event with message {{message}}",
-                    "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                    "ApiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
-                    "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                    "type": "AmazonSqs",
+                    "body": "Event with message {{message}}",
+                    "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                    "apiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                    "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                   },
                   "createdAt": "2020-06-15T12:00:00.0000000+00:00",
                   "userIdCreated": "Example user",
@@ -2497,6 +2497,11 @@
       },
       "AmazonSqsNotificationTypeResponse": {
         "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationTypeResponse"
+          }
+        ],
         "properties": {
           "type": {
             "type": "string",
@@ -2566,6 +2571,11 @@
       },
       "ApiRequestNotificationTypeResponse": {
         "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationTypeResponse"
+          }
+        ],
         "properties": {
           "type": {
             "type": "string",
@@ -2748,6 +2758,11 @@
       },
       "EmailNotificationTypeResponse": {
         "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationTypeResponse"
+          }
+        ],
         "properties": {
           "type": {
             "type": "string",
@@ -3305,23 +3320,6 @@
       },
       "NotificationTypeResponse": {
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/AmazonSqsNotificationTypeResponse"
-          },
-          {
-            "$ref": "#/components/schemas/ApiRequestNotificationTypeResponse"
-          },
-          {
-            "$ref": "#/components/schemas/EmailNotificationTypeResponse"
-          },
-          {
-            "$ref": "#/components/schemas/SmsNotificationTypeResponse"
-          },
-          {
-            "$ref": "#/components/schemas/WebhookNotificationTypeResponse"
-          }
-        ],
         "properties": {
           "type": {
             "type": "string",
@@ -3534,6 +3532,11 @@
       },
       "SmsNotificationTypeResponse": {
         "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationTypeResponse"
+          }
+        ],
         "properties": {
           "type": {
             "type": "string",
@@ -3760,6 +3763,11 @@
       },
       "WebhookNotificationTypeResponse": {
         "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationTypeResponse"
+          }
+        ],
         "properties": {
           "type": {
             "type": "string",

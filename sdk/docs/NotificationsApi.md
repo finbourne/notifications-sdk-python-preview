@@ -1,6 +1,6 @@
 # lusid_notification.NotificationsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://www.lusid.com/notification*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,10 +25,10 @@ import time
 import lusid_notification
 from lusid_notification.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,7 +38,7 @@ configuration = lusid_notification.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -102,10 +102,10 @@ import time
 import lusid_notification
 from lusid_notification.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +115,7 @@ configuration = lusid_notification.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -179,10 +179,10 @@ import time
 import lusid_notification
 from lusid_notification.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -192,7 +192,7 @@ configuration = lusid_notification.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -257,10 +257,10 @@ import time
 import lusid_notification
 from lusid_notification.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -270,7 +270,7 @@ configuration = lusid_notification.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -333,10 +333,10 @@ import time
 import lusid_notification
 from lusid_notification.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://www.lusid.com/notification
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -346,7 +346,7 @@ configuration = lusid_notification.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notification.Configuration(
-    host = "http://localhost"
+    host = "https://www.lusid.com/notification"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

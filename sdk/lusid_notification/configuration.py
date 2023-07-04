@@ -99,7 +99,7 @@ class Configuration(object):
                  ):
         """Constructor
         """
-        self._base_path = "http://localhost" if host is None else host
+        self._base_path = "https://www.lusid.com/notification" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -407,7 +407,7 @@ class Configuration(object):
         """
         return [
             {
-                'url': "http://localhost",
+                'url': "https://www.lusid.com/notification",
                 'description': "No description provided",
             }
         ]

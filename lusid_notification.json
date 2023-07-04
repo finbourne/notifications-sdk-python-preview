@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost"
+      "url": "https://www.lusid.com/notification"
     }
   ],
   "paths": {
@@ -3811,7 +3811,7 @@
         "description": "OAuth2 Implicit Grant",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://dummyurl.lusid.com/",
+            "authorizationUrl": "https://lusid.okta.com/oauth2/default/v1/authorize",
             "scopes": {}
           }
         }

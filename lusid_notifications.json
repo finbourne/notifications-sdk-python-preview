@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.762",
+    "version": "0.1.769",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -282,37 +282,37 @@
                           "header": [
                             {
                               "name": "eventType",
-                              "type": "StringFieldValue"
+                              "type": "String"
                             },
                             {
                               "name": "requestId",
-                              "type": "StringFieldValue"
+                              "type": "String"
                             },
                             {
                               "name": "userId",
-                              "type": "StringFieldValue"
+                              "type": "String"
                             },
                             {
                               "name": "action",
-                              "type": "StringFieldValue"
+                              "type": "String"
                             },
                             {
                               "name": "entityType",
-                              "type": "StringFieldValue"
+                              "type": "String"
                             },
                             {
                               "name": "timestamp",
-                              "type": "DateTimeFieldValue"
+                              "type": "DateTime"
                             },
                             {
                               "name": "href",
-                              "type": "StringFieldValue"
+                              "type": "String"
                             }
                           ],
                           "body": [
                             {
                               "name": "scope",
-                              "type": "StringFieldValue"
+                              "type": "String"
                             }
                           ]
                         }
@@ -407,37 +407,37 @@
                       "header": [
                         {
                           "name": "eventType",
-                          "type": "StringFieldValue"
+                          "type": "String"
                         },
                         {
                           "name": "requestId",
-                          "type": "StringFieldValue"
+                          "type": "String"
                         },
                         {
                           "name": "userId",
-                          "type": "StringFieldValue"
+                          "type": "String"
                         },
                         {
                           "name": "action",
-                          "type": "StringFieldValue"
+                          "type": "String"
                         },
                         {
                           "name": "entityType",
-                          "type": "StringFieldValue"
+                          "type": "String"
                         },
                         {
                           "name": "timestamp",
-                          "type": "DateTimeFieldValue"
+                          "type": "DateTime"
                         },
                         {
                           "name": "href",
-                          "type": "StringFieldValue"
+                          "type": "String"
                         }
                       ],
                       "body": [
                         {
                           "name": "scope",
-                          "type": "StringFieldValue"
+                          "type": "String"
                         }
                       ]
                     }
@@ -718,7 +718,7 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Body.Message eq 'TestMessage'"
+                  "filter": "Message eq 'TestMessage'"
                 }
               }
             },
@@ -736,7 +736,7 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Body.Message eq 'TestMessage'"
+                  "filter": "Message eq 'TestMessage'"
                 }
               }
             },
@@ -754,7 +754,7 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Body.Message eq 'TestMessage'"
+                  "filter": "Message eq 'TestMessage'"
                 }
               }
             },
@@ -772,7 +772,7 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Body.Message eq 'TestMessage'"
+                  "filter": "Message eq 'TestMessage'"
                 }
               }
             }

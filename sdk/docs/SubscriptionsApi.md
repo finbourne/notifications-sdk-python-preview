@@ -46,7 +46,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid_notifications.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid_notifications.SubscriptionsApi(api_client)
-    create_subscription = {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Body.Message eq 'TestMessage'"}} # CreateSubscription | The data to create a subscription
+    create_subscription = {"id":{"scope":"TestScope","code":"TestCode"},"displayName":"TestDisplayName","description":"TestDescription","status":"Active","matchingPattern":{"eventType":"Manual","filter":"Message eq 'TestMessage'"}} # CreateSubscription | The data to create a subscription
 
     try:
         # [EXPERIMENTAL] CreateSubscription: Create a new subscription.

@@ -53,10 +53,10 @@ import lusid_notification
 from lusid_notification.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://www.lusid.com/notification
+# Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = lusid_notification.Configuration(
-    host = "https://www.lusid.com/notification"
+    host = "http://localhost"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -66,7 +66,7 @@ configuration = lusid_notification.Configuration(
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = lusid_notification.Configuration(
-    host = "https://www.lusid.com/notification"
+    host = "http://localhost"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -87,7 +87,7 @@ with lusid_notification.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://www.lusid.com/notification*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -113,10 +113,13 @@ Class | Method | HTTP request | Description
  - [AccessControlledResource](docs/AccessControlledResource.md)
  - [ActionId](docs/ActionId.md)
  - [AmazonSqsNotificationType](docs/AmazonSqsNotificationType.md)
+ - [AmazonSqsNotificationTypeResponse](docs/AmazonSqsNotificationTypeResponse.md)
  - [ApiRequestNotificationType](docs/ApiRequestNotificationType.md)
+ - [ApiRequestNotificationTypeResponse](docs/ApiRequestNotificationTypeResponse.md)
  - [CreateNotificationRequest](docs/CreateNotificationRequest.md)
  - [CreateSubscription](docs/CreateSubscription.md)
  - [EmailNotificationType](docs/EmailNotificationType.md)
+ - [EmailNotificationTypeResponse](docs/EmailNotificationTypeResponse.md)
  - [EventFieldDefinition](docs/EventFieldDefinition.md)
  - [EventTypeSchema](docs/EventTypeSchema.md)
  - [IdSelectorDefinition](docs/IdSelectorDefinition.md)
@@ -132,16 +135,19 @@ Class | Method | HTTP request | Description
  - [Notification](docs/Notification.md)
  - [NotificationStatus](docs/NotificationStatus.md)
  - [NotificationType](docs/NotificationType.md)
+ - [NotificationTypeResponse](docs/NotificationTypeResponse.md)
  - [ResourceId](docs/ResourceId.md)
  - [ResourceListOfAccessControlledResource](docs/ResourceListOfAccessControlledResource.md)
  - [ResourceListOfEventTypeSchema](docs/ResourceListOfEventTypeSchema.md)
  - [ResourceListOfNotification](docs/ResourceListOfNotification.md)
  - [ResourceListOfSubscription](docs/ResourceListOfSubscription.md)
  - [SmsNotificationType](docs/SmsNotificationType.md)
+ - [SmsNotificationTypeResponse](docs/SmsNotificationTypeResponse.md)
  - [Subscription](docs/Subscription.md)
  - [UpdateNotificationRequest](docs/UpdateNotificationRequest.md)
  - [UpdateSubscription](docs/UpdateSubscription.md)
  - [WebhookNotificationType](docs/WebhookNotificationType.md)
+ - [WebhookNotificationTypeResponse](docs/WebhookNotificationTypeResponse.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -154,7 +160,7 @@ Authentication schemes defined for the API:
 
 - **Type**: OAuth
 - **Flow**: implicit
-- **Authorization URL**: https://lusid.okta.com/oauth2/default/v1/authorize
+- **Authorization URL**: https://dummyurl.lusid.com/
 - **Scopes**: N/A
 
 

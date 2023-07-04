@@ -39,33 +39,33 @@ class ManualEventHeader(object):
                            and the value is whether it is 'required' or 'optional'.
     """
     openapi_types = {
+        'event_type': 'str',
         'timestamp': 'datetime',
-        'event_id': 'str',
         'user_id': 'str',
         'request_id': 'str'
     }
 
     attribute_map = {
+        'event_type': 'eventType',
         'timestamp': 'timestamp',
-        'event_id': 'eventId',
         'user_id': 'userId',
         'request_id': 'requestId'
     }
 
     required_map = {
+        'event_type': 'optional',
         'timestamp': 'optional',
-        'event_id': 'optional',
         'user_id': 'optional',
         'request_id': 'optional'
     }
 
-    def __init__(self, timestamp=None, event_id=None, user_id=None, request_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, event_type=None, timestamp=None, user_id=None, request_id=None, local_vars_configuration=None):  # noqa: E501
         """ManualEventHeader - a model defined in OpenAPI"
         
+        :param event_type:  The event type of the manual event
+        :type event_type: str
         :param timestamp:  The timestamp of the manual event
         :type timestamp: datetime
-        :param event_id:  The event ID of the manual event
-        :type event_id: str
         :param user_id:  The user ID of the manual event
         :type user_id: str
         :param request_id:  The request ID of the manual event
@@ -76,17 +76,40 @@ class ManualEventHeader(object):
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._event_type = None
         self._timestamp = None
-        self._event_id = None
         self._user_id = None
         self._request_id = None
         self.discriminator = None
 
+        self.event_type = event_type
         if timestamp is not None:
             self.timestamp = timestamp
-        self.event_id = event_id
         self.user_id = user_id
         self.request_id = request_id
+
+    @property
+    def event_type(self):
+        """Gets the event_type of this ManualEventHeader.  # noqa: E501
+
+        The event type of the manual event  # noqa: E501
+
+        :return: The event_type of this ManualEventHeader.  # noqa: E501
+        :rtype: str
+        """
+        return self._event_type
+
+    @event_type.setter
+    def event_type(self, event_type):
+        """Sets the event_type of this ManualEventHeader.
+
+        The event type of the manual event  # noqa: E501
+
+        :param event_type: The event_type of this ManualEventHeader.  # noqa: E501
+        :type event_type: str
+        """
+
+        self._event_type = event_type
 
     @property
     def timestamp(self):
@@ -110,29 +133,6 @@ class ManualEventHeader(object):
         """
 
         self._timestamp = timestamp
-
-    @property
-    def event_id(self):
-        """Gets the event_id of this ManualEventHeader.  # noqa: E501
-
-        The event ID of the manual event  # noqa: E501
-
-        :return: The event_id of this ManualEventHeader.  # noqa: E501
-        :rtype: str
-        """
-        return self._event_id
-
-    @event_id.setter
-    def event_id(self, event_id):
-        """Sets the event_id of this ManualEventHeader.
-
-        The event ID of the manual event  # noqa: E501
-
-        :param event_id: The event_id of this ManualEventHeader.  # noqa: E501
-        :type event_id: str
-        """
-
-        self._event_id = event_id
 
     @property
     def user_id(self):

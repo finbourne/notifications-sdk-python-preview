@@ -42,7 +42,7 @@ class Notification(object):
         'notification_id': 'str',
         'display_name': 'str',
         'description': 'str',
-        'notification_type': 'object',
+        'notification_type': 'NotificationTypeResponse',
         'created_at': 'datetime',
         'user_id_created': 'str',
         'modified_at': 'datetime',
@@ -64,7 +64,7 @@ class Notification(object):
 
     required_map = {
         'notification_id': 'required',
-        'display_name': 'optional',
+        'display_name': 'required',
         'description': 'optional',
         'notification_type': 'required',
         'created_at': 'required',
@@ -79,12 +79,12 @@ class Notification(object):
         
         :param notification_id:  The identifier of the notification (required)
         :type notification_id: str
-        :param display_name:  The name of the notification
+        :param display_name:  The name of the notification (required)
         :type display_name: str
         :param description:  The summary of the services provided by the notification
         :type description: str
-        :param notification_type:  The type and contents of the notification (required)
-        :type notification_type: object
+        :param notification_type:  (required)
+        :type notification_type: lusid_notification.NotificationTypeResponse
         :param created_at:  The time at which the subscription was made (required)
         :type created_at: datetime
         :param user_id_created:  The user who made the subscription (required)
@@ -170,6 +170,8 @@ class Notification(object):
         :param display_name: The display_name of this Notification.  # noqa: E501
         :type display_name: str
         """
+        if self.local_vars_configuration.client_side_validation and display_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `display_name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 display_name is not None and len(display_name) > 64):
             raise ValueError("Invalid value for `display_name`, length must be less than or equal to `64`")  # noqa: E501
@@ -218,10 +220,9 @@ class Notification(object):
     def notification_type(self):
         """Gets the notification_type of this Notification.  # noqa: E501
 
-        The type and contents of the notification  # noqa: E501
 
         :return: The notification_type of this Notification.  # noqa: E501
-        :rtype: object
+        :rtype: lusid_notification.NotificationTypeResponse
         """
         return self._notification_type
 
@@ -229,11 +230,12 @@ class Notification(object):
     def notification_type(self, notification_type):
         """Sets the notification_type of this Notification.
 
-        The type and contents of the notification  # noqa: E501
 
         :param notification_type: The notification_type of this Notification.  # noqa: E501
-        :type notification_type: object
+        :type notification_type: lusid_notification.NotificationTypeResponse
         """
+        if self.local_vars_configuration.client_side_validation and notification_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `notification_type`, must not be `None`")  # noqa: E501
 
         self._notification_type = notification_type
 

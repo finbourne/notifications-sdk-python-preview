@@ -2497,11 +2497,6 @@
       },
       "AmazonSqsNotificationTypeResponse": {
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationTypeResponse"
-          }
-        ],
         "properties": {
           "type": {
             "type": "string",
@@ -2571,11 +2566,6 @@
       },
       "ApiRequestNotificationTypeResponse": {
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationTypeResponse"
-          }
-        ],
         "properties": {
           "type": {
             "type": "string",
@@ -2758,11 +2748,6 @@
       },
       "EmailNotificationTypeResponse": {
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationTypeResponse"
-          }
-        ],
         "properties": {
           "type": {
             "type": "string",
@@ -3308,26 +3293,28 @@
             "$ref": "#/components/schemas/WebhookNotificationType"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification",
-            "nullable": true
-          }
-        },
         "additionalProperties": false,
         "description": "Holds information about a Finbourne.Notifications.WebApi.Dtos.Notifications.Notification that is being created"
       },
       "NotificationTypeResponse": {
         "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification",
-            "nullable": true,
-            "readOnly": true
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AmazonSqsNotificationTypeResponse"
+          },
+          {
+            "$ref": "#/components/schemas/ApiRequestNotificationTypeResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EmailNotificationTypeResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SmsNotificationTypeResponse"
+          },
+          {
+            "$ref": "#/components/schemas/WebhookNotificationTypeResponse"
           }
-        },
+        ],
         "additionalProperties": false,
         "description": "Holds readonly information about a Finbourne.Notifications.WebApi.Dtos.Notifications.Notification"
       },
@@ -3532,11 +3519,6 @@
       },
       "SmsNotificationTypeResponse": {
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationTypeResponse"
-          }
-        ],
         "properties": {
           "type": {
             "type": "string",
@@ -3763,11 +3745,6 @@
       },
       "WebhookNotificationTypeResponse": {
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationTypeResponse"
-          }
-        ],
         "properties": {
           "type": {
             "type": "string",

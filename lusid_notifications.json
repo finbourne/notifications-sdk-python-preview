@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.773",
+    "version": "0.1.774",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -719,7 +719,8 @@
                 "matchingPattern": {
                   "eventType": "Manual",
                   "filter": "Message eq 'TestMessage'"
-                }
+                },
+                "useAsAuth": "Auth user"
               }
             },
             "application/json": {
@@ -737,7 +738,8 @@
                 "matchingPattern": {
                   "eventType": "Manual",
                   "filter": "Message eq 'TestMessage'"
-                }
+                },
+                "useAsAuth": "Auth user"
               }
             },
             "text/json": {
@@ -755,7 +757,8 @@
                 "matchingPattern": {
                   "eventType": "Manual",
                   "filter": "Message eq 'TestMessage'"
-                }
+                },
+                "useAsAuth": "Auth user"
               }
             },
             "application/*+json": {
@@ -773,7 +776,8 @@
                 "matchingPattern": {
                   "eventType": "Manual",
                   "filter": "Message eq 'TestMessage'"
-                }
+                },
+                "useAsAuth": "Auth user"
               }
             }
           },
@@ -803,7 +807,7 @@
                   "createdBy": "TestClient",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "lastModifiedBy": "TestClient",
-                  "useAsAuth": "TestClient"
+                  "useAsAuth": "Auth user"
                 }
               }
             }
@@ -894,7 +898,7 @@
                   "createdBy": "TestClient",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "lastModifiedBy": "TestClient",
-                  "useAsAuth": "TestClient"
+                  "useAsAuth": "Auth user"
                 }
               }
             }
@@ -982,8 +986,9 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Body.Message eq 'TestMessage'"
-                }
+                  "filter": "Message eq 'TestMessage'"
+                },
+                "useAsAuth": "Auth user"
               }
             },
             "application/json": {
@@ -996,8 +1001,9 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Body.Message eq 'TestMessage'"
-                }
+                  "filter": "Message eq 'TestMessage'"
+                },
+                "useAsAuth": "Auth user"
               }
             },
             "text/json": {
@@ -1010,8 +1016,9 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Body.Message eq 'TestMessage'"
-                }
+                  "filter": "Message eq 'TestMessage'"
+                },
+                "useAsAuth": "Auth user"
               }
             },
             "application/*+json": {
@@ -1024,8 +1031,9 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Body.Message eq 'TestMessage'"
-                }
+                  "filter": "Message eq 'TestMessage'"
+                },
+                "useAsAuth": "Auth user"
               }
             }
           },
@@ -1055,7 +1063,7 @@
                   "createdBy": "TestClient",
                   "lastModifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "lastModifiedBy": "TestClient",
-                  "useAsAuth": "TestClient"
+                  "useAsAuth": "Auth user"
                 }
               }
             }
@@ -3540,7 +3548,7 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "The user to authenticate the subscription",
+            "description": "Id of user associated with subscription. All events associated with \r\nthe subscription will use this user to check entitlements against \r\nthe resource to send a notification. Can be null, in which case \r\nwe'll default to that of the user making this request",
             "nullable": true
           }
         },
@@ -4528,7 +4536,7 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "The user to authenticate with for subscriptions",
+            "description": "Id of user associated with subscription. All events associated with \r\nthe subscription will use this user to check entitlements against \r\nthe resource to send a notification. Can be null, in which case \r\nwe'll default to that of the user making this request",
             "nullable": true
           }
         },

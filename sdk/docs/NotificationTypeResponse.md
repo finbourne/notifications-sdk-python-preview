@@ -5,7 +5,7 @@ Holds readonly information about a Finbourne.Notifications.WebApi.Dtos.Notificat
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** | The type of delivery mechanism for this notification | [optional] [readonly] 
+**type** | **str** | The type of delivery mechanism for this notification | [optional] 
 **api_key_ref** | **str** | Reference to API key from Configuration Store | [optional] 
 **api_secret_ref** | **str** | Reference to API secret from Configuration Store | [optional] 
 **body** | **str** | The body of the SMS | [optional] 

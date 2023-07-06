@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.772.7",
+    "version": "0.1.774.2",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -2377,8 +2377,7 @@
           "type": {
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "apiKeyRef": {
             "type": "string",
@@ -2565,8 +2564,7 @@
           "type": {
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "subject": {
             "type": "string",
@@ -3324,8 +3322,7 @@
           "type": {
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "body": {
             "type": "string",
@@ -3550,8 +3547,7 @@
           "type": {
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "httpMethod": {
             "type": "string",

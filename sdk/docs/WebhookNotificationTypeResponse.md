@@ -5,7 +5,7 @@ Holds readonly information about a Webhook notification
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** | The type of delivery mechanism for this notification | [optional] [readonly] 
+**type** | **str** | The type of delivery mechanism for this notification | [optional] 
 **http_method** | **str** | The HTTP method such as GET, POST, etc. to use on the request | [optional] 
 **url** | **str** | The URL to send the request to | [optional] 
 **authentication_type** | **str** | The type of authentication to use on the request | [optional] 

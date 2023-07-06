@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.772.5",
+    "version": "0.1.772.6",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1193,22 +1193,6 @@
                     }
                   }
                 },
-                "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
                 "Create Webhook Notification": {
                   "value": {
                     "notificationId": "TestId",
@@ -1284,22 +1268,6 @@
                       "Recipients": [
                         "+447000000000"
                       ]
-                    }
-                  }
-                },
-                "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
                     }
                   }
                 },
@@ -1381,22 +1349,6 @@
                     }
                   }
                 },
-                "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
                 "Create Webhook Notification": {
                   "value": {
                     "notificationId": "TestId",
@@ -1472,22 +1424,6 @@
                       "Recipients": [
                         "+447000000000"
                       ]
-                    }
-                  }
-                },
-                "Create Api Request Notification": {
-                  "value": {
-                    "notificationId": "TestId",
-                    "displayName": "TestDisplayName",
-                    "description": "TestDescription",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
                     }
                   }
                 },
@@ -1879,21 +1815,6 @@
                     }
                   }
                 },
-                "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
                 "Update Webhook Notification": {
                   "value": {
                     "displayName": "TestDisplayName",
@@ -1965,21 +1886,6 @@
                       "Recipients": [
                         "+447000000000"
                       ]
-                    }
-                  }
-                },
-                "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
                     }
                   }
                 },
@@ -2057,21 +1963,6 @@
                     }
                   }
                 },
-                "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
-                    }
-                  }
-                },
                 "Update Webhook Notification": {
                   "value": {
                     "displayName": "TestDisplayName",
@@ -2143,21 +2034,6 @@
                       "Recipients": [
                         "+447000000000"
                       ]
-                    }
-                  }
-                },
-                "Update Api Request Notification": {
-                  "value": {
-                    "displayName": "TestDisplayName",
-                    "description": "Example description",
-                    "notificationType": {
-                      "Type": "ApiRequest",
-                      "HttpMethod": "Post",
-                      "PathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
-                      "Content": {
-                        "Key": "Value Example",
-                        "MessageKey": "{{message}}"
-                      }
                     }
                   }
                 },
@@ -2527,69 +2403,6 @@
         },
         "additionalProperties": false,
         "description": "Holds readonly information about an AWS SQS notification"
-      },
-      "ApiRequestNotificationType": {
-        "required": [
-          "httpMethod",
-          "pathAndQuery",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "minLength": 1,
-            "enum": [
-              "ApiRequest"
-            ],
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification"
-          },
-          "httpMethod": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The HTTP method such as GET, POST, etc. to use on the Api Request"
-          },
-          "pathAndQuery": {
-            "maxLength": 16384,
-            "minLength": 1,
-            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s])*\\}\\}))*$",
-            "type": "string",
-            "description": "The url to send the request to."
-          },
-          "content": {
-            "description": "The content of the request",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "The information required to create or update an Api request notification"
-      },
-      "ApiRequestNotificationTypeResponse": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "The type of delivery mechanism for this notification",
-            "nullable": true,
-            "readOnly": true
-          },
-          "httpMethod": {
-            "type": "string",
-            "description": "The HTTP method such as GET, POST, etc. to use on the Api Request",
-            "nullable": true
-          },
-          "pathAndQuery": {
-            "type": "string",
-            "description": "The url to send the request to.",
-            "nullable": true
-          },
-          "content": {
-            "description": "The content of the request",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Holds readonly information about an API request notification"
       },
       "CreateNotificationRequest": {
         "required": [
@@ -3281,9 +3094,6 @@
             "$ref": "#/components/schemas/AmazonSqsNotificationType"
           },
           {
-            "$ref": "#/components/schemas/ApiRequestNotificationType"
-          },
-          {
             "$ref": "#/components/schemas/EmailNotificationType"
           },
           {
@@ -3301,9 +3111,6 @@
         "oneOf": [
           {
             "$ref": "#/components/schemas/AmazonSqsNotificationTypeResponse"
-          },
-          {
-            "$ref": "#/components/schemas/ApiRequestNotificationTypeResponse"
           },
           {
             "$ref": "#/components/schemas/EmailNotificationTypeResponse"

@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.803",
+    "version": "0.1.804",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -338,8 +338,8 @@
                     "subject": "TestSubject",
                     "message": "TestMessage",
                     "jsonMessage": {
-                      "TestField1": "TestValue1",
-                      "TestField2": "TestValue2"
+                      "ExampleJSONField1": "ExampleJSONValue1",
+                      "ExampleJSONField2": "ExampleJSONValue2"
                     }
                   }
                 }
@@ -434,7 +434,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Expression to filter the result set. Read more about <see href=\"https://support.lusid.com/filtering-results-from-lusid\"> filtering results from LUSID</see>.",
+            "description": "Expression to filter the result set. Read more about <a href=\"https://support.lusid.com/filtering-results-from-lusid\"> filtering results from LUSID</a>.",
             "schema": {
               "maxLength": 16384,
               "minLength": 0,
@@ -445,7 +445,7 @@
           {
             "name": "sortBy",
             "in": "query",
-            "description": "Fields to order the result set. Read more about <see href=\"https://support.lusid.com/filtering-results-from-lusid\" /> filtering results from LUSID.",
+            "description": "Fields to order the result set. Read more about <a href=\"https://support.lusid.com/filtering-results-from-lusid\"> filtering results from LUSID</a>",
             "schema": {
               "maxLength": 16384,
               "minLength": 1,
@@ -497,7 +497,7 @@
                       "status": "Active",
                       "matchingPattern": {
                         "eventType": "Manual",
-                        "filter": "Entity eq 'Portfolio'"
+                        "filter": "Body.Message eq 'Test'"
                       },
                       "createdAt": "2020-06-15T12:00:00.0000000+00:00",
                       "userIdCreated": "TestClient",
@@ -847,7 +847,7 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
+                  "filter": "Body.Message eq 'TestMessage'"
                 },
                 "useAsAuth": "Auth user"
               }
@@ -862,7 +862,7 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
+                  "filter": "Body.Message eq 'TestMessage'"
                 },
                 "useAsAuth": "Auth user"
               }
@@ -877,7 +877,7 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
+                  "filter": "Body.Message eq 'TestMessage'"
                 },
                 "useAsAuth": "Auth user"
               }
@@ -892,7 +892,7 @@
                 "status": "Active",
                 "matchingPattern": {
                   "eventType": "Manual",
-                  "filter": "Message eq 'TestMessage'"
+                  "filter": "Body.Message eq 'TestMessage'"
                 },
                 "useAsAuth": "Auth user"
               }
@@ -1083,6 +1083,42 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ResourceListOfNotification"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "notificationId": "ExampleId",
+                      "displayName": "Example name",
+                      "description": "Example description",
+                      "notificationType": {
+                        "type": "AmazonSqs",
+                        "body": "Event with message {{message}}",
+                        "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                        "apiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
+                        "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      },
+                      "createdAt": "2020-06-15T12:00:00.0000000+00:00",
+                      "userIdCreated": "Example user",
+                      "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
+                      "userIdModified": "Example user",
+                      "href": "http://fbn-test/api/subscriptions/testScope/testCode/notifications/ExampleId"
+                    }
+                  ],
+                  "href": "Test:hrefUriString",
+                  "nextPage": "nextString",
+                  "previousPage": "previousString",
+                  "links": [
+                    {
+                      "relation": "NextPage",
+                      "href": "Test:nextUriString",
+                      "method": "GET"
+                    },
+                    {
+                      "relation": "PreviousPage",
+                      "href": "Test:previousUriString",
+                      "method": "GET"
+                    }
+                  ]
                 }
               }
             }

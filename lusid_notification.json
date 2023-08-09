@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.812",
+    "version": "0.1.819",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1092,7 +1092,7 @@
                       "description": "Example description",
                       "notificationType": {
                         "type": "AmazonSqs",
-                        "body": "Event with message {{message}}",
+                        "body": "Event with message {{body.message}}",
                         "apiKeyRef": "config://shared/official/system-a-config/apiKey",
                         "apiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
                         "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1208,9 +1208,9 @@
                     "description": "TestDescription",
                     "notificationType": {
                       "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                      "Subject": "Event with message of {{body.message}}",
+                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                       "EmailAddressTo": [
                         "recipient@finbourne.com"
                       ],
@@ -1230,7 +1230,7 @@
                     "description": "TestDescription",
                     "notificationType": {
                       "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
+                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
                       "Recipients": [
                         "+447000000000"
                       ]
@@ -1245,7 +1245,7 @@
                     "notificationType": {
                       "Type": "Webhook",
                       "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                       "AuthenticationType": "BearerToken",
                       "AuthenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
@@ -1253,7 +1253,7 @@
                       "ContentType": "Json",
                       "Content": {
                         "Key": "Value Example",
-                        "MessageKey": "{{message}}"
+                        "MessageKey": "{{body.message}}"
                       }
                     }
                   }
@@ -1265,7 +1265,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
+                      "Body": "Event with message {{body.message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
                       "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1286,9 +1286,9 @@
                     "description": "TestDescription",
                     "notificationType": {
                       "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                      "Subject": "Event with message of {{body.message}}",
+                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                       "EmailAddressTo": [
                         "recipient@finbourne.com"
                       ],
@@ -1308,7 +1308,7 @@
                     "description": "TestDescription",
                     "notificationType": {
                       "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
+                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
                       "Recipients": [
                         "+447000000000"
                       ]
@@ -1323,7 +1323,7 @@
                     "notificationType": {
                       "Type": "Webhook",
                       "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                       "AuthenticationType": "BearerToken",
                       "AuthenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
@@ -1331,7 +1331,7 @@
                       "ContentType": "Json",
                       "Content": {
                         "Key": "Value Example",
-                        "MessageKey": "{{message}}"
+                        "MessageKey": "{{body.message}}"
                       }
                     }
                   }
@@ -1343,7 +1343,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
+                      "Body": "Event with message {{body.message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
                       "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1364,9 +1364,9 @@
                     "description": "TestDescription",
                     "notificationType": {
                       "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                      "Subject": "Event with message of {{body.message}}",
+                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                       "EmailAddressTo": [
                         "recipient@finbourne.com"
                       ],
@@ -1386,7 +1386,7 @@
                     "description": "TestDescription",
                     "notificationType": {
                       "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
+                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
                       "Recipients": [
                         "+447000000000"
                       ]
@@ -1401,7 +1401,7 @@
                     "notificationType": {
                       "Type": "Webhook",
                       "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                       "AuthenticationType": "BearerToken",
                       "AuthenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
@@ -1409,7 +1409,7 @@
                       "ContentType": "Json",
                       "Content": {
                         "Key": "Value Example",
-                        "MessageKey": "{{message}}"
+                        "MessageKey": "{{body.message}}"
                       }
                     }
                   }
@@ -1421,7 +1421,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
+                      "Body": "Event with message {{body.message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
                       "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1442,9 +1442,9 @@
                     "description": "TestDescription",
                     "notificationType": {
                       "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                      "Subject": "Event with message of {{body.message}}",
+                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                       "EmailAddressTo": [
                         "recipient@finbourne.com"
                       ],
@@ -1464,7 +1464,7 @@
                     "description": "TestDescription",
                     "notificationType": {
                       "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
+                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
                       "Recipients": [
                         "+447000000000"
                       ]
@@ -1479,7 +1479,7 @@
                     "notificationType": {
                       "Type": "Webhook",
                       "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                       "AuthenticationType": "BearerToken",
                       "AuthenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
@@ -1487,7 +1487,7 @@
                       "ContentType": "Json",
                       "Content": {
                         "Key": "Value Example",
-                        "MessageKey": "{{message}}"
+                        "MessageKey": "{{body.message}}"
                       }
                     }
                   }
@@ -1499,7 +1499,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
+                      "Body": "Event with message {{body.message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
                       "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1527,9 +1527,9 @@
                       "description": "Example description",
                       "notificationType": {
                         "type": "Email",
-                        "subject": "Event with id of {{id}}",
-                        "plainTextBody": "Event with message {{message}} and subject {{subject}}",
-                        "htmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                        "subject": "Event with message of {{body.message}}",
+                        "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                        "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                         "emailAddressTo": [
                           "recipient@finbourne.com"
                         ],
@@ -1554,7 +1554,7 @@
                       "description": "Example description",
                       "notificationType": {
                         "type": "Sms",
-                        "body": "Event with message {{message}} and subject {{subject}}",
+                        "body": "Event with message {{body.message}} and subject {{body.subject}}",
                         "recipients": [
                           "+447000000000"
                         ]
@@ -1574,10 +1574,10 @@
                       "notificationType": {
                         "type": "ApiRequest",
                         "httpMethod": "Post",
-                        "pathAndQuery": "notification/api/{{id}}/path?examplequery={{id}}",
+                        "pathAndQuery": "notification/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                         "content": {
                           "Key": "Value Example",
-                          "MessageKey": "{{message}}"
+                          "MessageKey": "{{body.message}}"
                         }
                       },
                       "createdAt": "2020-06-15T12:00:00.0000000+00:00",
@@ -1595,11 +1595,11 @@
                       "notificationType": {
                         "Content": {
                           "Key": "Value Example",
-                          "MessageKey": "{{message}}"
+                          "MessageKey": "{{body.message}}"
                         },
                         "type": "Webhook",
                         "httpMethod": "Post",
-                        "url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                        "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                         "authenticationType": "BearerToken",
                         "contentType": "Json",
                         "authenticationConfigurationItemPaths": {
@@ -1620,7 +1620,7 @@
                       "description": "Example description",
                       "notificationType": {
                         "type": "AmazonSqs",
-                        "body": "Event with message {{message}}",
+                        "body": "Event with message {{body.message}}",
                         "apiKeyRef": "config://shared/official/system-a-config/apiKey",
                         "apiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
                         "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1721,7 +1721,7 @@
                   "description": "Example description",
                   "notificationType": {
                     "type": "AmazonSqs",
-                    "body": "Event with message {{message}}",
+                    "body": "Event with message {{body.message}}",
                     "apiKeyRef": "config://shared/official/system-a-config/apiKey",
                     "apiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
                     "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1831,9 +1831,9 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                      "Subject": "Event with message of {{body.message}}",
+                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                       "EmailAddressTo": [
                         "recipient@finbourne.com"
                       ],
@@ -1852,7 +1852,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
+                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
                       "Recipients": [
                         "+447000000000"
                       ]
@@ -1866,7 +1866,7 @@
                     "notificationType": {
                       "Type": "Webhook",
                       "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                       "AuthenticationType": "BearerToken",
                       "AuthenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
@@ -1874,7 +1874,7 @@
                       "ContentType": "Json",
                       "Content": {
                         "Key": "Value Example",
-                        "MessageKey": "{{message}}"
+                        "MessageKey": "{{body.message}}"
                       }
                     }
                   }
@@ -1885,7 +1885,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
+                      "Body": "Event with message {{body.message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
                       "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1905,9 +1905,9 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                      "Subject": "Event with message of {{body.message}}",
+                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                       "EmailAddressTo": [
                         "recipient@finbourne.com"
                       ],
@@ -1926,7 +1926,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
+                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
                       "Recipients": [
                         "+447000000000"
                       ]
@@ -1940,7 +1940,7 @@
                     "notificationType": {
                       "Type": "Webhook",
                       "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                       "AuthenticationType": "BearerToken",
                       "AuthenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
@@ -1948,7 +1948,7 @@
                       "ContentType": "Json",
                       "Content": {
                         "Key": "Value Example",
-                        "MessageKey": "{{message}}"
+                        "MessageKey": "{{body.message}}"
                       }
                     }
                   }
@@ -1959,7 +1959,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
+                      "Body": "Event with message {{body.message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
                       "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -1979,9 +1979,9 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                      "Subject": "Event with message of {{body.message}}",
+                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                       "EmailAddressTo": [
                         "recipient@finbourne.com"
                       ],
@@ -2000,7 +2000,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
+                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
                       "Recipients": [
                         "+447000000000"
                       ]
@@ -2014,7 +2014,7 @@
                     "notificationType": {
                       "Type": "Webhook",
                       "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                       "AuthenticationType": "BearerToken",
                       "AuthenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
@@ -2022,7 +2022,7 @@
                       "ContentType": "Json",
                       "Content": {
                         "Key": "Value Example",
-                        "MessageKey": "{{message}}"
+                        "MessageKey": "{{body.message}}"
                       }
                     }
                   }
@@ -2033,7 +2033,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
+                      "Body": "Event with message {{body.message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
                       "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -2053,9 +2053,9 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "Email",
-                      "Subject": "Event with id of {{id}}",
-                      "PlainTextBody": "Event with message {{message}} and subject {{subject}}",
-                      "HtmlBody": "<p>Event with message {{message}} and subject {{subject}}</p>",
+                      "Subject": "Event with message of {{body.message}}",
+                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
                       "EmailAddressTo": [
                         "recipient@finbourne.com"
                       ],
@@ -2074,7 +2074,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "Sms",
-                      "Body": "Event with message {{message}} and subject {{subject}}",
+                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
                       "Recipients": [
                         "+447000000000"
                       ]
@@ -2088,7 +2088,7 @@
                     "notificationType": {
                       "Type": "Webhook",
                       "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{id}}/path?examplequery={{id}}",
+                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
                       "AuthenticationType": "BearerToken",
                       "AuthenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
@@ -2096,7 +2096,7 @@
                       "ContentType": "Json",
                       "Content": {
                         "Key": "Value Example",
-                        "MessageKey": "{{message}}"
+                        "MessageKey": "{{body.message}}"
                       }
                     }
                   }
@@ -2107,7 +2107,7 @@
                     "description": "Example description",
                     "notificationType": {
                       "Type": "AmazonSqs",
-                      "Body": "Event with message {{message}}",
+                      "Body": "Event with message {{body.message}}",
                       "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
                       "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
                       "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -2133,7 +2133,7 @@
                   "description": "Example description",
                   "notificationType": {
                     "type": "AmazonSqs",
-                    "body": "Event with message {{message}}",
+                    "body": "Event with message {{body.message}}",
                     "apiKeyRef": "config://shared/official/system-a-config/apiKey",
                     "apiSecretRef": "config://shared/official/system-a-config/apiSecretRef",
                     "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
@@ -3554,7 +3554,7 @@
           "url": {
             "maxLength": 16384,
             "minLength": 1,
-            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s])*\\}\\}))*$",
+            "pattern": "^([A-Za-z0-9-._~:\\/?#[\\]@!$&'()*+,;%=]|(\\{\\{([a-zA-Z0-9\\s.])*\\}\\}))*$",
             "type": "string",
             "description": "The URL to send the request to"
           },

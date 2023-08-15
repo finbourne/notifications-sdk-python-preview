@@ -45,8 +45,8 @@ with lusid_notifications.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid_notifications.DeliveriesApi(api_client)
     page = 'page_example' # str | The pagination token to use to continue listing delivery attempts. This value is returned from the previous call. When this field is supplied the filter field should not be supplied. (optional)
-limit = 56 # int | The maximum number of delivery attempts to retrieve. Defaults to 5000 if not specified. (optional)
-filter = 'filter_example' # str | Expression to filter the result set. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)
+limit = 56 # int | The maximum number of delivery attempts to retrieve. Defaults to 200 if not specified. (optional)
+filter = 'filter_example' # str | Expression to filter the result set. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.  By default, we set this filter to only query for the last week's worth of Deliveries, however if a filter is explicitly set, this will be overriden. (optional)
 
     try:
         # [EXPERIMENTAL] ListDeliveries: List Deliveries
@@ -61,8 +61,8 @@ filter = 'filter_example' # str | Expression to filter the result set. For more 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **str**| The pagination token to use to continue listing delivery attempts. This value is returned from the previous call. When this field is supplied the filter field should not be supplied. | [optional] 
- **limit** | **int**| The maximum number of delivery attempts to retrieve. Defaults to 5000 if not specified. | [optional] 
- **filter** | **str**| Expression to filter the result set. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+ **limit** | **int**| The maximum number of delivery attempts to retrieve. Defaults to 200 if not specified. | [optional] 
+ **filter** | **str**| Expression to filter the result set. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.  By default, we set this filter to only query for the last week&#39;s worth of Deliveries, however if a filter is explicitly set, this will be overriden. | [optional] 
 
 ### Return type
 

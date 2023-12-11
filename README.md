@@ -1,10 +1,14 @@
+# Deprecated
+
+Please note that this repository is deprecated and will be archived early 2024.
+
+All functionality is now contained, in the [notifications-sdk-python](https://github.com/finbourne/notifications-sdk-python) repository on the `main` branch.
+
 # LUSID<sup>®</sup> Notifications Python Preview SDK
 
 ![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
 
-| branch | status |
-| --- | --- |
-| `master` |  ![PyPI](https://img.shields.io/pypi/v/lusid-notifications-sdk-preview?color=blue)
+![PyPI](https://img.shields.io/pypi/v/lusid-notifications-sdk-preview?color=blue)
 
 ## Installation
 

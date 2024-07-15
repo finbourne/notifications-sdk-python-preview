@@ -42,7 +42,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid_notification.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid_notification.ManualEventApi(api_client)
-    manual_event_request = {"Body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}} # ManualEventRequest | The data required to trigger a manual event.
+    manual_event_request = {"body":{"subject":"TestSubject","message":"TestMessage","jsonMessage":{"TestField1":"TestValue1","TestField2":"TestValue2"}}} # ManualEventRequest | The data required to trigger a manual event.
 
     try:
         # [EXPERIMENTAL] TriggerManualEvent: Trigger a manual event.

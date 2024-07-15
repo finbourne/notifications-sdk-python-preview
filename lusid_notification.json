@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.1.973",
+    "version": "0.1.977",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -417,7 +417,7 @@
                 "$ref": "#/components/schemas/ManualEventRequest"
               },
               "example": {
-                "Body": {
+                "body": {
                   "subject": "TestSubject",
                   "message": "TestMessage",
                   "jsonMessage": {
@@ -432,7 +432,7 @@
                 "$ref": "#/components/schemas/ManualEventRequest"
               },
               "example": {
-                "Body": {
+                "body": {
                   "subject": "TestSubject",
                   "message": "TestMessage",
                   "jsonMessage": {
@@ -447,7 +447,7 @@
                 "$ref": "#/components/schemas/ManualEventRequest"
               },
               "example": {
-                "Body": {
+                "body": {
                   "subject": "TestSubject",
                   "message": "TestMessage",
                   "jsonMessage": {
@@ -462,7 +462,7 @@
                 "$ref": "#/components/schemas/ManualEventRequest"
               },
               "example": {
-                "Body": {
+                "body": {
                   "subject": "TestSubject",
                   "message": "TestMessage",
                   "jsonMessage": {
@@ -735,7 +735,7 @@
                   "eventType": "Manual",
                   "filter": "Body.Message eq 'TestMessage'"
                 },
-                "useAsAuth": "Auth user"
+                "useAsAuth": "TestClient"
               }
             },
             "application/json": {
@@ -754,7 +754,7 @@
                   "eventType": "Manual",
                   "filter": "Body.Message eq 'TestMessage'"
                 },
-                "useAsAuth": "Auth user"
+                "useAsAuth": "TestClient"
               }
             },
             "text/json": {
@@ -773,7 +773,7 @@
                   "eventType": "Manual",
                   "filter": "Body.Message eq 'TestMessage'"
                 },
-                "useAsAuth": "Auth user"
+                "useAsAuth": "TestClient"
               }
             },
             "application/*+json": {
@@ -792,7 +792,7 @@
                   "eventType": "Manual",
                   "filter": "Body.Message eq 'TestMessage'"
                 },
-                "useAsAuth": "Auth user"
+                "useAsAuth": "TestClient"
               }
             }
           },
@@ -822,7 +822,7 @@
                   "userIdCreated": "TestClient",
                   "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "userIdModified": "TestClient",
-                  "useAsAuth": "Auth user",
+                  "useAsAuth": "TestClient",
                   "href": "https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"
                 }
               }
@@ -914,7 +914,7 @@
                   "userIdCreated": "TestClient",
                   "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "userIdModified": "TestClient",
-                  "useAsAuth": "Auth user",
+                  "useAsAuth": "TestClient",
                   "href": "https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"
                 }
               }
@@ -1005,7 +1005,7 @@
                   "eventType": "Manual",
                   "filter": "Body.Message eq 'TestMessage'"
                 },
-                "useAsAuth": "Auth user"
+                "useAsAuth": "TestClient"
               }
             },
             "application/json": {
@@ -1020,7 +1020,7 @@
                   "eventType": "Manual",
                   "filter": "Body.Message eq 'TestMessage'"
                 },
-                "useAsAuth": "Auth user"
+                "useAsAuth": "TestClient"
               }
             },
             "text/json": {
@@ -1035,7 +1035,7 @@
                   "eventType": "Manual",
                   "filter": "Body.Message eq 'TestMessage'"
                 },
-                "useAsAuth": "Auth user"
+                "useAsAuth": "TestClient"
               }
             },
             "application/*+json": {
@@ -1050,7 +1050,7 @@
                   "eventType": "Manual",
                   "filter": "Body.Message eq 'TestMessage'"
                 },
-                "useAsAuth": "Auth user"
+                "useAsAuth": "TestClient"
               }
             }
           },
@@ -1080,7 +1080,7 @@
                   "userIdCreated": "TestClient",
                   "modifiedAt": "2020-06-20T12:00:00.0000000+00:00",
                   "userIdModified": "TestClient",
-                  "useAsAuth": "Auth user",
+                  "useAsAuth": "TestClient",
                   "href": "https://fbn-test.lusid.com/notifications/api/subscriptions/TestScope/TestCode"
                 }
               }
@@ -1363,17 +1363,17 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with message of {{body.message}}",
-                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
-                      "EmailAddressTo": [
+                      "type": "Email",
+                      "subject": "Event with message of {{body.message}}",
+                      "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
+                      "emailAddressTo": [
                         "recipient@finbourne.com"
                       ],
-                      "EmailAddressCc": [
+                      "emailAddressCc": [
                         "recipientcc@finbourne.com"
                       ],
-                      "EmailAddressBcc": [
+                      "emailAddressBcc": [
                         "recipientbcc@finbourne.com"
                       ]
                     }
@@ -1385,9 +1385,9 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "Recipients": [
+                      "type": "Sms",
+                      "body": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "recipients": [
                         "+447000000000"
                       ]
                     }
@@ -1399,14 +1399,14 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
+                      "type": "Webhook",
+                      "httpMethod": "Post",
+                      "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
+                      "authenticationType": "BearerToken",
+                      "authenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                       },
-                      "ContentType": "Json",
+                      "contentType": "Json",
                       "Content": {
                         "Key": "Value Example",
                         "MessageKey": "{{body.message}}"
@@ -1420,11 +1420,11 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{body.message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqs",
+                      "body": "Event with message {{body.message}}",
+                      "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                      "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -1434,9 +1434,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqsPrincipalAuth",
-                      "Body": "Event with message {{body.message}}",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqsPrincipalAuth",
+                      "body": "Event with message {{body.message}}",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -1446,13 +1446,13 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AzureServiceBus",
-                      "Body": "Event with message {{body.message}}",
-                      "Namespace": "config://shared/official/system-a-config/namespace",
-                      "QueueName": "config://shared/official/system-a-config/queueName",
-                      "TenantId": "config://shared/official/system-a-config/tenantId",
-                      "ClientId": "config://shared/official/system-a-config/clientId",
-                      "ClientSecret": "config://shared/official/system-a-config/clientSecret"
+                      "type": "AzureServiceBus",
+                      "body": "Event with message {{body.message}}",
+                      "namespace": "config://shared/official/system-a-config/namespace",
+                      "queueName": "config://shared/official/system-a-config/queueName",
+                      "tenantId": "config://shared/official/system-a-config/tenantId",
+                      "clientId": "config://shared/official/system-a-config/clientId",
+                      "clientSecret": "config://shared/official/system-a-config/clientSecret"
                     }
                   }
                 }
@@ -1469,17 +1469,17 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with message of {{body.message}}",
-                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
-                      "EmailAddressTo": [
+                      "type": "Email",
+                      "subject": "Event with message of {{body.message}}",
+                      "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
+                      "emailAddressTo": [
                         "recipient@finbourne.com"
                       ],
-                      "EmailAddressCc": [
+                      "emailAddressCc": [
                         "recipientcc@finbourne.com"
                       ],
-                      "EmailAddressBcc": [
+                      "emailAddressBcc": [
                         "recipientbcc@finbourne.com"
                       ]
                     }
@@ -1491,9 +1491,9 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "Recipients": [
+                      "type": "Sms",
+                      "body": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "recipients": [
                         "+447000000000"
                       ]
                     }
@@ -1505,14 +1505,14 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
+                      "type": "Webhook",
+                      "httpMethod": "Post",
+                      "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
+                      "authenticationType": "BearerToken",
+                      "authenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                       },
-                      "ContentType": "Json",
+                      "contentType": "Json",
                       "Content": {
                         "Key": "Value Example",
                         "MessageKey": "{{body.message}}"
@@ -1526,11 +1526,11 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{body.message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqs",
+                      "body": "Event with message {{body.message}}",
+                      "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                      "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -1540,9 +1540,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqsPrincipalAuth",
-                      "Body": "Event with message {{body.message}}",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqsPrincipalAuth",
+                      "body": "Event with message {{body.message}}",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -1552,13 +1552,13 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AzureServiceBus",
-                      "Body": "Event with message {{body.message}}",
-                      "Namespace": "config://shared/official/system-a-config/namespace",
-                      "QueueName": "config://shared/official/system-a-config/queueName",
-                      "TenantId": "config://shared/official/system-a-config/tenantId",
-                      "ClientId": "config://shared/official/system-a-config/clientId",
-                      "ClientSecret": "config://shared/official/system-a-config/clientSecret"
+                      "type": "AzureServiceBus",
+                      "body": "Event with message {{body.message}}",
+                      "namespace": "config://shared/official/system-a-config/namespace",
+                      "queueName": "config://shared/official/system-a-config/queueName",
+                      "tenantId": "config://shared/official/system-a-config/tenantId",
+                      "clientId": "config://shared/official/system-a-config/clientId",
+                      "clientSecret": "config://shared/official/system-a-config/clientSecret"
                     }
                   }
                 }
@@ -1575,17 +1575,17 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with message of {{body.message}}",
-                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
-                      "EmailAddressTo": [
+                      "type": "Email",
+                      "subject": "Event with message of {{body.message}}",
+                      "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
+                      "emailAddressTo": [
                         "recipient@finbourne.com"
                       ],
-                      "EmailAddressCc": [
+                      "emailAddressCc": [
                         "recipientcc@finbourne.com"
                       ],
-                      "EmailAddressBcc": [
+                      "emailAddressBcc": [
                         "recipientbcc@finbourne.com"
                       ]
                     }
@@ -1597,9 +1597,9 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "Recipients": [
+                      "type": "Sms",
+                      "body": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "recipients": [
                         "+447000000000"
                       ]
                     }
@@ -1611,14 +1611,14 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
+                      "type": "Webhook",
+                      "httpMethod": "Post",
+                      "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
+                      "authenticationType": "BearerToken",
+                      "authenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                       },
-                      "ContentType": "Json",
+                      "contentType": "Json",
                       "Content": {
                         "Key": "Value Example",
                         "MessageKey": "{{body.message}}"
@@ -1632,11 +1632,11 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{body.message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqs",
+                      "body": "Event with message {{body.message}}",
+                      "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                      "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -1646,9 +1646,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqsPrincipalAuth",
-                      "Body": "Event with message {{body.message}}",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqsPrincipalAuth",
+                      "body": "Event with message {{body.message}}",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -1658,13 +1658,13 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AzureServiceBus",
-                      "Body": "Event with message {{body.message}}",
-                      "Namespace": "config://shared/official/system-a-config/namespace",
-                      "QueueName": "config://shared/official/system-a-config/queueName",
-                      "TenantId": "config://shared/official/system-a-config/tenantId",
-                      "ClientId": "config://shared/official/system-a-config/clientId",
-                      "ClientSecret": "config://shared/official/system-a-config/clientSecret"
+                      "type": "AzureServiceBus",
+                      "body": "Event with message {{body.message}}",
+                      "namespace": "config://shared/official/system-a-config/namespace",
+                      "queueName": "config://shared/official/system-a-config/queueName",
+                      "tenantId": "config://shared/official/system-a-config/tenantId",
+                      "clientId": "config://shared/official/system-a-config/clientId",
+                      "clientSecret": "config://shared/official/system-a-config/clientSecret"
                     }
                   }
                 }
@@ -1681,17 +1681,17 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with message of {{body.message}}",
-                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
-                      "EmailAddressTo": [
+                      "type": "Email",
+                      "subject": "Event with message of {{body.message}}",
+                      "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
+                      "emailAddressTo": [
                         "recipient@finbourne.com"
                       ],
-                      "EmailAddressCc": [
+                      "emailAddressCc": [
                         "recipientcc@finbourne.com"
                       ],
-                      "EmailAddressBcc": [
+                      "emailAddressBcc": [
                         "recipientbcc@finbourne.com"
                       ]
                     }
@@ -1703,9 +1703,9 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "Recipients": [
+                      "type": "Sms",
+                      "body": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "recipients": [
                         "+447000000000"
                       ]
                     }
@@ -1717,14 +1717,14 @@
                     "displayName": "TestDisplayName",
                     "description": "TestDescription",
                     "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
+                      "type": "Webhook",
+                      "httpMethod": "Post",
+                      "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
+                      "authenticationType": "BearerToken",
+                      "authenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                       },
-                      "ContentType": "Json",
+                      "contentType": "Json",
                       "Content": {
                         "Key": "Value Example",
                         "MessageKey": "{{body.message}}"
@@ -1738,11 +1738,11 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{body.message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqs",
+                      "body": "Event with message {{body.message}}",
+                      "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                      "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -1752,9 +1752,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqsPrincipalAuth",
-                      "Body": "Event with message {{body.message}}",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqsPrincipalAuth",
+                      "body": "Event with message {{body.message}}",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -1764,13 +1764,13 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AzureServiceBus",
-                      "Body": "Event with message {{body.message}}",
-                      "Namespace": "config://shared/official/system-a-config/namespace",
-                      "QueueName": "config://shared/official/system-a-config/queueName",
-                      "TenantId": "config://shared/official/system-a-config/tenantId",
-                      "ClientId": "config://shared/official/system-a-config/clientId",
-                      "ClientSecret": "config://shared/official/system-a-config/clientSecret"
+                      "type": "AzureServiceBus",
+                      "body": "Event with message {{body.message}}",
+                      "namespace": "config://shared/official/system-a-config/namespace",
+                      "queueName": "config://shared/official/system-a-config/queueName",
+                      "tenantId": "config://shared/official/system-a-config/tenantId",
+                      "clientId": "config://shared/official/system-a-config/clientId",
+                      "clientSecret": "config://shared/official/system-a-config/clientSecret"
                     }
                   }
                 }
@@ -2138,17 +2138,17 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with message of {{body.message}}",
-                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
-                      "EmailAddressTo": [
+                      "type": "Email",
+                      "subject": "Event with message of {{body.message}}",
+                      "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
+                      "emailAddressTo": [
                         "recipient@finbourne.com"
                       ],
-                      "EmailAddressCc": [
+                      "emailAddressCc": [
                         "recipientcc@finbourne.com"
                       ],
-                      "EmailAddressBcc": [
+                      "emailAddressBcc": [
                         "recipientbcc@finbourne.com"
                       ]
                     }
@@ -2159,9 +2159,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "Recipients": [
+                      "type": "Sms",
+                      "body": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "recipients": [
                         "+447000000000"
                       ]
                     }
@@ -2172,15 +2172,15 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
+                      "type": "Webhook",
+                      "httpMethod": "Post",
+                      "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
+                      "authenticationType": "BearerToken",
+                      "authenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                       },
-                      "ContentType": "Json",
-                      "Content": {
+                      "contentType": "Json",
+                      "content": {
                         "Key": "Value Example",
                         "MessageKey": "{{body.message}}"
                       }
@@ -2192,11 +2192,11 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{body.message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqs",
+                      "body": "Event with message {{body.message}}",
+                      "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                      "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -2205,9 +2205,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqsPrincipalAuth",
-                      "Body": "Event with message {{body.message}}",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqsPrincipalAuth",
+                      "body": "Event with message {{body.message}}",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -2216,13 +2216,13 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AzureServiceBus",
-                      "Body": "Event with message {{body.message}}",
-                      "Namespace": "config://shared/official/system-a-config/namespace",
-                      "QueueName": "config://shared/official/system-a-config/queueName",
-                      "TenantId": "config://shared/official/system-a-config/tenantId",
-                      "ClientId": "config://shared/official/system-a-config/clientId",
-                      "ClientSecret": "config://shared/official/system-a-config/clientSecret"
+                      "type": "AzureServiceBus",
+                      "body": "Event with message {{body.message}}",
+                      "namespace": "config://shared/official/system-a-config/namespace",
+                      "queueName": "config://shared/official/system-a-config/queueName",
+                      "tenantId": "config://shared/official/system-a-config/tenantId",
+                      "clientId": "config://shared/official/system-a-config/clientId",
+                      "clientSecret": "config://shared/official/system-a-config/clientSecret"
                     }
                   }
                 }
@@ -2238,17 +2238,17 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with message of {{body.message}}",
-                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
-                      "EmailAddressTo": [
+                      "type": "Email",
+                      "subject": "Event with message of {{body.message}}",
+                      "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
+                      "emailAddressTo": [
                         "recipient@finbourne.com"
                       ],
-                      "EmailAddressCc": [
+                      "emailAddressCc": [
                         "recipientcc@finbourne.com"
                       ],
-                      "EmailAddressBcc": [
+                      "emailAddressBcc": [
                         "recipientbcc@finbourne.com"
                       ]
                     }
@@ -2259,9 +2259,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "Recipients": [
+                      "type": "Sms",
+                      "body": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "recipients": [
                         "+447000000000"
                       ]
                     }
@@ -2272,15 +2272,15 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
+                      "type": "Webhook",
+                      "httpMethod": "Post",
+                      "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
+                      "authenticationType": "BearerToken",
+                      "authenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                       },
-                      "ContentType": "Json",
-                      "Content": {
+                      "contentType": "Json",
+                      "content": {
                         "Key": "Value Example",
                         "MessageKey": "{{body.message}}"
                       }
@@ -2292,11 +2292,11 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{body.message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqs",
+                      "body": "Event with message {{body.message}}",
+                      "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                      "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -2305,9 +2305,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqsPrincipalAuth",
-                      "Body": "Event with message {{body.message}}",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqsPrincipalAuth",
+                      "body": "Event with message {{body.message}}",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -2316,13 +2316,13 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AzureServiceBus",
-                      "Body": "Event with message {{body.message}}",
-                      "Namespace": "config://shared/official/system-a-config/namespace",
-                      "QueueName": "config://shared/official/system-a-config/queueName",
-                      "TenantId": "config://shared/official/system-a-config/tenantId",
-                      "ClientId": "config://shared/official/system-a-config/clientId",
-                      "ClientSecret": "config://shared/official/system-a-config/clientSecret"
+                      "type": "AzureServiceBus",
+                      "body": "Event with message {{body.message}}",
+                      "namespace": "config://shared/official/system-a-config/namespace",
+                      "queueName": "config://shared/official/system-a-config/queueName",
+                      "tenantId": "config://shared/official/system-a-config/tenantId",
+                      "clientId": "config://shared/official/system-a-config/clientId",
+                      "clientSecret": "config://shared/official/system-a-config/clientSecret"
                     }
                   }
                 }
@@ -2338,17 +2338,17 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with message of {{body.message}}",
-                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
-                      "EmailAddressTo": [
+                      "type": "Email",
+                      "subject": "Event with message of {{body.message}}",
+                      "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
+                      "emailAddressTo": [
                         "recipient@finbourne.com"
                       ],
-                      "EmailAddressCc": [
+                      "emailAddressCc": [
                         "recipientcc@finbourne.com"
                       ],
-                      "EmailAddressBcc": [
+                      "emailAddressBcc": [
                         "recipientbcc@finbourne.com"
                       ]
                     }
@@ -2359,9 +2359,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "Recipients": [
+                      "type": "Sms",
+                      "body": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "recipients": [
                         "+447000000000"
                       ]
                     }
@@ -2372,15 +2372,15 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
+                      "type": "Webhook",
+                      "httpMethod": "Post",
+                      "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
+                      "authenticationType": "BearerToken",
+                      "authenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                       },
-                      "ContentType": "Json",
-                      "Content": {
+                      "contentType": "Json",
+                      "content": {
                         "Key": "Value Example",
                         "MessageKey": "{{body.message}}"
                       }
@@ -2392,11 +2392,11 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{body.message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqs",
+                      "body": "Event with message {{body.message}}",
+                      "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                      "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -2405,9 +2405,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqsPrincipalAuth",
-                      "Body": "Event with message {{body.message}}",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqsPrincipalAuth",
+                      "body": "Event with message {{body.message}}",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -2416,13 +2416,13 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AzureServiceBus",
-                      "Body": "Event with message {{body.message}}",
-                      "Namespace": "config://shared/official/system-a-config/namespace",
-                      "QueueName": "config://shared/official/system-a-config/queueName",
-                      "TenantId": "config://shared/official/system-a-config/tenantId",
-                      "ClientId": "config://shared/official/system-a-config/clientId",
-                      "ClientSecret": "config://shared/official/system-a-config/clientSecret"
+                      "type": "AzureServiceBus",
+                      "body": "Event with message {{body.message}}",
+                      "namespace": "config://shared/official/system-a-config/namespace",
+                      "queueName": "config://shared/official/system-a-config/queueName",
+                      "tenantId": "config://shared/official/system-a-config/tenantId",
+                      "clientId": "config://shared/official/system-a-config/clientId",
+                      "clientSecret": "config://shared/official/system-a-config/clientSecret"
                     }
                   }
                 }
@@ -2438,17 +2438,17 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Email",
-                      "Subject": "Event with message of {{body.message}}",
-                      "PlainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "HtmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
-                      "EmailAddressTo": [
+                      "type": "Email",
+                      "subject": "Event with message of {{body.message}}",
+                      "plainTextBody": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "htmlBody": "<p>Event with message {{body.message}} and subject {{body.subject}}</p>",
+                      "emailAddressTo": [
                         "recipient@finbourne.com"
                       ],
-                      "EmailAddressCc": [
+                      "emailAddressCc": [
                         "recipientcc@finbourne.com"
                       ],
-                      "EmailAddressBcc": [
+                      "emailAddressBcc": [
                         "recipientbcc@finbourne.com"
                       ]
                     }
@@ -2459,9 +2459,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Sms",
-                      "Body": "Event with message {{body.message}} and subject {{body.subject}}",
-                      "Recipients": [
+                      "type": "Sms",
+                      "body": "Event with message {{body.message}} and subject {{body.subject}}",
+                      "recipients": [
                         "+447000000000"
                       ]
                     }
@@ -2472,15 +2472,15 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "Webhook",
-                      "HttpMethod": "Post",
-                      "Url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
-                      "AuthenticationType": "BearerToken",
-                      "AuthenticationConfigurationItemPaths": {
+                      "type": "Webhook",
+                      "httpMethod": "Post",
+                      "url": "https://example.com/api/{{jsonMessage.jsonField1}}/path?examplequery={{jsonMessage.jsonField2}}",
+                      "authenticationType": "BearerToken",
+                      "authenticationConfigurationItemPaths": {
                         "BearerToken": "config://personal/myUserId/WebhookConfigurations/ExampleService/BearerToken"
                       },
-                      "ContentType": "Json",
-                      "Content": {
+                      "contentType": "Json",
+                      "content": {
                         "Key": "Value Example",
                         "MessageKey": "{{body.message}}"
                       }
@@ -2492,11 +2492,11 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqs",
-                      "Body": "Event with message {{body.message}}",
-                      "ApiKeyRef": "config://shared/official/system-a-config/apiKey",
-                      "ApiSecretRef": "config://shared/official/system-a-config/apiSecret",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqs",
+                      "body": "Event with message {{body.message}}",
+                      "apiKeyRef": "config://shared/official/system-a-config/apiKey",
+                      "apiSecretRef": "config://shared/official/system-a-config/apiSecret",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -2505,9 +2505,9 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AmazonSqsPrincipalAuth",
-                      "Body": "Event with message {{body.message}}",
-                      "QueueUrlRef": "config://shared/official/system-a-config/queueUrl"
+                      "type": "AmazonSqsPrincipalAuth",
+                      "body": "Event with message {{body.message}}",
+                      "queueUrlRef": "config://shared/official/system-a-config/queueUrl"
                     }
                   }
                 },
@@ -2516,13 +2516,13 @@
                     "displayName": "TestDisplayName",
                     "description": "Example description",
                     "notificationType": {
-                      "Type": "AzureServiceBus",
-                      "Body": "Event with message {{body.message}}",
-                      "Namespace": "config://shared/official/system-a-config/namespace",
-                      "QueueName": "config://shared/official/system-a-config/queueName",
-                      "TenantId": "config://shared/official/system-a-config/tenantId",
-                      "ClientId": "config://shared/official/system-a-config/clientId",
-                      "ClientSecret": "config://shared/official/system-a-config/clientSecret"
+                      "type": "AzureServiceBus",
+                      "body": "Event with message {{body.message}}",
+                      "namespace": "config://shared/official/system-a-config/namespace",
+                      "queueName": "config://shared/official/system-a-config/queueName",
+                      "tenantId": "config://shared/official/system-a-config/tenantId",
+                      "clientId": "config://shared/official/system-a-config/clientId",
+                      "clientSecret": "config://shared/official/system-a-config/clientSecret"
                     }
                   }
                 }
@@ -2796,7 +2796,6 @@
         "type": "object",
         "properties": {
           "type": {
-            "minLength": 1,
             "enum": [
               "AmazonSqs"
             ],
@@ -2833,6 +2832,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "enum": [
+              "AmazonSqs"
+            ],
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
             "nullable": true
@@ -2870,7 +2872,6 @@
         "type": "object",
         "properties": {
           "type": {
-            "minLength": 1,
             "enum": [
               "AmazonSqsPrincipalAuth"
             ],
@@ -2897,6 +2898,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "enum": [
+              "AmazonSqsPrincipalAuth"
+            ],
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
             "nullable": true
@@ -2973,7 +2977,6 @@
         "type": "object",
         "properties": {
           "type": {
-            "minLength": 1,
             "enum": [
               "AzureServiceBus"
             ],
@@ -3020,6 +3023,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "enum": [
+              "AzureServiceBus"
+            ],
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
             "nullable": true
@@ -3203,7 +3209,6 @@
         "type": "object",
         "properties": {
           "type": {
-            "minLength": 1,
             "enum": [
               "Email"
             ],
@@ -3267,6 +3272,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "enum": [
+              "Email"
+            ],
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
             "nullable": true
@@ -4041,7 +4049,6 @@
         "type": "object",
         "properties": {
           "type": {
-            "minLength": 1,
             "enum": [
               "Sms"
             ],
@@ -4072,6 +4079,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "enum": [
+              "Sms"
+            ],
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
             "nullable": true
@@ -4247,7 +4257,6 @@
         "type": "object",
         "properties": {
           "type": {
-            "minLength": 1,
             "enum": [
               "Webhook"
             ],
@@ -4297,6 +4306,9 @@
         "type": "object",
         "properties": {
           "type": {
+            "enum": [
+              "Webhook"
+            ],
             "type": "string",
             "description": "The type of delivery mechanism for this notification",
             "nullable": true
